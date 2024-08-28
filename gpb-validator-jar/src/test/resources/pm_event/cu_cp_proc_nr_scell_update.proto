@@ -1,0 +1,45 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for SCell updates after initial setup procedures. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcNrScellUpdate {
+  // PmEventId: 3160
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum ScellUpdateTriggerEvent{
+    SCELL_UPDATE_TRIGGER_EVENT_NO_VALUE = 0;
+    SCELL_UPDATE_TRIGGER_EVENT_INITIAL_SCELL_SELECTION = 1;
+    SCELL_UPDATE_TRIGGER_EVENT_SCELL_CHANGE_A2 = 2;
+    SCELL_UPDATE_TRIGGER_EVENT_SCELL_CHANGE_A6 = 3;
+    SCELL_UPDATE_TRIGGER_EVENT_NO_LICENSE = 255;
+  }
+  enum ScellUpdateResult{
+    SCELL_UPDATE_RESULT_NO_VALUE = 0;
+    SCELL_UPDATE_RESULT_SUCCESS = 1;
+    SCELL_UPDATE_RESULT_TIMEOUT = 2;
+    SCELL_UPDATE_RESULT_ABORT = 3;
+    SCELL_UPDATE_RESULT_OTHER = 4;
+    SCELL_UPDATE_RESULT_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  bytes serving_plmn_id = 2;
+  int64 gnb_id = 3;
+  int64 gnb_id_length = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  int64 nci = 7;
+  GlobalGnbId global_gnb_id = 8;
+  ScellUpdateTriggerEvent scell_update_trigger = 9;
+  ScellUpdateResult scell_update_result = 10;
+  repeated int64 scells_before_update_list = 11;
+  repeated int64 scells_after_update_list = 12;
+  int64 no_of_scells_to_add = 13;
+  int64 no_of_scells_to_release = 14;
+}

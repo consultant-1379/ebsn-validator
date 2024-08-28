@@ -1,0 +1,70 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Secondary Node side of NR-DC to monitor Secondary Node Addition procedure.
+Contains information about request and result.
+Start trigger is reception of XnAP S-NODE ADDITION REQUEST.
+Stop triggers is reception of the following messages in case of success:
+      - E1AP BEARER CONTEXT MODIFICATION RESPONSE
+      - F1AP UE CONTEXT MODIFICATION RESPONSE
+      - XnAP S-NODE RECONFIGURATION COMPLETE
+Stop triggers are the following if procedure is aborted:
+      - Reception of XnAP S-NODE RELEASE REQUEST
+      - Reception of XnAP UE CONTEXT RELEASE
+Stop triggers are the following in case of failure:
+      - Transmission of XnAP S-NODE ADDITION REQUEST REJECT
+      - Transmission of XnAP S-NODE RELEASE REQUIRED
+      - XnAP S-NODE RECONFIGURATION COMPLETE not received
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcSnNrdcSetup {
+  // PmEventId: 3198
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  message PduSessionSetup {
+    int64 pdu_session_id = 1;
+    bytes s_nssai = 2;
+    CauseGroup cause_group = 3;
+    int64 cause = 4;
+  }
+  message DrbSetup {
+    int64 drb_id = 1;
+    repeated int64 mapped_5qi = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+    CauseGroup cause_group = 5;
+    int64 cause = 6;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum SnNrdcSetupResult{
+    SN_NRDC_SETUP_RESULT_NO_VALUE = 0;
+    SN_NRDC_SETUP_RESULT_SUCCESS = 1;
+    SN_NRDC_SETUP_RESULT_ABORT = 2;
+    SN_NRDC_SETUP_RESULT_FAILURE = 3;
+    SN_NRDC_SETUP_RESULT_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  repeated PduSessionSetup pdu_session_setup_list = 7;
+  repeated DrbSetup drb_setup_list = 8;
+  bytes serving_plmn_id = 9;
+  GlobalGnbId global_master_gnb_id = 10;
+  SnNrdcSetupResult sn_nrdc_setup_result = 11;
+}

@@ -1,0 +1,63 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event for UE context release.
+ *
+ * Version: 13_82_0
+ */
+message DuProcUeContextRelease {
+  // PmEventId: 2063
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum Initiator{
+    INITIATOR_NO_VALUE = 0;
+    INITIATOR_GNB_DU = 1;
+    INITIATOR_GNB_CU = 2;
+    INITIATOR_NO_LICENSE = 255;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NAS = 5;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  enum ReleaseReason{
+    RELEASE_REASON_NO_VALUE = 0;
+    RELEASE_REASON_OTHER = 1;
+    RELEASE_REASON_CELL_LOCK = 2;
+    RELEASE_REASON_DRB_RLC_DELIVERY_FAILURE = 3;
+    RELEASE_REASON_SRB_RLC_DELIVERY_FAILURE = 4;
+    RELEASE_REASON_F1AP_RESET = 5;
+    RELEASE_REASON_TERMPOINT_LOCKED = 6;
+    RELEASE_REASON_TERMPOINT_DISABLED = 7;
+    RELEASE_REASON_F1C_LINK_BREAK = 8;
+    RELEASE_REASON_REATTEMPT_DETECTED = 9;
+    RELEASE_REASON_RA_INACTIVITY_TIMEOUT = 10;
+    RELEASE_REASON_PENDING_CGC_TIMEOUT = 11;
+    RELEASE_REASON_INITIAL_UL_RRC_MSG_TRANSFER_TIMEOUT = 12;
+    RELEASE_REASON_SW_FAULT = 13;
+    RELEASE_REASON_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  GlobalGnbId global_gnb_id = 6;
+  int64 time_stamp_start = 7;
+  int64 time_stamp_stop = 8;
+  bytes serving_plmn_id = 9;
+  int64 ue_group_id = 10;
+  int64 pref_ue_group_id = 11;
+  Initiator initiator = 12;
+  CauseGroup cause_group_3gpp = 13;
+  int64 cause_3gpp = 14;
+  ReleaseReason release_reason = 15;
+}

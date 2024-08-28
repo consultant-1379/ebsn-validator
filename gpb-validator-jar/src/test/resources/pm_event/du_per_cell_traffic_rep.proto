@@ -1,0 +1,45 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodical measurements of cell traffic.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellTrafficRep {
+  // PmEventId: 2005
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 nci = 4;
+  int64 per_cell_mac_vol_ul = 5;
+  int64 per_cell_mac_vol_ul_scell = 6;
+  int64 per_cell_mac_vol_dl = 7;
+  int64 per_cell_mac_vol_dl_scell = 8;
+  int64 per_cell_pusch_sched_activity = 9;
+  int64 per_cell_pusch_avail_time = 10;
+  int64 per_cell_pdsch_sched_activity = 11;
+  int64 per_cell_pdsch_avail_time = 12;
+  repeated int64 per_cell_mac_contention_delay_dl_distr = 13;
+  repeated int64 per_cell_mac_contention_delay_ul_distr = 14;
+  int64 gnb_id_length = 15;
+  int64 per_cell_sched_activity_ul = 16;
+  int64 per_cell_sched_activity_dl = 17;
+  int64 per_cell_active_ue_dl_sum = 18;
+  int64 per_cell_active_ue_ul_sum = 19;
+  int64 per_cell_active_ue_dl_samp = 20;
+  int64 per_cell_active_ue_ul_samp = 21;
+  repeated int64 per_cell_radio_sinr_pusch_distr = 22;
+  int64 per_cell_mac_vol_dl_scell_ext = 23;
+  int64 per_cell_mac_offload_vol_dl_scell = 24;
+  int64 per_cell_mac_offload_vol_dl_scell_ext = 25;
+  int64 per_cell_radio_thp_vol_dl = 26;
+  int64 per_cell_radio_thp_vol_ul = 27;
+  int64 per_cell_dl_slots = 28;
+  int64 per_cell_radio_pdsch_empty_slots = 29;
+  int64 per_cell_radio_pdsch_empty_slots_forced = 30;
+  repeated int64 per_cell_mac_pucch_sr_pusch_grant_lat_distr = 31;
+  int64 per_cell_active_ue_dl_truesamp = 32;
+  int64 per_cell_active_ue_ul_truesamp = 33;
+}

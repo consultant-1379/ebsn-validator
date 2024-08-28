@@ -1,0 +1,50 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event for failure can be in initial stages for one of the following procedures in NR SA:
+- Incoming NG handover
+- Intra-gNodeB handover
+- Inter-system IRAT handover from EPS
+- Xn handover
+Failure can have one of following causes:
+- Reject because of load control.
+- Other reasons, such as failure of selecting suitable UeHandler.
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpIncomingHandoverFailure {
+  // PmEventId: 3145
+  enum Cause{
+    CAUSE_NO_VALUE = 0;
+    CAUSE_OTHER = 1;
+    CAUSE_OVERLOAD_PROTECTION = 2;
+    CAUSE_NO_LICENSE = 255;
+  }
+  enum HandoverType{
+    HANDOVER_TYPE_NO_VALUE = 0;
+    HANDOVER_TYPE_OTHER = 1;
+    HANDOVER_TYPE_INTRA_GNB_INTRA_DU = 2;
+    HANDOVER_TYPE_NG = 3;
+    HANDOVER_TYPE_XN = 4;
+    HANDOVER_TYPE_IRAT_FROM_EPS = 5;
+    HANDOVER_TYPE_NO_LICENSE = 255;
+  }
+  enum FailureCause{
+    FAILURE_CAUSE_NO_VALUE = 0;
+    FAILURE_CAUSE_OTHER = 1;
+    FAILURE_CAUSE_LOADCONTROL_SIGNALINTENSITY = 2;
+    FAILURE_CAUSE_LOADCONTROL_MPLOAD = 3;
+    FAILURE_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  Cause cause = 5;
+  bytes serving_plmn_id = 6;
+  HandoverType handover_type = 7;
+  FailureCause failure_cause = 8;
+}

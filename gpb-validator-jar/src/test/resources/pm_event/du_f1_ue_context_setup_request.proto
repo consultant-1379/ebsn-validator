@@ -1,0 +1,58 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: UE CONTEXT SETUP REQUEST message. See 3GPP TS 38.473.
+ *
+ * Version: 13_82_0
+ */
+message DuF1UeContextSetupRequest {
+  // PmEventId: 2022
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum MsgDirection{
+    MSG_DIRECTION_NO_VALUE = 0;
+    MSG_DIRECTION_SEND = 1;
+    MSG_DIRECTION_RECEIVE = 2;
+    MSG_DIRECTION_NO_LICENSE = 255;
+  }
+  enum ProtocolName{
+    PROTOCOL_NAME_NO_VALUE = 0;
+    PROTOCOL_NAME_RRC_36_331_BCCH_BCH_MESSAGE = 1;
+    PROTOCOL_NAME_RRC_36_331_BCCH_DL_SCH_MESSAGE = 2;
+    PROTOCOL_NAME_RRC_36_331_DL_CCCH_MESSAGE = 3;
+    PROTOCOL_NAME_RRC_36_331_DL_DCCH_MESSAGE = 4;
+    PROTOCOL_NAME_RRC_36_331_PCCH_MESSAGE = 5;
+    PROTOCOL_NAME_RRC_36_331_UL_CCCH_MESSAGE = 6;
+    PROTOCOL_NAME_RRC_36_331_UL_DCCH_MESSAGE = 7;
+    PROTOCOL_NAME_RRC_38_331_BCCH_BCH_MESSAGE = 8;
+    PROTOCOL_NAME_RRC_38_331_BCCH_DL_SCH_MESSAGE = 9;
+    PROTOCOL_NAME_RRC_38_331_DL_CCCH_MESSAGE = 10;
+    PROTOCOL_NAME_RRC_38_331_DL_DCCH_MESSAGE = 11;
+    PROTOCOL_NAME_RRC_38_331_PCCH_MESSAGE = 12;
+    PROTOCOL_NAME_RRC_38_331_UL_CCCH_MESSAGE = 13;
+    PROTOCOL_NAME_RRC_38_331_UL_DCCH_MESSAGE = 14;
+    PROTOCOL_NAME_S1AP_36_413 = 15;
+    PROTOCOL_NAME_X2AP_36_423 = 16;
+    PROTOCOL_NAME_NGAP_38_413 = 17;
+    PROTOCOL_NAME_XNAP_38_423 = 18;
+    PROTOCOL_NAME_F1AP_38_473 = 19;
+    PROTOCOL_NAME_NO_LICENSE = 255;
+  }
+  message Asn1Message {
+    MsgDirection msg_direction = 1;
+    bytes msg_content = 2;
+    repeated ProtocolName protocol_name = 3;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  GlobalGnbId global_gnb_id = 6;
+  Asn1Message asn1 = 7;
+  bytes serving_plmn_id = 8;
+}

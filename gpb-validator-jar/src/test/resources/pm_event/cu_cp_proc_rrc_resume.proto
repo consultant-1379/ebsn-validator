@@ -1,0 +1,80 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for RRC Resume procedure. See TS 38.331.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcRrcResume {
+  // PmEventId: 3221
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum RrcResumeCause{
+    RRC_RESUME_CAUSE_NO_VALUE = 0;
+    RRC_RESUME_CAUSE_EMERGENCY = 1;
+    RRC_RESUME_CAUSE_HIGH_PRIORITY_ACCESS = 2;
+    RRC_RESUME_CAUSE_MT_ACCESS = 3;
+    RRC_RESUME_CAUSE_MO_SIGNALLING = 4;
+    RRC_RESUME_CAUSE_MO_DATA = 5;
+    RRC_RESUME_CAUSE_MO_VOICE_CALL = 6;
+    RRC_RESUME_CAUSE_MO_VIDEO_CALL = 7;
+    RRC_RESUME_CAUSE_MO_SMS = 8;
+    RRC_RESUME_CAUSE_MO_RNA_UPDATE = 9;
+    RRC_RESUME_CAUSE_MPS_PRIORITY_ACCESS = 10;
+    RRC_RESUME_CAUSE_MCS_PRIORITY_ACCESS = 11;
+    RRC_RESUME_CAUSE_NO_LICENSE = 255;
+  }
+  enum RrcConnResumeResult{
+    RRC_CONN_RESUME_RESULT_NO_VALUE = 0;
+    RRC_CONN_RESUME_RESULT_RESUME_SUCCESS = 1;
+    RRC_CONN_RESUME_RESULT_RESUME_FAILURE_TIMEOUT = 2;
+    RRC_CONN_RESUME_RESULT_RESUME_FAILURE_OTHER = 3;
+    RRC_CONN_RESUME_RESULT_FALLBACK_SUCCESS = 4;
+    RRC_CONN_RESUME_RESULT_FALLBACK_FAILURE_TIMEOUT = 5;
+    RRC_CONN_RESUME_RESULT_FALLBACK_FAILURE_FAILURE_IN_RADIO_PROCEDURE = 6;
+    RRC_CONN_RESUME_RESULT_FALLBACK_FAILURE_OTHER = 7;
+    RRC_CONN_RESUME_RESULT_RELEASE_TO_IDLE_SUCCESS = 8;
+    RRC_CONN_RESUME_RESULT_RELEASE_TO_INACTIVE_SUCCESS = 9;
+    RRC_CONN_RESUME_RESULT_RELEASE_TO_INACTIVE_FAILURE_TIMEOUT = 10;
+    RRC_CONN_RESUME_RESULT_RELEASE_TO_INACTIVE_FAILURE_OTHER = 11;
+    RRC_CONN_RESUME_RESULT_FAILURE_NO_RADIO_RESOURCES_AVAILABLE = 12;
+    RRC_CONN_RESUME_RESULT_FAILURE_OTHER = 13;
+    RRC_CONN_RESUME_RESULT_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  enum NetworkAction{
+    NETWORK_ACTION_NO_VALUE = 0;
+    NETWORK_ACTION_RRC_RESUME = 1;
+    NETWORK_ACTION_FALLBACK_TO_RRC_SETUP = 2;
+    NETWORK_ACTION_RRC_RELEASE_IDLE = 3;
+    NETWORK_ACTION_RRC_RELEASE_SUSPEND = 4;
+    NETWORK_ACTION_RRC_REJECT = 5;
+    NETWORK_ACTION_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  int64 nci = 5;
+  int64 gnb_id_length = 6;
+  GlobalGnbId global_gnb_id = 7;
+  int64 pref_ue_group_id = 8;
+  int64 ue_group_id = 9;
+  RrcResumeCause rrc_resume_cause = 10;
+  RrcConnResumeResult rrc_conn_resume_result = 11;
+  Guami guami = 12;
+  int64 amf_ue_ngap_id = 13;
+  int64 ran_ue_ngap_id = 14;
+  int64 temp_ue_trace_id = 15;
+  NetworkAction network_action = 16;
+  bytes serving_plmn_id = 17;
+}

@@ -1,0 +1,32 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: PWS CANCEL REQUEST message. Monitors PWS Cancel Request procedure for each cell. See 3GPP TS 38.413.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPwsCancelRequest {
+  // PmEventId: 3148
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  enum PwsMessageType{
+    PWS_MESSAGE_TYPE_NO_VALUE = 0;
+    PWS_MESSAGE_TYPE_ETWS = 1;
+    PWS_MESSAGE_TYPE_CMAS = 2;
+    PWS_MESSAGE_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 pws_message_identifier = 5;
+  int64 pws_message_serial_number = 6;
+  PmBooleanType pws_message_cancel_all = 7;
+  PwsMessageType pws_message_type = 8;
+}

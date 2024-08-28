@@ -1,0 +1,61 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Master Node side of NR-DC to monitor Secondary Node Modification procedures. Modification can be initiated by one of the following nodes:
+  - By Master Node, with XnAP S-NODE MODIFICATION REQUEST message.
+  - By Secondary Node, with XnAP S-NODE MODIFICATION REQUIRED message.
+Contains information about modification type and result.
+
+When initiated for Master Node initiated Secondary Node Modification procedure, the following start and stop triggers apply:
+   Start trigger is transmission of XnAP S-NODE MODIFICATION REQUEST.
+   If procedure is successful, stop trigger is reception of F1AP UE CONTEXT MODIFICATION RESPONSE (for RCI) after XnAP S-NODE RECONFIGURATION COMPLETE transmission.
+   If procedure fails, stop trigger is one of the following options:
+         - Reception of XnAP S-NODE MODIFICATION REQUEST REJECT
+         - Expiration of TXnDCprep (XnAP S-NODE MODIFICATION REQUEST ACKNOWLEDGE not received)
+         - Transmission of XnAP UE CONTEXT RELEASE
+         - Transmission of NGAP UE CONTEXT RELEASE REQUEST
+
+When initiated for Secondary Node initiated Secondary Node Modification procedure, the following start and stop triggers apply:
+   Start trigger is reception of XnAP S-NODE MODIFICATION REQUIRED.
+   If procedure is successful, stop trigger is transmission of XnAP S-NODE MODIFICATION CONFIRM.
+   If procedure fails, stop trigger is transmission of XnAP S-NODE MODIFICATION REFUSE.
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcMnNrdcModification {
+  // PmEventId: 3245
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  enum MnNrdcModificationResult{
+    MN_NRDC_MODIFICATION_RESULT_NO_VALUE = 0;
+    MN_NRDC_MODIFICATION_RESULT_SUCCESS = 1;
+    MN_NRDC_MODIFICATION_RESULT_FAILURE = 2;
+    MN_NRDC_MODIFICATION_RESULT_NO_LICENSE = 255;
+  }
+  enum MnNrdcModificationInitiatingNode{
+    MN_NRDC_MODIFICATION_INITIATING_NODE_NO_VALUE = 0;
+    MN_NRDC_MODIFICATION_INITIATING_NODE_MGNB = 1;
+    MN_NRDC_MODIFICATION_INITIATING_NODE_SGNB = 2;
+    MN_NRDC_MODIFICATION_INITIATING_NODE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  bytes serving_plmn_id = 2;
+  int64 gnb_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  int64 time_stamp_start = 6;
+  int64 time_stamp_stop = 7;
+  CauseGroup cause_group_3gpp = 8;
+  int64 cause_3gpp = 9;
+  MnNrdcModificationResult mn_nrdc_modification_result = 10;
+  MnNrdcModificationInitiatingNode mn_nrdc_modification_initiating_node = 11;
+}

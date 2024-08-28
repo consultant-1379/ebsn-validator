@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<counters xmlns="com.ericsson.schema.etcm">
+
+    <pm_event_common_version>1</pm_event_common_version>
+    <pm_event_group_version>7</pm_event_group_version>
+    <pm_event_correction_version>0</pm_event_correction_version>
+    <etcm_date>2019-03-20</etcm_date>
+    <etcm_version>1</etcm_version>
+    <etcm_correction_version>5</etcm_correction_version>
+    <managed_function>DU</managed_function>
+    <counter>
+        <documentation>
+            Description: Number of outgoing inter-RAT handover execution attempts from NR to LTE in source NR cell.
+            Trigger: Stepped at sending RRC MobilityFromNRCommand message.
+        </documentation>
+        <description>Number of outgoing inter-RAT handover execution attempts from NR to LTE in source NR cell.</description>
+        <trigger>Stepped at sending RRC MobilityFromNRCommand message.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Mobility</categoryarea>
+        <categoryscenario>Inter-RAT Inter-System Handover</categoryscenario>
+        <pmeventname>CuCpProcNrHoExeOut</pmeventname>
+        <mo>EUtranCellRelation</mo>
+        <ossmo>CUCP_CELL_RELATION</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>ho_target_freq</pref>
+                    <nconst>3</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <nconst>1</nconst>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+</counters>

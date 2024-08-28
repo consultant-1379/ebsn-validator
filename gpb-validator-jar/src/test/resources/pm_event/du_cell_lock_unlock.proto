@@ -1,0 +1,25 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Information on gNodeB-DU being down.
+ *
+ * Version: 13_82_0
+ */
+message DuCellLockUnlock {
+  // PmEventId: 2049
+  enum DownType{
+    DOWN_TYPE_NO_VALUE = 0;
+    DOWN_TYPE_LOCK_AUTO = 1;
+    DOWN_TYPE_LOCK_MAN = 2;
+    DOWN_TYPE_UNLOCK_MAN = 3;
+    DOWN_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  DownType down_type = 6;
+}

@@ -1,0 +1,27 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+option java_outer_classname = "CuUpFunctionPmEventOuterClass";
+
+
+/**
+ * Description: Generated proto3 file
+ */
+
+
+/**
+ * Import all event specific proto files
+ */
+import "pm_event/cu_up_bb_data_collection_lost.proto";
+import "pm_event/cu_up_test_event_enm.proto";
+
+
+/**
+ * Define group message
+ */
+message CuUpFunctionPmEvent {
+  oneof event_payload {
+    CuUpTestEventEnm cu_up_test_event_enm = 4001;
+    CuUpBbDataCollectionLost cu_up_bb_data_collection_lost = 4002;
+  }
+}

@@ -1,0 +1,39 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Missed or incomplete measurements sampled at Baseband application during ROP for a specific level.
+ *
+ * Version: 13_82_0
+ */
+message DuBbDataCollectionLost {
+  // PmEventId: 2007
+  enum BbDataCollectionLostGranularity{
+    BB_DATA_COLLECTION_LOST_GRANULARITY_NO_VALUE = 0;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_RB = 1;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_UE = 2;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_CELL = 3;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_RPC = 4;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_LCG = 5;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_QOS = 6;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_SECTORCARRIER = 7;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_RPF = 8;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_BEAM = 9;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_CELLPARTITION = 10;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_NO_LICENSE = 255;
+  }
+  enum BbDataCollectionLostCause{
+    BB_DATA_COLLECTION_LOST_CAUSE_NO_VALUE = 0;
+    BB_DATA_COLLECTION_LOST_CAUSE_REC_BB_DISCONNECT = 1;
+    BB_DATA_COLLECTION_LOST_CAUSE_BBA_TIMEOUT = 2;
+    BB_DATA_COLLECTION_LOST_CAUSE_TIMEPERIOD = 3;
+    BB_DATA_COLLECTION_LOST_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  BbDataCollectionLostGranularity bb_data_collection_lost_granularity = 4;
+  BbDataCollectionLostCause bb_data_collection_lost_cause = 5;
+  int64 gnb_id_length = 6;
+}

@@ -1,0 +1,35 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Request and result information for UE Context Modification Required procedure triggered by gNodeB-DU.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcDuInitiatedUeCtxtMod {
+  // PmEventId: 3169
+  enum DuInitiatedUeCtxtModResult{
+    DU_INITIATED_UE_CTXT_MOD_RESULT_NO_VALUE = 0;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_SUCCESS = 1;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_FAILURE_OTHER = 2;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_FAILURE_TIMEOUT_RRCRECONFIG = 3;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_FAILURE_TIMEOUT_RCI = 4;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_FAILURE_SEMANTIC_ERROR = 5;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_FAILURE_INTERACTION_WITH_OTHER_PROCEDURE = 6;
+    DU_INITIATED_UE_CTXT_MOD_RESULT_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  DuInitiatedUeCtxtModResult du_initiated_ue_ctxt_mod_result = 5;
+  int64 nci = 6;
+  int64 gnb_id_length = 7;
+  bytes serving_plmn_id = 8;
+  GlobalGnbId global_gnb_id = 9;
+}

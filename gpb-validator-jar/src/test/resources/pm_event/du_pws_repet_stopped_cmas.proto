@@ -1,0 +1,33 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Completed CMAS message broadcasts.
+ *
+ * Version: 13_82_0
+ */
+message DuPwsRepetStoppedCmas {
+  // PmEventId: 2017
+  enum RepetStoppedCmasResult{
+    REPET_STOPPED_CMAS_RESULT_NO_VALUE = 0;
+    REPET_STOPPED_CMAS_RESULT_SUCCESS = 1;
+    REPET_STOPPED_CMAS_RESULT_PARTIAL_SUCCESS = 2;
+    REPET_STOPPED_CMAS_RESULT_INTERRUPT_CANCEL = 3;
+    REPET_STOPPED_CMAS_RESULT_INTERRUPT_FAILURE = 4;
+    REPET_STOPPED_CMAS_RESULT_INTERRUPT_CELL_OUT_OF_SERVICE = 5;
+    REPET_STOPPED_CMAS_RESULT_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  int64 pws_message_identifier = 6;
+  int64 pws_message_serial_number = 7;
+  int64 pws_message_repetition_period = 8;
+  int64 pws_message_number_of_broadcasts_requested = 9;
+  int64 pws_message_cbc_number_of_broadcasts_performed = 10;
+  int64 pws_message_number_of_duplication_detections = 11;
+  RepetStoppedCmasResult pws_repet_stopped_cmas_result = 12;
+}

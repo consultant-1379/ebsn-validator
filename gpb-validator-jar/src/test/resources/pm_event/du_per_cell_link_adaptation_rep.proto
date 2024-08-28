@@ -1,0 +1,81 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic measurements of cell link adaptation.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellLinkAdaptationRep {
+  // PmEventId: 2051
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  repeated int64 per_cell_ue_rep_rank_distr = 6;
+  repeated int64 per_cell_ue_rep_cqi_64qam_rank1_distr = 7;
+  repeated int64 per_cell_ue_rep_cqi_64qam_rank2_distr = 8;
+  repeated int64 per_cell_ue_rep_cqi_64qam_rank3_distr = 9;
+  repeated int64 per_cell_ue_rep_cqi_64qam_rank4_distr = 10;
+  repeated int64 per_cell_ue_rep_cqi_256qam_rank1_distr = 11;
+  repeated int64 per_cell_ue_rep_cqi_256qam_rank2_distr = 12;
+  repeated int64 per_cell_ue_rep_cqi_256qam_rank3_distr = 13;
+  repeated int64 per_cell_ue_rep_cqi_256qam_rank4_distr = 14;
+  int64 per_cell_mac_harq_dl_ack_qpsk = 15;
+  int64 per_cell_mac_harq_dl_ack_16_qam = 16;
+  int64 per_cell_mac_harq_dl_ack_64_qam = 17;
+  int64 per_cell_mac_harq_dl_ack_256_qam = 18;
+  int64 per_cell_mac_harq_dl_dtx_qpsk = 19;
+  int64 per_cell_mac_harq_dl_dtx_16_qam = 20;
+  int64 per_cell_mac_harq_dl_dtx_64_qam = 21;
+  int64 per_cell_mac_harq_dl_dtx_256_qam = 22;
+  int64 per_cell_mac_harq_dl_nack_qpsk = 23;
+  int64 per_cell_mac_harq_dl_nack_16_qam = 24;
+  int64 per_cell_mac_harq_dl_nack_64_qam = 25;
+  int64 per_cell_mac_harq_dl_nack_256_qam = 26;
+  int64 per_cell_mac_harq_dl_ack_qpsk_init = 27;
+  int64 per_cell_mac_harq_dl_ack_16_qam_init = 28;
+  int64 per_cell_mac_harq_dl_ack_64_qam_init = 29;
+  int64 per_cell_mac_harq_dl_ack_256_qam_init = 30;
+  int64 per_cell_mac_harq_dl_dtx_qpsk_init = 31;
+  int64 per_cell_mac_harq_dl_dtx_16_qam_init = 32;
+  int64 per_cell_mac_harq_dl_dtx_64_qam_init = 33;
+  int64 per_cell_mac_harq_dl_dtx_256_qam_init = 34;
+  int64 per_cell_mac_harq_dl_nack_qpsk_init = 35;
+  int64 per_cell_mac_harq_dl_nack_16_qam_init = 36;
+  int64 per_cell_mac_harq_dl_nack_64_qam_init = 37;
+  int64 per_cell_mac_harq_dl_nack_256_qam_init = 38;
+  int64 per_cell_mac_harq_dl_fail = 39;
+  repeated int64 per_cell_radio_pdsch_table1_mcs_distr = 40;
+  repeated int64 per_cell_radio_pdsch_table2_mcs_distr = 41;
+  repeated int64 per_cell_radio_pusch_table1_mcs_distr = 42;
+  int64 per_cell_mac_harq_ul_ack_qpsk = 43;
+  int64 per_cell_mac_harq_ul_ack_16_qam = 44;
+  int64 per_cell_mac_harq_ul_ack_64_qam = 45;
+  int64 per_cell_mac_harq_ul_nack_qpsk = 46;
+  int64 per_cell_mac_harq_ul_nack_16_qam = 47;
+  int64 per_cell_mac_harq_ul_nack_64_qam = 48;
+  int64 per_cell_mac_harq_ul_dtx_qpsk = 49;
+  int64 per_cell_mac_harq_ul_dtx_16_qam = 50;
+  int64 per_cell_mac_harq_ul_dtx_64_qam = 51;
+  int64 per_cell_mac_harq_ul_ack_qpsk_init = 52;
+  int64 per_cell_mac_harq_ul_ack_16_qam_init = 53;
+  int64 per_cell_mac_harq_ul_ack_64_qam_init = 54;
+  int64 per_cell_mac_harq_ul_nack_qpsk_init = 55;
+  int64 per_cell_mac_harq_ul_nack_16_qam_init = 56;
+  int64 per_cell_mac_harq_ul_nack_64_qam_init = 57;
+  int64 per_cell_mac_harq_ul_dtx_qpsk_init = 58;
+  int64 per_cell_mac_harq_ul_dtx_16_qam_init = 59;
+  int64 per_cell_mac_harq_ul_dtx_64_qam_init = 60;
+  int64 per_cell_mac_harq_ul_fail = 61;
+  int64 per_cell_mac_harq_ul_dtx_256_qam = 62;
+  int64 per_cell_mac_harq_ul_nack_256_qam = 63;
+  int64 per_cell_mac_harq_ul_ack_256_qam = 64;
+  int64 per_cell_mac_harq_ul_dtx_256_qam_init = 65;
+  int64 per_cell_mac_harq_ul_nack_256_qam_init = 66;
+  int64 per_cell_mac_harq_ul_ack_256_qam_init = 67;
+  repeated int64 per_cell_radio_pusch_table2_mcs_distr = 68;
+  repeated int64 per_cell_ue_ul_su_mimo_rank_distr = 69;
+}

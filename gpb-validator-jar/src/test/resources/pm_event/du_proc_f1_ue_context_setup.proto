@@ -1,0 +1,51 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: UE CONTEXT SETUP message.
+ *
+ * Version: 13_82_0
+ */
+message DuProcF1UeContextSetup {
+  // PmEventId: 2038
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum F1UeContextSetupResult{
+    F1_UE_CONTEXT_SETUP_RESULT_NO_VALUE = 0;
+    F1_UE_CONTEXT_SETUP_RESULT_SUCCESS = 1;
+    F1_UE_CONTEXT_SETUP_RESULT_FAILURE = 2;
+    F1_UE_CONTEXT_SETUP_RESULT_TIMEOUT = 3;
+    F1_UE_CONTEXT_SETUP_RESULT_FAILURE_ADMISSION = 4;
+    F1_UE_CONTEXT_SETUP_RESULT_NO_LICENSE = 255;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  GlobalGnbId global_gnb_id = 6;
+  int64 time_stamp_start = 7;
+  int64 time_stamp_stop = 8;
+  F1UeContextSetupResult f1_ue_context_setup_result = 9;
+  CauseGroup cause_group = 10;
+  int64 cause = 11;
+  bytes serving_plmn_id = 12;
+  PmBooleanType access_via_f1_ue_ctxt_setup = 13;
+}

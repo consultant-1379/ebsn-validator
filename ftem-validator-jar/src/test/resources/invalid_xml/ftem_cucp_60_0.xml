@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flex xmlns="urn:com:ericsson:schema:xml:oss:ftem">
+    <date>2022-04-06</date>
+    <major_version>59</major_version>
+    <correction_version>0</correction_version>
+    <managed_function>CUCP</managed_function>
+    <filters>
+        <filter name="PrefUeGrpId">
+            <description>Identifier of preference UE group used to determine some UE property that requires specific configuration data.</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+        <filter name="UeGrpId">
+            <description>Identifier of UE group used to determine UE configuration data.</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+        <custom></custom>
+        <filter name="UePowerClass">
+            <description>UE power class value.</description>
+            <enumeration>
+                <member name="UE_POWER_CLASS_NO_VALUE">0</member>
+                <member name="UE_POWER_CLASS_1">1</member>
+                <member name="UE_POWER_CLASS_1_5">2</member>
+                <member name="UE_POWER_CLASS_2">3</member>
+                <member name="UE_POWER_CLASS_3">4</member>
+                <member name="UE_POWER_CLASS_4">5</member>
+            </enumeration>
+        </filter>
+        <filter name="PlmnId">
+            <description>Identifier of PLMN. Consists of MCC and MNC.</description>
+            <custom/>
+        </filter>
+        <filter name="Snssai">
+            <description>Single-Network Slice Selection Assistance Information composed of SST and SD.</description>
+            <custom/>
+        </filter>
+        <filter name="Qos">
+            <description>QoS value of bearers for which latency and contention delay values are measured. Can be either QCI value (NSA) or 5QI value (SA).</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+        <filter name="NrDcConfigured">
+            <description>Whether UE has NR-DC configured.</description>
+            <enumeration>
+                <member name="NRDC_CONFIGURED_NO_VALUE">0</member>
+                <member name="NRDC_CONFIGURED_TRUE">1</member>
+                <member name="NRDC_CONFIGURED_FALSE">2</member>
+            </enumeration>
+        </filter>
+        <filter name="UeMobilityGrpId">
+            <description>Identifier of UE mobility group used to determine UE configuration data.</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+        <filter name="UeServiceGrpId">
+            <description>Identifier of UE service group used to determine UE configuration data.</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+        <filter name="Arp">
+            <description>Allocation and Retention Priority Level value.</description>
+            <range>
+                <min>0</min>
+                <max>15</max>
+            </range>
+        </filter>
+        <filter name="TrafficSteeringType">
+            <description>Type of Traffic Steering.</description>
+            <enumeration>
+                <member name="TRAFFIC_STEERING_TYPE_NO_VALUE">0</member>
+                <member name="TRAFFIC_STEERING_TYPE_MULTI_LAYER_COORDINATION">1</member>
+                <member name="TRAFFIC_STEERING_TYPE_BW_TRIGGERED_INTER_SYSTEM_HANDOVER">2</member>
+                <member name="TRAFFIC_STEERING_TYPE_NOT_APPLICABLE">3</member>
+            </enumeration>
+        </filter>
+    </filters>
+    <events>
+        <event name="CuCpDrbSuspend">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_suspend_list" repeated="foreach"/>
+            </event_filter>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="drb_suspend_list" repeated="foreach"/>
+            </event_filter>
+            <event_filter event_param="priority_level_arp" filter_name="Arp">
+                <struct name="drb_suspend_list" repeated="foreach"/>
+            </event_filter>
+        </event>
+        <event name="CuCpPerCellDrbSetup">
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="num_of_drb_setup_list_sa" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbLevelSnssaiMaxSa"/>
+                        <counter name="pmEbsDrbLevelSnssaiSumSa"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="num_of_drb_setup_mapped_5qi_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbLevel5qiMaxSa"/>
+                        <counter name="pmEbsDrbLevel5qiSumSa"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpPerCellRrcConnectedUe">
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId">
+                <struct name="num_of_rrc_connected_ue_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsRrcConnLevelMaxEnDc"/>
+                        <counter name="pmEbsRrcConnLevelSumEnDc"/>
+                        <counter name="pmEbsRrcConnLevelMaxSa"/>
+                        <counter name="pmEbsRrcConnLevelSumSa"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpProcEndcModification">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId">
+                <preliminary/>
+            </event_filter>
+        </event>
+        <event name="CuCpProcEndcRelease">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="ue_power_class" filter_name="UePowerClass">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+        <event name="CuCpProcEndcSetup">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+        <event name="CuCpProcInitialCtxtEstab">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_power_class" filter_name="UePowerClass">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="pdu_session_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsPduSessionEstabAtt"/>
+                        <counter name="pmEbsPduSessionEstabSucc"/>
+                    </counters>
+                </struct>
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="priority_level_arp" filter_name="Arp">
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpProcNgSigConnEstab">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId">
+                <deprecated>21.Q3</deprecated>
+            </event_filter>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId">
+                <deprecated>21.Q3</deprecated>
+            </event_filter>
+        </event>
+        <event name="CuCpProcNrHoExeOut">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="ue_power_class" filter_name="UePowerClass">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="nrdc_configured" filter_name="NrDcConfigured"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="traffic_steering_type" filter_name="TrafficSteeringType"/>
+        </event>
+        <event name="CuCpProcNrHoIcExe">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="nrdc_configured" filter_name="NrDcConfigured"/>
+        </event>
+        <event name="CuCpProcNrHoIcPrep">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="nrdc_configured" filter_name="NrDcConfigured"/>
+        </event>
+        <event name="CuCpProcNrHoPrepOut">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="ue_power_class" filter_name="UePowerClass">
+                <preliminary/>
+            </event_filter>
+            <event_filter event_param="nrdc_configured" filter_name="NrDcConfigured"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="traffic_steering_type" filter_name="TrafficSteeringType"/>
+        </event>
+        <event name="CuCpProcPduSessionResourceModify">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="pdu_session_modify_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsPduSessionModifyAtt"/>
+                        <counter name="pmEbsPduSessionModifySucc"/>
+                    </counters>
+                </struct>
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmf5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnb5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfAct5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbAct5qi"/>
+                        <counter name="pmEbsDrbRelNormalInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbInact5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmf5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnb5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfAct5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbAct5qi"/>
+                        <counter name="pmEbsDrbRelNormalInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbInact5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="priority_level_arp" filter_name="Arp">
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmf5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnb5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfAct5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbAct5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpProcPduSessionResourceRelease">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="pdu_session_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsPduSessionRelNormal"/>
+                    </counters>
+                </struct>
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelNormalInact5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelNormalInact5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="priority_level_arp" filter_name="Arp">
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpProcPduSessionResourceSetup">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="pdu_session_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsPduSessionEstabAtt"/>
+                        <counter name="pmEbsPduSessionEstabSucc"/>
+                    </counters>
+                </struct>
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="priority_level_arp" filter_name="Arp">
+                <struct name="drb_setup_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbEstabAtt5qi"/>
+                        <counter name="pmEbsDrbEstabSucc5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpProcRrcReestab">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+        <event name="CuCpProcRrcReestabDrb">
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="drb_setup_list" repeated="foreach"/>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_setup_list" repeated="foreach"/>
+            </event_filter>
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+        </event>
+        <event name="CuCpProcUeCtxtRel">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="pdu_session_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsPduSessionRelNormal"/>
+                        <counter name="pmEbsPduSessionRelAbnormalAmf"/>
+                        <counter name="pmEbsPduSessionRelAbnormalGnb"/>
+                    </counters>
+                </struct>
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmf5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnb5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfAct5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbAct5qi"/>
+                        <counter name="pmEbsDrbRelNormalInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbInact5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmf5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnb5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfAct5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbAct5qi"/>
+                        <counter name="pmEbsDrbRelNormalInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfInact5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbInact5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="priority_level_arp" filter_name="Arp">
+                <struct name="drb_release_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsDrbRelNormal5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmf5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnb5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalAmfAct5qi"/>
+                        <counter name="pmEbsDrbRelAbnormalGnbAct5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+        </event>
+        <event name="CuCpProcX2MnInitiatedSgnbModification">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+        <event name="CuCpProcX2SgnbAdditionPreparation">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+        </event>
+        <event name="CuCpProcX2SgnbChange">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+        <event name="CuCpProcX2SnInitiatedSgnbModification">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+        <event name="CuCpProcXnRetrieveUeCtxt">
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+        </event>
+        <event name="CuCpRohcSetup">
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="drb_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsRohcEstabAtt5qi"/>
+                        <counter name="pmEbsRohcEstabFailCid5qi"/>
+                        <counter name="pmEbsRohcEstabFailUeCap5qi"/>
+                        <counter name="pmEbsRohcEstabFailUeMaxCid5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_list" repeated="foreach">
+                    <counters>
+                        <counter name="pmEbsRohcEstabAtt5qi"/>
+                        <counter name="pmEbsRohcEstabFailCid5qi"/>
+                        <counter name="pmEbsRohcEstabFailUeCap5qi"/>
+                        <counter name="pmEbsRohcEstabFailUeMaxCid5qi"/>
+                    </counters>
+                </struct>
+            </event_filter>
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+        </event>
+        <event name="CuCpRwrMobilityDecision">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="ue_group_id" filter_name="UeGrpId"/>
+            <event_filter event_param="ue_mobility_group_id" filter_name="UeMobilityGrpId"/>
+            <event_filter event_param="ue_service_group_id" filter_name="UeServiceGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+        </event>
+    </events>
+</flex>

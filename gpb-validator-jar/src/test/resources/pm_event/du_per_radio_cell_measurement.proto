@@ -1,0 +1,39 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic measurements of cell radio environment.
+ *
+ * Version: 13_82_0
+ */
+message DuPerRadioCellMeasurement {
+  // PmEventId: 2010
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  repeated int64 per_cell_radio_rec_interference_pwr_distr = 6;
+  repeated int64 per_cell_radio_pathloss_ul_distr = 7;
+  int64 per_cell_mac_ul_cpofdm_to_dfts_switch_attempt = 8;
+  int64 per_cell_mac_ul_dfts_to_cpofdm_switch_attempt = 9;
+  int64 per_cell_mac_ul_cpofdm_to_dfts_switch_success = 10;
+  int64 per_cell_mac_ul_dfts_to_cpofdm_switch_success = 11;
+  int64 per_cell_mac_ul_dfts_transmission = 12;
+  int64 per_cell_mac_ul_cpofdm_transmission = 13;
+  int64 per_cell_ra_cb_att_msg2 = 14;
+  int64 per_cell_ra_cb_preambles = 15;
+  int64 per_cell_ra_cb_succ_msg3 = 16;
+  repeated int64 per_cell_ra_ta_distr = 17;
+  repeated int64 per_cell_radio_sinr_pucch_distr = 18;
+  repeated int64 per_cell_radio_pusch_phr_distr = 19;
+  int64 per_cell_pucch_fail_sr = 20;
+  int64 per_cell_ra_cb_fail_msg1_ooc = 21;
+  int64 per_cell_ra_cb_fail_msg1_max_msg3_sched = 22;
+  int64 per_cell_ra_cb_fail_msg2_disc = 23;
+  int64 per_cell_ra_cb_fail_msg3_crnti = 24;
+  int64 per_cell_ra_cb_fail_msg3_crc = 25;
+  int64 per_cell_ra_cb_fail_msg3_dtx = 26;
+  repeated int64 per_cell_radio_rec_interference_power_distr = 27;
+}

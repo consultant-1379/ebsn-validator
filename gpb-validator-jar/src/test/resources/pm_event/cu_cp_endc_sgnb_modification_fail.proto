@@ -1,0 +1,48 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event for failure before SgNB initiated SgNB Modification procedure in EN-DC.
+Modification can be triggered by one of following processes:
+- Intra-gNodeB intra-DU PSCell change.
+- Intra-gNodeB inter-DU PSCell change.
+- Other processes.
+Failure can have one of following causes:
+- Reject because of load control.
+- Other reasons.
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpEndcSgnbModificationFail {
+  // PmEventId: 3212
+  enum Cause{
+    CAUSE_NO_VALUE = 0;
+    CAUSE_OTHER = 1;
+    CAUSE_OVERLOAD_PROTECTION = 2;
+    CAUSE_NO_LICENSE = 255;
+  }
+  enum ModificationType{
+    MODIFICATION_TYPE_NO_VALUE = 0;
+    MODIFICATION_TYPE_OTHER = 1;
+    MODIFICATION_TYPE_INTRA_GNB_INTRA_DU_PSCELL_CHANGE = 2;
+    MODIFICATION_TYPE_INTRA_GNB_INTER_DU_PSCELL_CHANGE = 3;
+    MODIFICATION_TYPE_NO_LICENSE = 255;
+  }
+  enum FailureCause{
+    FAILURE_CAUSE_NO_VALUE = 0;
+    FAILURE_CAUSE_OTHER = 1;
+    FAILURE_CAUSE_LOADCONTROL_SIGNALINTENSITY = 2;
+    FAILURE_CAUSE_LOADCONTROL_MPLOAD = 3;
+    FAILURE_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  Cause cause = 5;
+  ModificationType modification_type = 6;
+  bytes serving_plmn_id = 7;
+  FailureCause failure_cause = 8;
+}

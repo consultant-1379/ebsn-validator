@@ -1,0 +1,56 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: PWS RESTART INDICATION message. Includes impacted broadcast area, targeted AMFs, and restart type. See 3GPP TS 38.413.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPwsRestartReport {
+  // PmEventId: 3151
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  enum CellInfo{
+    CELL_INFO_NO_VALUE = 0;
+    CELL_INFO_OPERATIVE = 1;
+    CELL_INFO_NON_OPERATIVE = 2;
+    CELL_INFO_NO_LICENSE = 255;
+  }
+  message NrCgiAndCellInfo {
+    bytes plmn_identity = 1;
+    int64 nr_cell_identity = 2;
+    CellInfo cell_info = 3;
+  }
+  message Tai {
+    bytes plmn_identity = 1;
+    bytes tac = 2;
+  }
+  message EmergencyArea {
+    bytes emergency_area_id = 1;
+  }
+  message GlobalRanNodeId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum PwsRestartType{
+    PWS_RESTART_TYPE_NO_VALUE = 0;
+    PWS_RESTART_TYPE_GNB_RESTART = 1;
+    PWS_RESTART_TYPE_NG_C_LINK_RECOVERY = 2;
+    PWS_RESTART_TYPE_CELL_RESTART = 3;
+    PWS_RESTART_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  repeated Guami guami_list = 4;
+  repeated NrCgiAndCellInfo nrcgi_and_cellinfo_list = 5;
+  repeated Tai tai_list = 6;
+  repeated EmergencyArea eai_list = 7;
+  repeated GlobalRanNodeId global_ran_node_id_list = 8;
+  PwsRestartType restart_type = 9;
+}

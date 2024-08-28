@@ -1,0 +1,20 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Monitors number of RRC inactive users in gNodeB-CU-CP.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPerCuCpRrcInactiveUe {
+  // PmEventId: 3219
+  message NumRrcInactiveUe {
+    bytes serving_plmn_id = 1;
+    int64 num_of_nr_rrc_inactive_ue_sa = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  repeated NumRrcInactiveUe num_of_rrc_inactive_ue_list = 4;
+}

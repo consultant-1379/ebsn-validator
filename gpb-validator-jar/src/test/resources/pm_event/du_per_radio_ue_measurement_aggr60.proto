@@ -1,0 +1,30 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Time aggregated periodic measurements of UE radio environment.
+ *
+ * Version: 13_82_0
+ */
+message DuPerRadioUeMeasurementAggr60 {
+  // PmEventId: 2064
+  repeated int64 per_ue_radio_sinr_pusch_distr = 1;
+  repeated int64 per_ue_rep_rank_distr = 2;
+  bytes main_plmn_id = 3;
+  int64 gnb_id = 4;
+  int64 gnb_id_length = 5;
+  int64 gnb_du_id = 6;
+  int64 nci = 7;
+  bytes serving_plmn_id = 8;
+  repeated int64 per_ue_power_headroom = 9;
+  repeated int64 per_ue_max_per_carrier_tx_power = 10;
+  repeated int64 per_ue_power_headroom_prb_used = 11;
+  repeated int64 per_ue_radio_pmi_distr_main_direction_indicator = 12;
+  repeated int64 per_ue_radio_pmi_distr_first_diversity_direction_indicator = 13;
+  repeated int64 per_ue_radio_pmi_distr_second_diversity_direction_indicator = 14;
+  repeated int64 per_ue_radio_pmi_distr_indicator = 15;
+  repeated int64 per_ue_nr_timing_advance = 16;
+  int64 num_of_aggregated_events = 17;
+  int64 last_time_stamp = 18;
+}

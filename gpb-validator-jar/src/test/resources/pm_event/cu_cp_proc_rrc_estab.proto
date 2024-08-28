@@ -1,0 +1,67 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for RRC Setup procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcRrcEstab {
+  // PmEventId: 3048
+  enum EstablishmentCause{
+    ESTABLISHMENT_CAUSE_NO_VALUE = 0;
+    ESTABLISHMENT_CAUSE_EMERGENCY = 1;
+    ESTABLISHMENT_CAUSE_HIGH_PRIORITY_ACCESS = 2;
+    ESTABLISHMENT_CAUSE_MT_ACCESS = 3;
+    ESTABLISHMENT_CAUSE_MO_SIGNALLING = 4;
+    ESTABLISHMENT_CAUSE_MO_DATA = 5;
+    ESTABLISHMENT_CAUSE_MO_VOICE_CALL = 6;
+    ESTABLISHMENT_CAUSE_SPARE1 = 7;
+    ESTABLISHMENT_CAUSE_SPARE2 = 8;
+    ESTABLISHMENT_CAUSE_SPARE3 = 9;
+    ESTABLISHMENT_CAUSE_SPARE4 = 10;
+    ESTABLISHMENT_CAUSE_SPARE5 = 11;
+    ESTABLISHMENT_CAUSE_SPARE6 = 12;
+    ESTABLISHMENT_CAUSE_SPARE7 = 13;
+    ESTABLISHMENT_CAUSE_SPARE8 = 14;
+    ESTABLISHMENT_CAUSE_SPARE9 = 15;
+    ESTABLISHMENT_CAUSE_SPARE10 = 16;
+    ESTABLISHMENT_CAUSE_VIDEO_CALL = 17;
+    ESTABLISHMENT_CAUSE_MO_SMS = 18;
+    ESTABLISHMENT_CAUSE_MPS_PRIORITY_ACCESS = 19;
+    ESTABLISHMENT_CAUSE_MCS_PRIORITY_ACCESS = 20;
+    ESTABLISHMENT_CAUSE_NO_LICENSE = 255;
+  }
+  enum RrcConnEstabResult{
+    RRC_CONN_ESTAB_RESULT_NO_VALUE = 0;
+    RRC_CONN_ESTAB_RESULT_SUCCESS = 1;
+    RRC_CONN_ESTAB_RESULT_UNSPECIFIED = 2;
+    RRC_CONN_ESTAB_RESULT_NO_RADIO_RESOURCES_AVAILABLE = 3;
+    RRC_CONN_ESTAB_RESULT_FAILURE_IN_RADIO_PROCEDURE = 4;
+    RRC_CONN_ESTAB_RESULT_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  EstablishmentCause establishment_cause = 5;
+  bool reattempt_indicator = 6;
+  RrcConnEstabResult rrc_conn_estab_result = 7;
+  bytes ue_trace_id = 8;
+  int64 nci = 9;
+  int64 gnb_id_length = 10;
+  PmBooleanType reattempt_indicator_param = 11;
+  GlobalGnbId global_gnb_id = 12;
+  bytes serving_plmn_id = 13;
+}

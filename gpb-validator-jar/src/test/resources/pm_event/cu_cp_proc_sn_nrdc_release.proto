@@ -1,0 +1,80 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Secondary Node side of NR-DC to monitor Secondary Node Release procedure. Release can be initiated
+by Master Node (XnAP UE CONTEXT RELEASE or XnAP S-NODE RELEASE REQUEST) or by Secondary Node (XnAP S-NODE RELEASE REQUIRED).
+Contains information about request and result.
+
+When initiated by reception of XnAP UE CONTEXT RELEASE with no previous S-NODE RELEASE REQUEST, the trigger is
+XnAP UE CONTEXT RELEASE message. No start or stop event is triggered immediately.
+
+When initiated by reception of XnAP S-NODE RELEASE REQUEST or XnAP S-NODE RELEASE REQUIRED, start trigger is reception of XnAP S-NODE RELEASE REQUEST.
+   Stop trigger in case of success:
+         - Reception of E1AP BEARER CONTEXT RELEASE COMPLETE
+   Stop trigger in case of failure:
+         - E1AP BEARER CONTEXT RELEASE COMPLETE not received
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcSnNrdcRelease {
+  // PmEventId: 3197
+  enum SnNrdcReleaseInitiatingMessage{
+    SN_NRDC_RELEASE_INITIATING_MESSAGE_NO_VALUE = 0;
+    SN_NRDC_RELEASE_INITIATING_MESSAGE_UE_CONTEXT_RELEASE = 1;
+    SN_NRDC_RELEASE_INITIATING_MESSAGE_SNODE_RELEASE_REQUEST = 2;
+    SN_NRDC_RELEASE_INITIATING_MESSAGE_SNODE_RELEASE_REQUIRED = 3;
+    SN_NRDC_RELEASE_INITIATING_MESSAGE_NO_LICENSE = 255;
+  }
+  enum SnNrdcReleaseInitiatingNode{
+    SN_NRDC_RELEASE_INITIATING_NODE_NO_VALUE = 0;
+    SN_NRDC_RELEASE_INITIATING_NODE_MGNB = 1;
+    SN_NRDC_RELEASE_INITIATING_NODE_SGNB = 2;
+    SN_NRDC_RELEASE_INITIATING_NODE_NO_LICENSE = 255;
+  }
+  message PduSessionReleased {
+    int64 pdu_session_id = 1;
+    bytes s_nssai = 2;
+  }
+  message DrbReleased {
+    int64 drb_id = 1;
+    repeated int64 mapped_5qi = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  enum SnNrdcReleaseType{
+    SN_NRDC_RELEASE_TYPE_NO_VALUE = 0;
+    SN_NRDC_RELEASE_TYPE_NORMAL = 1;
+    SN_NRDC_RELEASE_TYPE_ABNORMAL = 2;
+    SN_NRDC_RELEASE_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  SnNrdcReleaseInitiatingMessage sn_nrdc_release_initiating_message = 7;
+  SnNrdcReleaseInitiatingNode sn_nrdc_release_initiating_node = 8;
+  repeated PduSessionReleased pdu_session_released_list = 9;
+  repeated DrbReleased drb_released_list = 10;
+  bytes serving_plmn_id = 11;
+  GlobalGnbId global_master_gnb_id = 12;
+  CauseGroup cause_group = 13;
+  int64 cause = 14;
+  SnNrdcReleaseType sn_nrdc_release_type = 15;
+}

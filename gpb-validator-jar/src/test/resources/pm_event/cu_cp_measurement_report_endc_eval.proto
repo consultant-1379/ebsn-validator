@@ -1,0 +1,65 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event related to reception of EN-DC event measurement report.
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpMeasurementReportEndcEval {
+  // PmEventId: 3211
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum EventMeasurementReport{
+    EVENT_MEASUREMENT_REPORT_NO_VALUE = 0;
+    EVENT_MEASUREMENT_REPORT_A1 = 1;
+    EVENT_MEASUREMENT_REPORT_A2 = 2;
+    EVENT_MEASUREMENT_REPORT_A3 = 3;
+    EVENT_MEASUREMENT_REPORT_A4 = 4;
+    EVENT_MEASUREMENT_REPORT_A5 = 5;
+    EVENT_MEASUREMENT_REPORT_A6 = 6;
+    EVENT_MEASUREMENT_REPORT_PERIODICAL = 7;
+    EVENT_MEASUREMENT_REPORT_NO_LICENSE = 255;
+  }
+  enum MeasurementName{
+    MEASUREMENT_NAME_NO_VALUE = 0;
+    MEASUREMENT_NAME_ENTERING_SEARCH_ZONE_PS_CELL = 1;
+    MEASUREMENT_NAME_LEAVING_SEARCH_ZONE_PS_CELL = 2;
+    MEASUREMENT_NAME_INTER_FREQ_CANDIDATE_PS_CELL = 3;
+    MEASUREMENT_NAME_CRITICAL_COVERAGE_PS_CELL = 4;
+    MEASUREMENT_NAME_BETTER_INTRA_FREQ_PS_CELL = 5;
+    MEASUREMENT_NAME_BETTER_INTRA_FREQ_S_CELL = 6;
+    MEASUREMENT_NAME_ENTERING_COVERAGE_S_CELL = 7;
+    MEASUREMENT_NAME_LEAVING_COVERAGE_S_CELL = 8;
+    MEASUREMENT_NAME_INTER_FREQ_HIGH_PRIO_PS_CELL = 9;
+    MEASUREMENT_NAME_MDT_M1_MEASUREMENT = 10;
+    MEASUREMENT_NAME_MDT_M6_MEASUREMENT = 11;
+    MEASUREMENT_NAME_NO_LICENSE = 255;
+  }
+  enum Action{
+    ACTION_NO_VALUE = 0;
+    ACTION_NO_ACTION = 1;
+    ACTION_INITIATE_SN_RELEASE = 2;
+    ACTION_MEASUREMENT_RECONFIGURATION = 3;
+    ACTION_WAIT_FOR_HIGH_PRIO_REPORT = 4;
+    ACTION_INITIATE_PS_CELL_CHANGE = 5;
+    ACTION_INITIATE_S_CELL_CHANGE = 6;
+    ACTION_INITIATE_S_CELL_ACTIVATION = 7;
+    ACTION_INITIATE_S_CELL_DEACTIVATION = 8;
+    ACTION_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  GlobalGnbId global_gnb_id = 4;
+  bytes serving_plmn_id = 5;
+  int64 nci = 6;
+  EventMeasurementReport event_measurement_report = 7;
+  MeasurementName measurement_name = 8;
+  Action action = 9;
+  int64 meas_id = 10;
+}

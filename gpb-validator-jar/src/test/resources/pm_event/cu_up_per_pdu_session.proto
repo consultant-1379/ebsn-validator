@@ -1,0 +1,19 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic event for monitoring number of PDU session in PpControlLink.
+ *
+ * Version: 13_14_0
+ */
+message CuUpPerPduSession {
+  // PmEventId: 4010
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 num_of_pdu_session = 4;
+  string gnb_cuup_function_id = 5;
+  string local_end_point = 6;
+  string remote_end_point = 7;
+}

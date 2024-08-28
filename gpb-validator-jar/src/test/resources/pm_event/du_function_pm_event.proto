@@ -1,0 +1,155 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+option java_outer_classname = "DuFunctionPmEventOuterClass";
+
+
+/**
+ * Description: Generated proto3 file
+ */
+
+
+/**
+ * Import all event specific proto files
+ */
+import "pm_event/du_f1_ue_context_setup_request.proto";
+import "pm_event/du_per_cell_traffic_rep.proto";
+import "pm_event/du_per_ue_traffic_rep_aggr60.proto";
+import "pm_event/du_f1_reset_acknowledge.proto";
+import "pm_event/du_per_ue_rb_traffic_rep_aggr60.proto";
+import "pm_event/du_per_n_r_cell_d_u_downtime.proto";
+import "pm_event/du_rrc_reject.proto";
+import "pm_event/du_per_cell_ipn_per_prb.proto";
+import "pm_event/du_f1_ue_context_setup_response.proto";
+import "pm_event/du_f1_ue_context_modification_required.proto";
+import "pm_event/du_f1_ue_context_modification_request.proto";
+import "pm_event/du_f1_gnb_cu_configuration_update_failure.proto";
+import "pm_event/du_f1_ue_context_release_complete.proto";
+import "pm_event/du_pim_measurements_rep.proto";
+import "pm_event/du_f1_ue_context_release_command.proto";
+import "pm_event/du_f1_gnb_du_configuration_update.proto";
+import "pm_event/du_per_cell_traffic_rep_extended.proto";
+import "pm_event/du_per_ue_rb_traffic_rep.proto";
+import "pm_event/du_per_cell_traffic_rep_lcg.proto";
+import "pm_event/du_f1_gnb_du_configuration_update_acknowledge.proto";
+import "pm_event/du_f1_ue_context_modification_refuse.proto";
+import "pm_event/du_per_cell_mac_pb_control.proto";
+import "pm_event/du_f1_conn_release.proto";
+import "pm_event/du_f1_ue_context_release_request.proto";
+import "pm_event/du_f1_gnb_cu_configuration_update.proto";
+import "pm_event/du_test_event_enm.proto";
+import "pm_event/du_per_radio_cell_measurement.proto";
+import "pm_event/du_proc_f1_ue_context_setup.proto";
+import "pm_event/du_per_radio_ue_measurement_aggr60.proto";
+import "pm_event/du_f1_gnb_cu_configuration_update_acknowledge.proto";
+import "pm_event/du_proc_ue_context_release.proto";
+import "pm_event/du_per_cell_beam_mgmt.proto";
+import "pm_event/du_per_cell_link_adaptation_rep.proto";
+import "pm_event/du_rrc_reestablishment_request.proto";
+import "pm_event/du_f1_ue_context_modification_response.proto";
+import "pm_event/du_rrc_resume_request.proto";
+import "pm_event/du_f1_ue_context_modification_failure.proto";
+import "pm_event/du_per_radio_beam_measurement.proto";
+import "pm_event/du_f1_ue_context_modification_confirm.proto";
+import "pm_event/du_f1_trace_start.proto";
+import "pm_event/du_f1_paging.proto";
+import "pm_event/du_f1_setup_failure.proto";
+import "pm_event/du_rrc_setup_request.proto";
+import "pm_event/du_f1_setup_request.proto";
+import "pm_event/du_f1_deactivate_trace.proto";
+import "pm_event/du_per_radio_ue_measurement.proto";
+import "pm_event/du_proc_ue_context_setup.proto";
+import "pm_event/du_f1_setup_response.proto";
+import "pm_event/du_per_ue_traffic_rep.proto";
+import "pm_event/du_proc_ue_context_modification.proto";
+import "pm_event/du_proc_rrc_access.proto";
+import "pm_event/du_per_f1_paging_rep.proto";
+import "pm_event/du_pws_repet_stopped_cmas.proto";
+import "pm_event/du_per_cellpartition_resource_rep.proto";
+import "pm_event/du_per_radio_cell_measurement_extended.proto";
+import "pm_event/du_per_cell_resource_rep.proto";
+import "pm_event/du_per_sector_carrier_emf_pwr_ctrl.proto";
+import "pm_event/du_per_cell_ue_context_allocated.proto";
+import "pm_event/du_bb_data_collection_lost.proto";
+import "pm_event/du_per_cell_paging_rep.proto";
+import "pm_event/du_pws_repet_stopped_etws.proto";
+import "pm_event/du_cell_lock_unlock.proto";
+import "pm_event/du_f1_ue_context_setup_failure.proto";
+import "pm_event/du_per_cell_qos_traffic_rep.proto";
+import "pm_event/du_f1_gnb_du_configuration_update_failure.proto";
+import "pm_event/du_f1_reset.proto";
+
+
+/**
+ * Define group message
+ */
+message DuFunctionPmEvent {
+  oneof event_payload {
+    DuPerUeTrafficRep du_per_ue_traffic_rep = 2001;
+    DuTestEventEnm du_test_event_enm = 2002;
+    DuPerCellMacPbControl du_per_cell_mac_pb_control = 2003;
+    DuPerRadioUeMeasurement du_per_radio_ue_measurement = 2004;
+    DuPerCellTrafficRep du_per_cell_traffic_rep = 2005;
+    DuPerSectorCarrierEmfPwrCtrl du_per_sector_carrier_emf_pwr_ctrl = 2006;
+    DuBbDataCollectionLost du_bb_data_collection_lost = 2007;
+    DuPerUeRbTrafficRep du_per_ue_rb_traffic_rep = 2008;
+    DuPerCellQosTrafficRep du_per_cell_qos_traffic_rep = 2009;
+    DuPerRadioCellMeasurement du_per_radio_cell_measurement = 2010;
+    DuPerCellResourceRep du_per_cell_resource_rep = 2011;
+    DuPerNRCellDUDowntime du_per_n_r_cell_d_u_downtime = 2012;
+    DuPerCellBeamMgmt du_per_cell_beam_mgmt = 2013;
+    DuF1TraceStart du_f1_trace_start = 2014;
+    DuF1DeactivateTrace du_f1_deactivate_trace = 2015;
+    DuPwsRepetStoppedEtws du_pws_repet_stopped_etws = 2016;
+    DuPwsRepetStoppedCmas du_pws_repet_stopped_cmas = 2017;
+    DuPerRadioBeamMeasurement du_per_radio_beam_measurement = 2018;
+    DuF1SetupRequest du_f1_setup_request = 2019;
+    DuF1SetupResponse du_f1_setup_response = 2020;
+    DuF1UeContextSetupFailure du_f1_ue_context_setup_failure = 2021;
+    DuF1UeContextSetupRequest du_f1_ue_context_setup_request = 2022;
+    DuF1UeContextSetupResponse du_f1_ue_context_setup_response = 2023;
+    DuF1GnbCuConfigurationUpdateAcknowledge du_f1_gnb_cu_configuration_update_acknowledge = 2024;
+    DuF1GnbCuConfigurationUpdateFailure du_f1_gnb_cu_configuration_update_failure = 2025;
+    DuF1GnbCuConfigurationUpdate du_f1_gnb_cu_configuration_update = 2026;
+    DuF1GnbDuConfigurationUpdateAcknowledge du_f1_gnb_du_configuration_update_acknowledge = 2027;
+    DuF1GnbDuConfigurationUpdateFailure du_f1_gnb_du_configuration_update_failure = 2028;
+    DuF1GnbDuConfigurationUpdate du_f1_gnb_du_configuration_update = 2029;
+    DuF1ResetAcknowledge du_f1_reset_acknowledge = 2030;
+    DuF1Reset du_f1_reset = 2031;
+    DuF1UeContextModificationFailure du_f1_ue_context_modification_failure = 2032;
+    DuF1UeContextModificationRequest du_f1_ue_context_modification_request = 2033;
+    DuF1UeContextModificationResponse du_f1_ue_context_modification_response = 2034;
+    DuF1UeContextReleaseCommand du_f1_ue_context_release_command = 2035;
+    DuF1UeContextReleaseComplete du_f1_ue_context_release_complete = 2036;
+    DuF1UeContextReleaseRequest du_f1_ue_context_release_request = 2037;
+    DuProcF1UeContextSetup du_proc_f1_ue_context_setup = 2038;
+    DuF1SetupFailure du_f1_setup_failure = 2039;
+    DuRrcSetupRequest du_rrc_setup_request = 2040;
+    DuRrcReject du_rrc_reject = 2041;
+    DuProcRrcAccess du_proc_rrc_access = 2042;
+    DuF1UeContextModificationConfirm du_f1_ue_context_modification_confirm = 2043;
+    DuF1UeContextModificationRefuse du_f1_ue_context_modification_refuse = 2044;
+    DuF1UeContextModificationRequired du_f1_ue_context_modification_required = 2045;
+    DuProcUeContextModification du_proc_ue_context_modification = 2046;
+    DuPerCellIpnPerPrb du_per_cell_ipn_per_prb = 2047;
+    DuProcUeContextSetup du_proc_ue_context_setup = 2048;
+    DuCellLockUnlock du_cell_lock_unlock = 2049;
+    DuF1ConnRelease du_f1_conn_release = 2050;
+    DuPerCellLinkAdaptationRep du_per_cell_link_adaptation_rep = 2051;
+    DuPerCellPagingRep du_per_cell_paging_rep = 2052;
+    DuPerCellTrafficRepExtended du_per_cell_traffic_rep_extended = 2053;
+    DuPerCellTrafficRepLcg du_per_cell_traffic_rep_lcg = 2054;
+    DuPerCellUeContextAllocated du_per_cell_ue_context_allocated = 2055;
+    DuPerF1PagingRep du_per_f1_paging_rep = 2056;
+    DuPerRadioCellMeasurementExtended du_per_radio_cell_measurement_extended = 2057;
+    DuF1Paging du_f1_paging = 2058;
+    DuPerCellpartitionResourceRep du_per_cellpartition_resource_rep = 2059;
+    DuRrcResumeRequest du_rrc_resume_request = 2060;
+    DuRrcReestablishmentRequest du_rrc_reestablishment_request = 2061;
+    DuPimMeasurementsRep du_pim_measurements_rep = 2062;
+    DuProcUeContextRelease du_proc_ue_context_release = 2063;
+    DuPerRadioUeMeasurementAggr60 du_per_radio_ue_measurement_aggr60 = 2064;
+    DuPerUeRbTrafficRepAggr60 du_per_ue_rb_traffic_rep_aggr60 = 2065;
+    DuPerUeTrafficRepAggr60 du_per_ue_traffic_rep_aggr60 = 2066;
+  }
+}

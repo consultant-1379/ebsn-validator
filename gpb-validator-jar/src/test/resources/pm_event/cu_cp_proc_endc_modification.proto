@@ -1,0 +1,120 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Secondary gNodeB Modification procedures. Contains information about modification type and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcEndcModification {
+  // PmEventId: 3146
+  enum EndcModificationType{
+    ENDC_MODIFICATION_TYPE_NO_VALUE = 0;
+    ENDC_MODIFICATION_TYPE_SCG_ADDITION = 1;
+    ENDC_MODIFICATION_TYPE_SCG_REMOVE = 2;
+    ENDC_MODIFICATION_TYPE_UL_LEG_SWITCH_NR_TO_LTE = 3;
+    ENDC_MODIFICATION_TYPE_UL_LEG_SWITCH_LTE_TO_NR = 4;
+    ENDC_MODIFICATION_TYPE_DU_TRIGGERED_RRC_RECONFIGURATION = 5;
+    ENDC_MODIFICATION_TYPE_INTRA_GNB_INTRA_DU_PSCELL_CHANGE_IAF = 6;
+    ENDC_MODIFICATION_TYPE_INTRA_GNB_INTER_DU_PSCELL_CHANGE_IAF = 7;
+    ENDC_MODIFICATION_TYPE_SCELL_CHANGE_IAF = 8;
+    ENDC_MODIFICATION_TYPE_SCELL_CHANGE_IEF = 9;
+    ENDC_MODIFICATION_TYPE_OTHER = 10;
+    ENDC_MODIFICATION_TYPE_INTRA_GNB_INTRA_DU_PSCELL_CHANGE_IEF = 11;
+    ENDC_MODIFICATION_TYPE_INTRA_GNB_INTER_DU_PSCELL_CHANGE_IEF = 12;
+    ENDC_MODIFICATION_TYPE_NO_LICENSE = 255;
+  }
+  enum EndcModificationResult{
+    ENDC_MODIFICATION_RESULT_NO_VALUE = 0;
+    ENDC_MODIFICATION_RESULT_SUCCESS = 1;
+    ENDC_MODIFICATION_RESULT_ABORT = 2;
+    ENDC_MODIFICATION_RESULT_NO_RADIO_RESOURCES = 3;
+    ENDC_MODIFICATION_RESULT_TDC_OVERALL_EXPIRY = 4;
+    ENDC_MODIFICATION_RESULT_ENCRYPTION_INTEGRITY_PROTECTION_ALGORITHM_NOT_SUPPORTED = 5;
+    ENDC_MODIFICATION_RESULT_QCI_VALUE_NOT_SUPPORTED = 6;
+    ENDC_MODIFICATION_RESULT_TDC_PREP_EXPIRY = 7;
+    ENDC_MODIFICATION_RESULT_MULTIPLE_ERAB_ID_INSTANCES = 8;
+    ENDC_MODIFICATION_RESULT_TARGET_NOT_ALLOWED = 9;
+    ENDC_MODIFICATION_RESULT_INVALID_QOS_COMBINATION = 10;
+    ENDC_MODIFICATION_RESULT_RADIO_CONNECTION_WITH_UE_LOST = 11;
+    ENDC_MODIFICATION_RESULT_FAILURE_RADIO_INTERFACE_PROCEDURE = 12;
+    ENDC_MODIFICATION_RESULT_UNKNOWN_UE_X2AP_ID = 13;
+    ENDC_MODIFICATION_RESULT_OTHER = 14;
+    ENDC_MODIFICATION_RESULT_NO_LICENSE = 255;
+  }
+  enum EndcModificationInitiatingNode{
+    ENDC_MODIFICATION_INITIATING_NODE_NO_VALUE = 0;
+    ENDC_MODIFICATION_INITIATING_NODE_MENB = 1;
+    ENDC_MODIFICATION_INITIATING_NODE_SGNB = 2;
+    ENDC_MODIFICATION_INITIATING_NODE_NO_LICENSE = 255;
+  }
+  enum ErabType{
+    ERAB_TYPE_NO_VALUE = 0;
+    ERAB_TYPE_SN_TERMINATED_SPLIT = 1;
+    ERAB_TYPE_SN_TERMINATED_MCG = 2;
+    ERAB_TYPE_NO_LICENSE = 255;
+  }
+  message ErabBeforeModification {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+    ErabType erab_type = 3;
+  }
+  message ErabAfterModification {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+    ErabType erab_type = 3;
+  }
+  enum ErabNotAdmittedReason{
+    ERAB_NOT_ADMITTED_REASON_NO_VALUE = 0;
+    ERAB_NOT_ADMITTED_REASON_RADIO_NETWORK_UNSPECIFIED = 1;
+    ERAB_NOT_ADMITTED_REASON_NETWORK_NO_RADIO_RESOURCE_AVAILABLE = 2;
+    ERAB_NOT_ADMITTED_REASON_NO_LICENSE = 255;
+  }
+  message ErabNotAdmittedDuringModification {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+    ErabType erab_type = 3;
+    ErabNotAdmittedReason erab_notadmitted_reason = 4;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  enum PsCellChangeReason{
+    PS_CELL_CHANGE_REASON_NO_VALUE = 0;
+    PS_CELL_CHANGE_REASON_POOR_COVERAGE = 1;
+    PS_CELL_CHANGE_REASON_HIGH_PRIORITY_CELL = 2;
+    PS_CELL_CHANGE_REASON_OTHER = 3;
+    PS_CELL_CHANGE_REASON_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  int64 nci = 5;
+  int64 target_cell_identity = 6;
+  EndcModificationType endc_modification_type = 7;
+  EndcModificationResult endc_modification_result = 8;
+  EndcModificationInitiatingNode endc_modification_initiating_node = 9;
+  repeated ErabBeforeModification erab_before_modification_list = 10;
+  repeated ErabAfterModification erab_after_modification_list = 11;
+  repeated ErabNotAdmittedDuringModification erab_notadmitted_during_modification_list = 12;
+  repeated int64 scells_before_modification_list = 13;
+  repeated int64 scells_after_modification_list = 14;
+  int64 no_of_scells_to_add = 15;
+  int64 no_of_scells_to_release = 16;
+  int64 gnb_id_length = 17;
+  GlobalGnbId global_gnb_id = 18;
+  GlobalEnbId global_enb_id = 19;
+  bytes serving_plmn_id = 20;
+  PsCellChangeReason ps_cell_change_reason = 21;
+  int64 pref_ue_group_id = 22;
+  int64 ue_group_id = 23;
+  int64 ue_mobility_group_id = 24;
+  int64 ue_service_group_id = 25;
+}

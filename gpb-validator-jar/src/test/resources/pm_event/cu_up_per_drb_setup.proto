@@ -1,0 +1,20 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Number of DRBs set up in PpControlLink.
+ *
+ * Version: 13_14_0
+ */
+message CuUpPerDrbSetup {
+  // PmEventId: 4009
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 num_of_drb_sa = 4;
+  int64 num_of_drb_endc = 5;
+  string gnb_cuup_function_id = 6;
+  string local_end_point = 7;
+  string remote_end_point = 8;
+}

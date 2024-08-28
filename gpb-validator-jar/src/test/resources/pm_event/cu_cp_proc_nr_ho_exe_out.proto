@@ -1,0 +1,172 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for NR Handover Execution procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcNrHoExeOut {
+  // PmEventId: 3103
+  enum HoType{
+    HO_TYPE_NO_VALUE = 0;
+    HO_TYPE_INTRA_GNB_INTRA_DU = 1;
+    HO_TYPE_INTER_GNB_NG_C = 2;
+    HO_TYPE_NO_LICENSE = 255;
+  }
+  enum HoExeResult{
+    HO_EXE_RESULT_NO_VALUE = 0;
+    HO_EXE_RESULT_SUCCESS = 1;
+    HO_EXE_RESULT_FAILURE_RADIO_NETWORK_LAYER_CAUSE_RADIO_RESOURCES_NOT_AVAILABLE = 2;
+    HO_EXE_RESULT_FAILURE_RADIO_NETWORK_LAYER_CAUSE_FAILURE_IN_THE_RADIO_INTERFACE_PROCEDURE = 3;
+    HO_EXE_RESULT_FAILURE_RADIO_NETWORK_LAYER_CAUSE_TNGRELOCOVERALL_EXPIRY = 4;
+    HO_EXE_RESULT_FAILURE_RADIO_NETWORK_LAYER_CAUSE_HANDOVER_CANCELLED = 5;
+    HO_EXE_RESULT_FAILURE_MISCELLANEOUS_CAUSE_UNSPECIFIED = 6;
+    HO_EXE_RESULT_FAILURE_RADIO_NETWORK_LAYER_CAUSE_PARTIAL_HANDOVER = 7;
+    HO_EXE_RESULT_FAILURE_RADIO_NETWORK_LAYER_CAUSE_TXNRELOCOVERALL_EXPIRY = 8;
+    HO_EXE_RESULT_NO_LICENSE = 255;
+  }
+  enum HoExePduResult{
+    HO_EXE_PDU_RESULT_NO_VALUE = 0;
+    HO_EXE_PDU_RESULT_SUCCESS = 1;
+    HO_EXE_PDU_RESULT_FAILURE = 2;
+    HO_EXE_PDU_RESULT_NO_LICENSE = 255;
+  }
+  message HoExePduSessionResult {
+    HoExePduResult ho_exe_pdu_result = 1;
+    int64 pdu_session_id = 2;
+    bytes s_nssai = 3;
+  }
+  enum HoExeDrbResult{
+    HO_EXE_DRB_RESULT_NO_VALUE = 0;
+    HO_EXE_DRB_RESULT_SUCCESS = 1;
+    HO_EXE_DRB_RESULT_FAILURE = 2;
+    HO_EXE_DRB_RESULT_NO_LICENSE = 255;
+  }
+  message HoExeDrbSetupResult {
+    HoExeDrbResult ho_exe_drb_result = 1;
+    int64 drb_id = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+  }
+  enum ReconfigOption{
+    RECONFIG_OPTION_NO_VALUE = 0;
+    RECONFIG_OPTION_NON_CA = 1;
+    RECONFIG_OPTION_WITH_SCELL = 2;
+    RECONFIG_OPTION_WITHOUT_SCELL = 3;
+    RECONFIG_OPTION_NO_LICENSE = 255;
+  }
+  enum HoTargetFreq{
+    HO_TARGET_FREQ_NO_VALUE = 0;
+    HO_TARGET_FREQ_NR_INTRA_FREQ = 1;
+    HO_TARGET_FREQ_NR_INTER_FREQ = 2;
+    HO_TARGET_FREQ_EUTRA_FREQ = 3;
+    HO_TARGET_FREQ_NO_LICENSE = 255;
+  }
+  enum HoInterSystemType{
+    HO_INTER_SYSTEM_TYPE_NO_VALUE = 0;
+    HO_INTER_SYSTEM_TYPE_INTRA_5GC = 1;
+    HO_INTER_SYSTEM_TYPE_5GC_TO_EPC = 2;
+    HO_INTER_SYSTEM_TYPE_NO_LICENSE = 255;
+  }
+  enum HoTargetNodeType{
+    HO_TARGET_NODE_TYPE_NO_VALUE = 0;
+    HO_TARGET_NODE_TYPE_INTRA_GNB_INTRA_DU = 1;
+    HO_TARGET_NODE_TYPE_INTER_GNB = 2;
+    HO_TARGET_NODE_TYPE_ENB = 3;
+    HO_TARGET_NODE_TYPE_NO_LICENSE = 255;
+  }
+  enum HoInterfaceType{
+    HO_INTERFACE_TYPE_NO_VALUE = 0;
+    HO_INTERFACE_TYPE_NG = 1;
+    HO_INTERFACE_TYPE_INTERNAL = 2;
+    HO_INTERFACE_TYPE_XN = 3;
+    HO_INTERFACE_TYPE_NO_LICENSE = 255;
+  }
+  enum HoTriggerReason{
+    HO_TRIGGER_REASON_NO_VALUE = 0;
+    HO_TRIGGER_REASON_POOR_COVERAGE = 1;
+    HO_TRIGGER_REASON_EPS_FALLBACK = 2;
+    HO_TRIGGER_REASON_EMERGENCY_FALLBACK = 3;
+    HO_TRIGGER_REASON_OTHER = 4;
+    HO_TRIGGER_REASON_CAP_AWARE_P_CELL_SELECTION = 5;
+    HO_TRIGGER_REASON_TRAFFIC_STEERING = 6;
+    HO_TRIGGER_REASON_NO_LICENSE = 255;
+  }
+  enum UePowerClass{
+    UE_POWER_CLASS_NO_VALUE = 0;
+    UE_POWER_CLASS_1 = 1;
+    UE_POWER_CLASS_1_5 = 2;
+    UE_POWER_CLASS_2 = 3;
+    UE_POWER_CLASS_3 = 4;
+    UE_POWER_CLASS_4 = 5;
+    UE_POWER_CLASS_NO_LICENSE = 255;
+  }
+  enum NrdcConfigured{
+    NRDC_CONFIGURED_NO_VALUE = 0;
+    NRDC_CONFIGURED_TRUE = 1;
+    NRDC_CONFIGURED_FALSE = 2;
+    NRDC_CONFIGURED_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  enum HoSystemType{
+    HO_SYSTEM_TYPE_NO_VALUE = 0;
+    HO_SYSTEM_TYPE_INTRA_5GC = 1;
+    HO_SYSTEM_TYPE_5GC_TO_EPC = 2;
+    HO_SYSTEM_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  int64 nci = 5;
+  int64 target_cell_identity = 6;
+  HoType ho_type = 7;
+  HoExeResult ho_exe_result = 8;
+  int64 gnb_id_length = 9;
+  repeated HoExePduSessionResult ho_exe_pdu_session_result_list = 10;
+  repeated HoExeDrbSetupResult ho_exe_drb_setup_result_list = 11;
+  bytes serving_plmn_id = 12;
+  repeated int64 scells_before_ho_list = 13;
+  int64 no_of_scells_to_release = 14;
+  ReconfigOption scell_config_during_ho = 15;
+  HoTargetFreq ho_target_freq = 16;
+  HoInterSystemType ho_inter_system_type = 17;
+  HoTargetNodeType ho_target_node_type = 18;
+  HoInterfaceType ho_interface_type = 19;
+  HoTriggerReason ho_trigger_reason = 20;
+  int64 pref_ue_group_id = 21;
+  int64 ue_group_id = 22;
+  UePowerClass ue_power_class = 23;
+  NrdcConfigured nrdc_configured = 24;
+  Guami guami = 25;
+  int64 amf_ue_ngap_id = 26;
+  int64 ran_ue_ngap_id = 27;
+  GlobalGnbId source_global_gnb_id = 28;
+  int64 source_ng_ran_node_ue_xnap_id = 29;
+  GlobalGnbId target_global_gnb_id = 30;
+  int64 target_ng_ran_node_ue_xnap_id = 31;
+  PmBooleanType is_source_ng_ran_node_ue_xnap_id_set = 32;
+  PmBooleanType is_target_global_gnb_id_set = 33;
+  PmBooleanType is_target_ng_ran_node_ue_xnap_id_set = 34;
+  int64 ue_mobility_group_id = 35;
+  int64 ue_service_group_id = 36;
+  bytes target_cell_plmn_identity = 37;
+  HoSystemType ho_system_type = 38;
+}

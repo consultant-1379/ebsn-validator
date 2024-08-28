@@ -1,0 +1,46 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Monitors if best neighbor physical cell ID in measurement report is invalid in source cell.
+ *
+ * Version: 13_38_0
+ */
+message CuCpEndcMobilityEvaluation {
+  // PmEventId: 3063
+  enum EndcMobilityTrigger{
+    ENDC_MOBILITY_TRIGGER_NO_VALUE = 0;
+    ENDC_MOBILITY_TRIGGER_MEAS_REPORT_A3 = 1;
+    ENDC_MOBILITY_TRIGGER_NO_LICENSE = 255;
+  }
+  enum EndcMobilityTriggerQuantity{
+    ENDC_MOBILITY_TRIGGER_QUANTITY_NO_VALUE = 0;
+    ENDC_MOBILITY_TRIGGER_QUANTITY_RSRP = 1;
+    ENDC_MOBILITY_TRIGGER_QUANTITY_RSRQ = 2;
+    ENDC_MOBILITY_TRIGGER_QUANTITY_SINR = 3;
+    ENDC_MOBILITY_TRIGGER_QUANTITY_NO_LICENSE = 255;
+  }
+  enum EndcMobilityDecision{
+    ENDC_MOBILITY_DECISION_NO_VALUE = 0;
+    ENDC_MOBILITY_DECISION_INTRA_GNB_HO = 1;
+    ENDC_MOBILITY_DECISION_INTER_GNB_HO = 2;
+    ENDC_MOBILITY_DECISION_NO_ACTION_NO_VALID_HO_TARGET = 3;
+    ENDC_MOBILITY_DECISION_RELEASE_NO_VALID_HO_TARGET = 4;
+    ENDC_MOBILITY_DECISION_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 nci = 3;
+  EndcMobilityTrigger endc_mobility_trigger = 4;
+  EndcMobilityTriggerQuantity endc_mobility_trigger_quantity = 5;
+  EndcMobilityDecision endc_mobility_decision = 6;
+  int64 serving_cell_rsrp = 7;
+  int64 serving_cell_rsrq = 8;
+  int64 target_cell_nci = 9;
+  int64 target_cell_pci = 10;
+  int64 target_cell_rsrp = 11;
+  int64 target_cell_rsrq = 12;
+  int64 gnb_id_length = 13;
+  int64 best_neighb_pci_invalid = 14;
+}

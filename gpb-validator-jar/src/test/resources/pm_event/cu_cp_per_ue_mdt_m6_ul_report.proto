@@ -1,0 +1,34 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: M6 Uplink measurement received.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPerUeMdtM6UlReport {
+  // PmEventId: 3231
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message MdtM6UlPacketDelayMeasurement {
+    int64 average_packet_delay_ul = 1;
+    int64 drb_id = 2;
+    int64 qos_value = 3;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 nci = 3;
+  int64 gnb_id_length = 4;
+  GlobalGnbId global_gnb_id = 5;
+  repeated MdtM6UlPacketDelayMeasurement mdt_m6_ul_packet_delay_measurement_list = 6;
+  GlobalEnbId menb_id = 7;
+  int64 menb_cell_id = 8;
+  bytes serving_plmn_id = 9;
+}

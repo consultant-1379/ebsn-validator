@@ -1,0 +1,62 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Used for NR Standalone to monitor 3GPP Retrieve UE Context procedure. See 3GPP TS 38.423 XnAP Retrieve UE Context procedure.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcXnRetrieveUeCtxt {
+  // PmEventId: 3237
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum RrcProcedureType{
+    RRC_PROCEDURE_TYPE_NO_VALUE = 0;
+    RRC_PROCEDURE_TYPE_RRC_RESUME = 1;
+    RRC_PROCEDURE_TYPE_RRC_REESTABLISHMENT = 2;
+    RRC_PROCEDURE_TYPE_NO_LICENSE = 255;
+  }
+  enum RetrieveUeCtxtResult{
+    RETRIEVE_UE_CTXT_RESULT_NO_VALUE = 0;
+    RETRIEVE_UE_CTXT_RESULT_SUCCESS = 1;
+    RETRIEVE_UE_CTXT_RESULT_FAILURE_CONTEXT_RETRIEVAL_FAILED = 2;
+    RETRIEVE_UE_CTXT_RESULT_FAILURE_UE_CONTEXT_RELEASE_TIMEOUT = 3;
+    RETRIEVE_UE_CTXT_RESULT_FAILURE_UNSPECIFIED = 4;
+    RETRIEVE_UE_CTXT_RESULT_NO_LICENSE = 255;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  int64 nci = 5;
+  int64 gnb_id_length = 6;
+  GlobalGnbId global_gnb_id = 7;
+  RrcProcedureType rrc_procedure_type = 8;
+  RetrieveUeCtxtResult retrieve_ue_ctxt_result = 9;
+  CauseGroup cause_group = 10;
+  int64 cause = 11;
+  Guami guami = 12;
+  GlobalGnbId new_ng_ran_node_global_gnb_id = 13;
+  int64 old_ng_ran_node_ue_xnap_id = 14;
+  int64 new_ng_ran_node_ue_xnap_id = 15;
+  bytes serving_plmn_id = 16;
+  int64 pref_ue_group_id = 17;
+  int64 ue_group_id = 18;
+}

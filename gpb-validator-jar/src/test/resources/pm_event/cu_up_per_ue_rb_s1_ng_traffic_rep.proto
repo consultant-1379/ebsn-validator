@@ -1,0 +1,39 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: S1 and NG user plane traffic measurements.
+ *
+ * Version: 13_14_0
+ */
+message CuUpPerUeRbS1NgTrafficRep {
+  // PmEventId: 4004
+  enum NrType{
+    NR_TYPE_NO_VALUE = 0;
+    NR_TYPE_NSA = 1;
+    NR_TYPE_SA = 2;
+    NR_TYPE_NO_LICENSE = 255;
+  }
+  enum LinkType{
+    LINK_TYPE_NO_VALUE = 0;
+    LINK_TYPE_S1U = 1;
+    LINK_TYPE_NGU = 2;
+    LINK_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  NrType nr_type = 4;
+  int64 qos_value = 5;
+  int64 per_drb_pdcp_packet_rec_dl = 6;
+  int64 per_drb_pdcp_packet_rec_dl_disc = 7;
+  int64 per_drb_pdcp_packet_rec_dl_disc_aqm = 8;
+  int64 per_drb_pdcp_packet_trans_ul = 9;
+  int64 per_drb_pdcp_vol_trans_ul = 10;
+  string gnb_cuup_function_id = 11;
+  string local_end_point = 12;
+  string remote_end_point = 13;
+  bytes serving_plmn_id = 14;
+  LinkType link_type = 15;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.ericsson.oss.mediation.modeling.ebstools.validator" slot="main">
+    <resources>
+        <resource-root path="ebsn-validator-api-${project.version}.jar" />
+        <resource-root path="etcm-validator-jar-${project.version}.jar" />
+        <resource-root path="ftem-validator-jar-${project.version}.jar" />
+        <resource-root path="gpb-validator-api-${project.version}.jar" />
+        <resource-root path="gpb-validator-jar-${project.version}.jar" />
+    </resources>
+    <dependencies>
+        <module name="org.slf4j" export="true" />
+        <module name="javaee.api" export="true" />
+        <module name="javax.xml.bind.api" />
+        <module name="com.ericsson.oss.itpf.modeling.modelservice.api" export="true" />
+    </dependencies>
+</module>

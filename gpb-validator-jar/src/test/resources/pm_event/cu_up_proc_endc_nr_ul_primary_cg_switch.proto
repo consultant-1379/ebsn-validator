@@ -1,0 +1,38 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Switching of UL primary Cell Group (CG) radio resources.
+ *
+ * Version: 13_14_0
+ */
+message CuUpProcEndcNrUlPrimaryCgSwitch {
+  // PmEventId: 4007
+  enum EndcNrUlLegSwitchType{
+    ENDC_NR_UL_LEG_SWITCH_TYPE_NO_VALUE = 0;
+    ENDC_NR_UL_LEG_SWITCH_TYPE_UL_NR_TO_LTE = 1;
+    ENDC_NR_UL_LEG_SWITCH_TYPE_UL_LTE_TO_NR = 2;
+    ENDC_NR_UL_LEG_SWITCH_TYPE_NO_LICENSE = 255;
+  }
+  enum EndcNrUlLegSwitchResult{
+    ENDC_NR_UL_LEG_SWITCH_RESULT_NO_VALUE = 0;
+    ENDC_NR_UL_LEG_SWITCH_RESULT_SUCCESS = 1;
+    ENDC_NR_UL_LEG_SWITCH_RESULT_FAILURE = 2;
+    ENDC_NR_UL_LEG_SWITCH_RESULT_NO_LICENSE = 255;
+  }
+  enum EndcNrUlLegSwitchCause{
+    ENDC_NR_UL_LEG_SWITCH_CAUSE_NO_VALUE = 0;
+    ENDC_NR_UL_LEG_SWITCH_CAUSE_BB_TRIGGERED = 1;
+    ENDC_NR_UL_LEG_SWITCH_CAUSE_PPE_TRIGGERED = 2;
+    ENDC_NR_UL_LEG_SWITCH_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 time_stamp_start = 4;
+  int64 time_stamp_stop = 5;
+  EndcNrUlLegSwitchType endc_nr_ul_primary_cg_switch_type = 6;
+  EndcNrUlLegSwitchResult endc_nr_ul_primary_cg_switch_result = 7;
+  EndcNrUlLegSwitchCause endc_nr_ul_primary_cg_switch_cause = 8;
+}

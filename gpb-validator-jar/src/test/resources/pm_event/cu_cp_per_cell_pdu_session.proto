@@ -1,0 +1,22 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic event for monitoring number of PDU session in NR cell.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPerCellPduSession {
+  // PmEventId: 3210
+  message NumPduSessionPlmn {
+    bytes serving_plmn_id = 1;
+    int64 num_of_pdu_session = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 num_of_pdu_session = 5;
+  repeated NumPduSessionPlmn num_of_pdu_session_plmn_list = 6;
+}

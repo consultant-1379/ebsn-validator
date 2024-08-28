@@ -1,0 +1,21 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Paging measurement of cell.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellPagingRep {
+  // PmEventId: 2052
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  int64 per_cell_paging_received = 6;
+  int64 per_cell_paging_discarded = 7;
+  repeated int64 per_cell_po_bundled_ue_distr = 8;
+  repeated int64 per_cell_po_bundled_ue_samp = 9;
+}

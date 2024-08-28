@@ -1,0 +1,85 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: M1 measurement received.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPerUeMdtReport {
+  // PmEventId: 3230
+  enum MsgDirection{
+    MSG_DIRECTION_NO_VALUE = 0;
+    MSG_DIRECTION_SEND = 1;
+    MSG_DIRECTION_RECEIVE = 2;
+    MSG_DIRECTION_NO_LICENSE = 255;
+  }
+  enum ProtocolName{
+    PROTOCOL_NAME_NO_VALUE = 0;
+    PROTOCOL_NAME_RRC_36_331_BCCH_BCH_MESSAGE = 1;
+    PROTOCOL_NAME_RRC_36_331_BCCH_DL_SCH_MESSAGE = 2;
+    PROTOCOL_NAME_RRC_36_331_DL_CCCH_MESSAGE = 3;
+    PROTOCOL_NAME_RRC_36_331_DL_DCCH_MESSAGE = 4;
+    PROTOCOL_NAME_RRC_36_331_PCCH_MESSAGE = 5;
+    PROTOCOL_NAME_RRC_36_331_UL_CCCH_MESSAGE = 6;
+    PROTOCOL_NAME_RRC_36_331_UL_DCCH_MESSAGE = 7;
+    PROTOCOL_NAME_RRC_38_331_BCCH_BCH_MESSAGE = 8;
+    PROTOCOL_NAME_RRC_38_331_BCCH_DL_SCH_MESSAGE = 9;
+    PROTOCOL_NAME_RRC_38_331_DL_CCCH_MESSAGE = 10;
+    PROTOCOL_NAME_RRC_38_331_DL_DCCH_MESSAGE = 11;
+    PROTOCOL_NAME_RRC_38_331_PCCH_MESSAGE = 12;
+    PROTOCOL_NAME_RRC_38_331_UL_CCCH_MESSAGE = 13;
+    PROTOCOL_NAME_RRC_38_331_UL_DCCH_MESSAGE = 14;
+    PROTOCOL_NAME_S1AP_36_413 = 15;
+    PROTOCOL_NAME_X2AP_36_423 = 16;
+    PROTOCOL_NAME_NGAP_38_413 = 17;
+    PROTOCOL_NAME_XNAP_38_423 = 18;
+    PROTOCOL_NAME_F1AP_38_473 = 19;
+    PROTOCOL_NAME_NO_LICENSE = 255;
+  }
+  message Asn1Message {
+    MsgDirection msg_direction = 1;
+    bytes msg_content = 2;
+    repeated ProtocolName protocol_name = 3;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum M1ReportType{
+    M1_REPORT_TYPE_NO_VALUE = 0;
+    M1_REPORT_TYPE_MDT_A2 = 1;
+    M1_REPORT_TYPE_MDT_A2_PERIODIC = 2;
+    M1_REPORT_TYPE_MDT_PERIODIC = 3;
+    M1_REPORT_TYPE_RRM_CONFIGURED = 4;
+    M1_REPORT_TYPE_NO_LICENSE = 255;
+  }
+  enum TriggeringEvent{
+    TRIGGERING_EVENT_NO_VALUE = 0;
+    TRIGGERING_EVENT_A1 = 1;
+    TRIGGERING_EVENT_A2 = 2;
+    TRIGGERING_EVENT_A3 = 3;
+    TRIGGERING_EVENT_A4 = 4;
+    TRIGGERING_EVENT_A5 = 5;
+    TRIGGERING_EVENT_A6 = 6;
+    TRIGGERING_EVENT_B1 = 7;
+    TRIGGERING_EVENT_B2 = 8;
+    TRIGGERING_EVENT_NO_LICENSE = 255;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  Asn1Message asn1 = 3;
+  int64 nci = 4;
+  int64 gnb_id_length = 5;
+  GlobalGnbId global_gnb_id = 6;
+  M1ReportType report_type = 7;
+  TriggeringEvent triggering_event = 8;
+  GlobalEnbId menb_id = 9;
+  int64 menb_cell_id = 10;
+  bytes serving_plmn_id = 11;
+}

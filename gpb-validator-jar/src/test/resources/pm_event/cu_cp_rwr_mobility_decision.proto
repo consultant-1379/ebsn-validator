@@ -1,0 +1,67 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Mobility decisions for UE RwR.
+ *
+ * Version: 13_149_0
+ */
+message CuCpRwrMobilityDecision {
+  // PmEventId: 3004
+  enum RwrDecision{
+    RWR_DECISION_NO_VALUE = 0;
+    RWR_DECISION_PERFORM = 1;
+    RWR_DECISION_NOT_PERFORMED_UNSPECIFIED_REASON = 2;
+    RWR_DECISION_NOT_PERFORMED_NO_EUTRAN_TARGET = 3;
+    RWR_DECISION_NOT_PERFORMED_PLMN_NOT_ALLOWED = 4;
+    RWR_DECISION_NOT_PERFORMED_UE_NOT_CAPABLE = 5;
+    RWR_DECISION_NO_LICENSE = 255;
+  }
+  enum RwrTrigger{
+    RWR_TRIGGER_NO_VALUE = 0;
+    RWR_TRIGGER_NR_COVERAGE = 1;
+    RWR_TRIGGER_EPS_FALLBACK_VOICE = 2;
+    RWR_TRIGGER_EPS_FALLBACK_VOICE_EMERGENCY = 3;
+    RWR_TRIGGER_EPS_FALLBACK_EMERGENCY_FALLBACK_INDICATOR = 4;
+    RWR_TRIGGER_IRAT_FAILURE_UE_CAPABILITY_EVENTB = 5;
+    RWR_TRIGGER_IRAT_FAILURE_UE_CAPABILITY_HO2LTE = 6;
+    RWR_TRIGGER_EPS_FALLBACK_MEASUREMENT_TIMEOUT = 7;
+    RWR_TRIGGER_EPS_FALLBACK_CRITICAL_COVERAGE = 8;
+    RWR_TRIGGER_UE_CAPABILITY_FAILURE_DU = 9;
+    RWR_TRIGGER_NO_LICENSE = 255;
+  }
+  enum RwrType{
+    RWR_TYPE_NO_VALUE = 0;
+    RWR_TYPE_BLIND = 1;
+    RWR_TYPE_MEASURED = 2;
+    RWR_TYPE_FORCED_BLIND = 3;
+    RWR_TYPE_NO_LICENSE = 255;
+  }
+  enum TargetSystem{
+    TARGET_SYSTEM_NO_VALUE = 0;
+    TARGET_SYSTEM_EUTRAN = 1;
+    TARGET_SYSTEM_NR = 2;
+    TARGET_SYSTEM_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  bytes ue_trace_id = 1;
+  int64 nci = 2;
+  RwrDecision rwr_decision = 3;
+  int64 target_arfcn = 4;
+  RwrTrigger rwr_trigger = 5;
+  RwrType rwr_type = 6;
+  TargetSystem target_system = 7;
+  bytes main_plmn_id = 8;
+  int64 gnb_id = 9;
+  int64 gnb_id_length = 10;
+  GlobalGnbId global_gnb_id = 11;
+  bytes serving_plmn_id = 12;
+  int64 pref_ue_group_id = 13;
+  int64 ue_group_id = 14;
+  int64 ue_mobility_group_id = 15;
+  int64 ue_service_group_id = 16;
+}

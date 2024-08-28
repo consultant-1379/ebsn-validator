@@ -1,0 +1,18 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Received and discarded NGAP PAGING message in gNodeB-CU.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPerNgPagingRep {
+  // PmEventId: 3205
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 paging_received = 4;
+  int64 paging_discarded = 5;
+  int64 paging_discarded_mpload = 6;
+}

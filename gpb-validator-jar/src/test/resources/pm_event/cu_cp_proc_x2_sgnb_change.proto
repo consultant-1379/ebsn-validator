@@ -1,0 +1,67 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Secondary gNodeB Change procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcX2SgnbChange {
+  // PmEventId: 3066
+  enum SgnbChangeResult{
+    SGNB_CHANGE_RESULT_NO_VALUE = 0;
+    SGNB_CHANGE_RESULT_SUCCESS = 1;
+    SGNB_CHANGE_RESULT_FAILURE = 2;
+    SGNB_CHANGE_RESULT_ABORT = 3;
+    SGNB_CHANGE_RESULT_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  enum PsCellChangeTargetFreq{
+    PS_CELL_CHANGE_TARGET_FREQ_NO_VALUE = 0;
+    PS_CELL_CHANGE_TARGET_FREQ_NR_INTRA_FREQ = 1;
+    PS_CELL_CHANGE_TARGET_FREQ_NR_INTER_FREQ = 2;
+    PS_CELL_CHANGE_TARGET_FREQ_NO_LICENSE = 255;
+  }
+  enum PsCellChangeReason{
+    PS_CELL_CHANGE_REASON_NO_VALUE = 0;
+    PS_CELL_CHANGE_REASON_POOR_COVERAGE = 1;
+    PS_CELL_CHANGE_REASON_HIGH_PRIORITY_CELL = 2;
+    PS_CELL_CHANGE_REASON_OTHER = 3;
+    PS_CELL_CHANGE_REASON_NO_LICENSE = 255;
+  }
+  enum HoTargetNodeType{
+    HO_TARGET_NODE_TYPE_NO_VALUE = 0;
+    HO_TARGET_NODE_TYPE_INTER_GNB = 1;
+    HO_TARGET_NODE_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  int64 nci = 5;
+  int64 target_gnb_id = 6;
+  SgnbChangeResult sgnb_change_result = 7;
+  int64 gnb_id_length = 8;
+  GlobalGnbId global_gnb_id = 9;
+  GlobalEnbId global_enb_id = 10;
+  repeated int64 scells_before_sn_change_list = 11;
+  int64 no_of_scells_to_release = 12;
+  bytes serving_plmn_id = 13;
+  int64 pref_ue_group_id = 14;
+  int64 ue_group_id = 15;
+  PsCellChangeTargetFreq ps_cell_change_target_freq = 16;
+  PsCellChangeReason ps_cell_change_reason = 17;
+  int64 target_cell_identity = 18;
+  int64 ue_mobility_group_id = 19;
+  int64 ue_service_group_id = 20;
+  bytes target_cell_plmn_identity = 21;
+  HoTargetNodeType ho_target_node_type = 22;
+}

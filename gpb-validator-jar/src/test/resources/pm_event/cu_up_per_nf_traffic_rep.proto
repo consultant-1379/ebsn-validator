@@ -1,0 +1,24 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: CUUP specific traffic measurements.
+ *
+ * Version: 13_14_0
+ */
+message CuUpPerNfTrafficRep {
+  // PmEventId: 4003
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 cuup_id = 4;
+  int64 per_cuup_packet_disc = 5;
+  int64 per_cuup_packet_disc_gtpu = 6;
+  int64 per_cuup_packet_disc_no_ctxt = 7;
+  int64 per_cuup_switch_to_nr = 8;
+  int64 per_cuup_switch_to_lte = 9;
+  int64 per_cuup_test_mode_pdcp_packet_generated = 10;
+  int64 per_cuup_rohc_cid_dl = 11;
+  int64 per_cuup_rohc_cid_ul = 12;
+}

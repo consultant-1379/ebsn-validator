@@ -1,0 +1,93 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for UE Context Release procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcUeCtxtRel {
+  // PmEventId: 3055
+  enum UeCtxtRelInitiator{
+    UE_CTXT_REL_INITIATOR_NO_VALUE = 0;
+    UE_CTXT_REL_INITIATOR_UNSPECIFIED = 1;
+    UE_CTXT_REL_INITIATOR_GNB_CU = 2;
+    UE_CTXT_REL_INITIATOR_GNB_DU = 3;
+    UE_CTXT_REL_INITIATOR_AMF = 4;
+    UE_CTXT_REL_INITIATOR_GNB_CU_UP = 5;
+    UE_CTXT_REL_INITIATOR_EXTERNAL_GNB = 6;
+    UE_CTXT_REL_INITIATOR_NO_LICENSE = 255;
+  }
+  enum UeCtxtRelType{
+    UE_CTXT_REL_TYPE_NO_VALUE = 0;
+    UE_CTXT_REL_TYPE_UNSPECIFIED = 1;
+    UE_CTXT_REL_TYPE_NORMAL = 2;
+    UE_CTXT_REL_TYPE_ABNORMAL = 3;
+    UE_CTXT_REL_TYPE_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  message PduSessionRelease {
+    int64 pdu_session_id = 1;
+    bytes s_nssai = 2;
+  }
+  message DrbRelease {
+    int64 drb_id = 1;
+    int64 mapped_5qi = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+    PmBooleanType drb_released_in_session = 5;
+    int64 drb_session_time = 6;
+    int64 priority_level_arp = 7;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NAS = 5;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  UeCtxtRelInitiator ue_ctxt_rel_initiator = 5;
+  UeCtxtRelType ue_ctxt_rel_type = 6;
+  bytes ue_trace_id = 7;
+  int64 nci = 8;
+  map<int64, int64> released_drb_list = 9;
+  map<int64, bytes> released_pdu_session_snssai_list = 10;
+  int64 gnb_id_length = 11;
+  map<int64, PmBooleanType> drb_released_in_session_list = 12;
+  map<int64, int64> drb_session_time_list = 13;
+  bytes serving_plmn_id = 14;
+  repeated PduSessionRelease pdu_session_release_list = 15;
+  repeated DrbRelease drb_release_list = 16;
+  repeated int64 scells_before_ctxt_rel_list = 17;
+  int64 no_of_scells_to_release = 18;
+  CauseGroup cause_group_3gpp = 19;
+  int64 cause_3gpp = 20;
+  int64 pref_ue_group_id = 21;
+  int64 ue_group_id = 22;
+  Guami guami = 23;
+  int64 amf_ue_ngap_id = 24;
+  int64 ran_ue_ngap_id = 25;
+  PmBooleanType rrc_inactive_state = 26;
+  PmBooleanType ca_conf_based_freq_prio_at_release = 27;
+  int64 ue_mobility_group_id = 28;
+  int64 ue_service_group_id = 29;
+  PmBooleanType subscriber_specific_freq_prio_at_release = 30;
+}

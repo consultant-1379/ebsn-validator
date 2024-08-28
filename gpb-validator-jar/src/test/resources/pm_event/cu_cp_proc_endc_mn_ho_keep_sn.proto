@@ -1,0 +1,80 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Master Node handover for keeping Secondary Node with the Intra- or Inter-MN Handover without MN-Initiated SN Change procedure. See 3GPP TS 37.340.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcEndcMnHoKeepSn {
+  // PmEventId: 3162
+  enum KeepSnResult{
+    KEEP_SN_RESULT_NO_VALUE = 0;
+    KEEP_SN_RESULT_SUCCESS = 1;
+    KEEP_SN_RESULT_NO_RADIO_RESOURCES = 2;
+    KEEP_SN_RESULT_TDC_OVERALL_EXPIRY = 3;
+    KEEP_SN_RESULT_TARGET_MN_TRIGGERED_SN_RELEASE = 4;
+    KEEP_SN_RESULT_SOURCE_MN_TRIGGERED_SN_RELEASE = 5;
+    KEEP_SN_RESULT_OTHER = 6;
+    KEEP_SN_RESULT_ABORT = 7;
+    KEEP_SN_RESULT_NO_LICENSE = 255;
+  }
+  message ErabToBeAdded {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+  }
+  enum Cause{
+    CAUSE_NO_VALUE = 0;
+    CAUSE_RADIO_NETWORK_UNSPECIFIED = 1;
+    CAUSE_RADIO_NETWORK_NO_RADIO_RESOURCE_AVAILABLE = 2;
+    CAUSE_NO_LICENSE = 255;
+  }
+  message ErabNotAdmitted {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+    Cause cause = 3;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  enum SelectPsCellResult{
+    SELECT_PS_CELL_RESULT_NO_VALUE = 0;
+    SELECT_PS_CELL_RESULT_KEEP = 1;
+    SELECT_PS_CELL_RESULT_CHANGE = 2;
+    SELECT_PS_CELL_RESULT_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 target_cell_identity = 5;
+  KeepSnResult keep_sn_result = 6;
+  repeated ErabToBeAdded erab_to_be_added_list = 7;
+  repeated ErabNotAdmitted erab_not_admitted_list = 8;
+  int64 time_stamp_start = 9;
+  int64 time_stamp_stop = 10;
+  GlobalGnbId global_gnb_id = 11;
+  GlobalEnbId global_enb_id = 12;
+  repeated int64 scells_before_mn_ho_list = 13;
+  repeated int64 scells_after_mn_ho_list = 14;
+  int64 no_of_scells_to_add = 15;
+  int64 no_of_scells_to_release = 16;
+  bytes serving_plmn_id = 17;
+  SelectPsCellResult select_ps_cell_result = 18;
+  int64 menb_ue_x2ap_id = 19;
+  int64 sgnb_ue_x2ap_id = 20;
+  int64 menb_ue_x2ap_id_extension = 21;
+  PmBooleanType is_menb_ue_x2ap_id_extension_set = 22;
+}

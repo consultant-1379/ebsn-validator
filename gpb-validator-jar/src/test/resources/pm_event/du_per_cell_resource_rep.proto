@@ -1,0 +1,58 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Cell resource report.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellResourceRep {
+  // PmEventId: 2011
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  int64 per_cell_mac_rbsym_total_avail_dl = 6;
+  int64 per_cell_mac_rbsym_total_avail_ul = 7;
+  int64 per_cell_mac_rbsym_used_pdcch_type_a = 8;
+  int64 per_cell_mac_rbsym_used_pdsch_type_a = 9;
+  int64 per_cell_mac_rbsym_used_pdsch_type_a_broadcast = 10;
+  int64 per_cell_mac_rbsym_used_pusch_type_a = 11;
+  int64 per_cell_mac_rbsym_used_csi_rs = 12;
+  repeated int64 per_cell_mac_rbsym_used_pusch_mimo_layer_distr = 13;
+  repeated int64 per_cell_mac_rbsym_used_pusch_mimo_user_distr = 14;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_mimo_layer_distr = 15;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_mimo_user_distr = 16;
+  int64 per_cell_mac_rbsym_used_pusch_type_b = 17;
+  int64 per_cell_mac_rbsym_used_pdcch_type_b = 18;
+  int64 mcs_per_cell_mac_rbsym_avail_rach = 19;
+  int64 mcs_per_cell_mac_rbsym_avail_pucch = 20;
+  int64 per_cell_mac_rbsym_used_rach_sched_pusch = 21;
+  int64 per_cell_mac_rbsym_used_pucch_sched_pusch = 22;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_adv_su_mimo_layer_distr = 23;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_adv_mimo_user_distr = 24;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_adv_su_mimo_tx_rank_distr = 25;
+  int64 per_cell_radio_srs_res_used_ant_switching = 26;
+  int64 per_cell_radio_srs_res_avail_ant_switching = 27;
+  int64 per_cell_mac_rbsym_used_pdcch_type_a_aggr_level_1 = 28;
+  int64 per_cell_mac_rbsym_used_pdcch_type_a_aggr_level_2 = 29;
+  int64 per_cell_mac_rbsym_used_pdcch_type_a_aggr_level_4 = 30;
+  int64 per_cell_mac_rbsym_used_pdcch_type_a_aggr_level_8 = 31;
+  int64 per_cell_mac_rbsym_used_pdcch_type_a_aggr_level_16 = 32;
+  int64 per_cell_mac_pdcch_blocking_pdsch_occasion = 33;
+  int64 per_cell_mac_pdcch_blocking_pusch_occasion = 34;
+  int64 per_cell_mac_rbsym_used_nr_efficiency = 35;
+  int64 per_cell_mac_rbsym_used_pdsch_priority_partition = 36;
+  int64 per_cell_mac_rbsym_used_pusch_priority_partition = 37;
+  int64 per_cell_mac_rbsym_used_pdsch_residual_partition = 38;
+  int64 per_cell_mac_rbsym_used_pusch_residual_partition = 39;
+  int64 per_cell_mac_rbsym_used_pdsch_ca_scell_partition = 40;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_adv_mu_mimo_layer_distr = 41;
+  repeated int64 per_cell_mac_rbsym_used_pdsch_adv_mu_mimo_tx_rank_distr = 42;
+  repeated int64 per_cell_pdsch_sched_entity_distr = 43;
+  repeated int64 per_cell_pusch_sched_entity_distr = 44;
+  int64 per_cell_mac_rbsym_used_pdsch_ailg = 45;
+  repeated int64 per_cell_pusch_sched_entity_with_presched_distr = 46;
+}

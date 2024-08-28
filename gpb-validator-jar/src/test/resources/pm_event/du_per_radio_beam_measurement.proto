@@ -1,0 +1,27 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Measurements like RSRP, SINR, or timing advance values for each beam.
+ *
+ * Version: 13_82_0
+ */
+message DuPerRadioBeamMeasurement {
+  // PmEventId: 2018
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  int64 per_beam_ra_cb_fail_msg1_ooc = 6;
+  repeated int64 per_beam_radio_ssb_sinr_pusch_distr = 7;
+  repeated int64 per_beam_radio_ssb_rsrp_distr = 8;
+  repeated int64 per_beam_radio_ssb_sinr_pucch_f0_distr = 9;
+  repeated int64 per_beam_radio_ssb_sinr_pucch_f2_distr = 10;
+  repeated int64 per_beam_radio_ra_att_ta_distr = 11;
+  int64 per_beam_radio_beam_failure_detected = 12;
+  int64 per_beam_radio_beam_failure_recovered = 13;
+  int64 beam_index = 14;
+  int64 sector_carrier_id = 15;
+}

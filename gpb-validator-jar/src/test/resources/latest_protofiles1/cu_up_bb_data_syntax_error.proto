@@ -1,0 +1,32 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Number of missed or incomplete BBI samples during a ROP for a specific granularity level.
+ *
+ * Version: 13_5_0
+ */
+message CuUpBbDataCollectionLost {
+  // PmEventId: 4002
+  enum BbDataCollectionLostGranularity{
+    BB_DATA_COLLECTION_LOST_GRANULARITY_NO_VALUE = 0;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_BEARER = 1;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_PPF = 2;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_LEG = 3;
+    BB_DATA_COLLECTION_LOST_GRANULARITY_NO_LICENSE = 255;
+  }
+  enum BbDataCollectionLostCause{
+    BB_DATA_COLLECTION_LOST_CAUSE_NO_VALUE = 0;
+    BB_DATA_COLLECTION_LOST_CAUSE_REC_BB_DISCONNECT = 1;
+    BB_DATA_COLLECTION_LOST_CAUSE_BBA_TIMEOUT = 2;
+    BB_DATA_COLLECTION_LOST_CAUSE_TIMEPERIOD = 3;
+    BB_DATA_COLLECTION_LOST_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  BbDataCollectionLostGranularity bb_data_collection_lost_granularity = 3;
+  BbDataCollectionLostCause bb_data_collection_lost_cause = 4;
+  int64 gnb_id_length = 5;
+  string gnb_value = 6
+}

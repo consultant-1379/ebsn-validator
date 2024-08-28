@@ -1,0 +1,123 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for incoming NR Handover Execution procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcNrHoExeIn {
+  // PmEventId: 3159
+  enum HoExeResult{
+    HO_EXE_RESULT_NO_VALUE = 0;
+    HO_EXE_RESULT_SUCCESS = 1;
+    HO_EXE_RESULT_TIMEOUT = 2;
+    HO_EXE_RESULT_ABORT = 3;
+    HO_EXE_RESULT_OTHER = 4;
+    HO_EXE_RESULT_NO_LICENSE = 255;
+  }
+  enum HoExePduResult{
+    HO_EXE_PDU_RESULT_NO_VALUE = 0;
+    HO_EXE_PDU_RESULT_SUCCESS = 1;
+    HO_EXE_PDU_RESULT_FAILURE = 2;
+    HO_EXE_PDU_RESULT_NO_LICENSE = 255;
+  }
+  message HoExePduSessionResult {
+    HoExePduResult ho_exe_pdu_result = 1;
+    int64 pdu_session_id = 2;
+    bytes s_nssai = 3;
+  }
+  enum HoExeDrbResult{
+    HO_EXE_DRB_RESULT_NO_VALUE = 0;
+    HO_EXE_DRB_RESULT_SUCCESS = 1;
+    HO_EXE_DRB_RESULT_FAILURE = 2;
+    HO_EXE_DRB_RESULT_NO_LICENSE = 255;
+  }
+  message HoExeDrbSetupResult {
+    HoExeDrbResult ho_exe_drb_result = 1;
+    int64 drb_id = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+  }
+  enum ReconfigOption{
+    RECONFIG_OPTION_NO_VALUE = 0;
+    RECONFIG_OPTION_NON_CA = 1;
+    RECONFIG_OPTION_WITH_SCELL = 2;
+    RECONFIG_OPTION_WITHOUT_SCELL = 3;
+    RECONFIG_OPTION_NO_LICENSE = 255;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NAS = 5;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  enum HoInterSystemType{
+    HO_INTER_SYSTEM_TYPE_NO_VALUE = 0;
+    HO_INTER_SYSTEM_TYPE_INTRA_5GC = 1;
+    HO_INTER_SYSTEM_TYPE_EPC_TO_5GC = 2;
+    HO_INTER_SYSTEM_TYPE_NO_LICENSE = 255;
+  }
+  enum HoInterfaceType{
+    HO_INTERFACE_TYPE_NO_VALUE = 0;
+    HO_INTERFACE_TYPE_NG = 1;
+    HO_INTERFACE_TYPE_INTERNAL = 2;
+    HO_INTERFACE_TYPE_XN = 3;
+    HO_INTERFACE_TYPE_NO_LICENSE = 255;
+  }
+  enum HoSystemType{
+    HO_SYSTEM_TYPE_NO_VALUE = 0;
+    HO_SYSTEM_TYPE_INTRA_5GC = 1;
+    HO_SYSTEM_TYPE_EPC_TO_5GC = 2;
+    HO_SYSTEM_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  bytes serving_plmn_id = 2;
+  int64 gnb_id = 3;
+  int64 gnb_id_length = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  int64 nci = 7;
+  int64 source_cell_identity = 8;
+  HoExeResult ho_exe_result = 9;
+  repeated HoExePduSessionResult ho_exe_pdu_session_result_list = 10;
+  repeated HoExeDrbSetupResult ho_exe_drb_setup_result_list = 11;
+  repeated int64 scells_after_ho_list = 12;
+  int64 no_of_scells_to_add = 13;
+  ReconfigOption scell_config_during_ho = 14;
+  CauseGroup cause_group_3gpp = 15;
+  int64 cause_3gpp = 16;
+  Guami guami = 17;
+  int64 amf_ue_ngap_id = 18;
+  int64 ran_ue_ngap_id = 19;
+  GlobalGnbId source_global_gnb_id = 20;
+  int64 source_ng_ran_node_ue_xnap_id = 21;
+  GlobalGnbId target_global_gnb_id = 22;
+  int64 target_ng_ran_node_ue_xnap_id = 23;
+  PmBooleanType is_source_global_gnb_id_set = 24;
+  PmBooleanType is_source_ng_ran_node_ue_xnap_id_set = 25;
+  PmBooleanType is_target_ng_ran_node_ue_xnap_id_set = 26;
+  HoInterSystemType ho_inter_system_type = 27;
+  HoInterfaceType ho_interface_type = 28;
+  HoSystemType ho_system_type = 29;
+}

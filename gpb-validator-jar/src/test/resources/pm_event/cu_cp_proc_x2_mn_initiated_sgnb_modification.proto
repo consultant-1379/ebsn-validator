@@ -1,0 +1,89 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Master Node Initiated Secondary gNodeB Modification procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcX2MnInitiatedSgnbModification {
+  // PmEventId: 3105
+  enum Result{
+    RESULT_NO_VALUE = 0;
+    RESULT_SUCCESS = 1;
+    RESULT_NO_RADIO_RESOURCES = 2;
+    RESULT_TDC_OVERALL_EXPIRY = 3;
+    RESULT_QCI_VALUE_NOT_SUPPORTED = 4;
+    RESULT_TDC_PREP_EXPIRY = 5;
+    RESULT_MULTIPLE_ERAB_ID_INSTANCES = 6;
+    RESULT_TARGET_NOT_ALLOWED = 7;
+    RESULT_INVALID_QOS_COMBINATION = 8;
+    RESULT_RADIO_CONNECTION_WITH_UE_LOST = 9;
+    RESULT_FAILURE_RADIO_INTERFACE_PROCEDURE = 10;
+    RESULT_UNKNOWN_UE_X2AP_ID = 11;
+    RESULT_OTHER = 12;
+    RESULT_NO_LICENSE = 255;
+  }
+  enum ModificationType{
+    MODIFICATION_TYPE_NO_VALUE = 0;
+    MODIFICATION_TYPE_SCG_ADDITION = 1;
+    MODIFICATION_TYPE_SCG_REMOVE = 2;
+    MODIFICATION_TYPE_NO_LICENSE = 255;
+  }
+  enum BearerType{
+    BEARER_TYPE_NO_VALUE = 0;
+    BEARER_TYPE_SN_TERMINATED_SPLIT = 1;
+    BEARER_TYPE_SN_TERMINATED_MCG = 2;
+    BEARER_TYPE_NO_LICENSE = 255;
+  }
+  message ExistingErab {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+  }
+  message ErabToBeAdded {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+  }
+  message ErabToBeReleased {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+  }
+  enum Cause{
+    CAUSE_NO_VALUE = 0;
+    CAUSE_RADIO_NETWORK_UNSPECIFIED = 1;
+    CAUSE_RADIO_NETWORK_NO_RADIO_RESOURCE_AVAILABLE = 2;
+    CAUSE_NO_LICENSE = 255;
+  }
+  message ErabNotAdmitted {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+    Cause cause = 3;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  Result modification_result = 5;
+  ModificationType modification_type = 6;
+  BearerType bearer_type = 7;
+  int64 nci = 8;
+  int64 gnb_id_length = 9;
+  repeated ExistingErab existing_erab_list = 10;
+  repeated ErabToBeAdded erab_to_be_added_list = 11;
+  repeated ErabToBeReleased erab_to_be_released_list = 12;
+  repeated ErabNotAdmitted erab_not_admitted_list = 13;
+  GlobalGnbId global_gnb_id = 14;
+  GlobalEnbId global_enb_id = 15;
+  bytes serving_plmn_id = 16;
+  int64 pref_ue_group_id = 17;
+  int64 ue_group_id = 18;
+}

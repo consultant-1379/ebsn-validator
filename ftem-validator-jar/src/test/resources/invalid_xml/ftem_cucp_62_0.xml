@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flex xmlns="urn:com:ericsson:schema:xml:oss:ftem">
+    <date>2022-04-06</date>
+    <major_version>62</major_version>
+    <correction_version>0</correction_version>
+    <managed_function></managed_function>
+    <filters>
+        <filter name="PrefUeGrpId">
+            <description>Identifier of preference UE group used to determine some UE property that requires specific configuration data.</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+        <filter name="UePowerClass">
+            <description>UE power class value.</description>
+            <enumeration>
+                <member name="UE_POWER_CLASS_NO_VALUE">0</member>
+                <member name="UE_POWER_CLASS_1">1</member>
+                <member name="UE_POWER_CLASS_1_5">2</member>
+                <member name="UE_POWER_CLASS_2">3</member>
+                <member name="UE_POWER_CLASS_3">4</member>
+                <member name="UE_POWER_CLASS_4">5</member>
+            </enumeration>
+        </filter>
+        <filter name="PlmnId">
+            <description>Identifier of PLMN. Consists of MCC and MNC.</description>
+            <custom/>
+        </filter>
+        <filter name="Snssai">
+            <description>Single-Network Slice Selection Assistance Information composed of SST and SD.</description>
+            <custom/>
+        </filter>
+        <filter name="Qos">
+            <description>QoS value of bearers for which latency and contention delay values are measured. Can be either QCI value (NSA) or 5QI value (SA).</description>
+            <range>
+                <min>0</min>
+                <max>255</max>
+            </range>
+        </filter>
+    </filters>
+    <events>
+        <event name="CuCpDrbSuspend">
+            <event_filter event_param="pref_ue_group_id" filter_name="PrefUeGrpId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="PlmnId"/>
+            <event_filter event_param="serving_plmn_id" filter_name="UePowerClass"/>
+            <event_filter event_param="mapped_5qi" filter_name="Qos">
+                <struct name="drb_suspend_list" repeated="foreach"/>
+            </event_filter>
+            <event_filter event_param="s_nssai" filter_name="Snssai">
+                <struct name="drb_suspend_list" repeated="foreach"/>
+            </event_filter>
+        </event>
+    </events>
+</flex>

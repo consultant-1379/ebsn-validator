@@ -1,0 +1,30 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodical measurements of cell traffic for each QoS.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellQosTrafficRep {
+  // PmEventId: 2009
+  enum NrType{
+    NR_TYPE_NO_VALUE = 0;
+    NR_TYPE_NSA = 1;
+    NR_TYPE_SA = 2;
+    NR_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 nci = 4;
+  int64 qos_value = 5;
+  int64 per_qos_mac_lat_time_dl_drxactive_insync = 6;
+  int64 per_qos_mac_lat_time_dl_drxactive_insync_samp = 7;
+  int64 per_qos_mac_lat_time_dl_drxinactive_insync = 8;
+  int64 per_qos_mac_lat_time_dl_drxinactive_insync_samp = 9;
+  int64 per_qos_mac_contention_delay_dl_max = 10;
+  int64 gnb_id_length = 11;
+  NrType nr_type = 12;
+}

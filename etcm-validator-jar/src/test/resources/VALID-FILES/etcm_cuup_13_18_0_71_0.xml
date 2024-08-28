@@ -1,0 +1,2397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<counters xmlns="com.ericsson.schema.etcm">
+    <pm_event_common_version>13</pm_event_common_version>
+    <pm_event_group_version>18</pm_event_group_version>
+    <pm_event_correction_version>0</pm_event_correction_version>
+    <etcm_date>2022-06-30</etcm_date>
+    <etcm_version>71</etcm_version>
+    <etcm_correction_version>0</etcm_correction_version>
+    <managed_function>CUUP</managed_function>
+    <counter>
+        <name format="pmEbsPdcpPktRecDl5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) received for each 5QI over NG-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are received for each 5QI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) received for each 5QI over NG-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are received for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRep</pmeventname>
+        <mo>EP_NgU</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>2</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecDlDisc5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are discarded for each 5QI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRep</pmeventname>
+        <mo>EP_NgU</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>2</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecDlDiscAqm5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink because of AQM.
+            Trigger: Stepped when DL PDCP SDUs are discarded because of AQM for each 5QI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink because of AQM.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded because of AQM for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRep</pmeventname>
+        <mo>EP_NgU</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>2</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc_aqm</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecDl5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) received for each 5QI over NG-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are received for each 5QI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) received for each 5QI over NG-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are received for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRepAggr10</pmeventname>
+        <mo>EP_NgU</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>2</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecDlDisc5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are discarded for each 5QI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRepAggr10</pmeventname>
+        <mo>EP_NgU</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>2</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecDlDiscAqm5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink because of AQM.
+            Trigger: Stepped when DL PDCP SDUs are discarded because of AQM for each 5QI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each 5QI over NG-U in downlink because of AQM.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded because of AQM for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRepAggr10</pmeventname>
+        <mo>EP_NgU</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>2</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc_aqm</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsCuUpExampleCounter"/>
+        <documentation>
+            Description: This test counter is stepped by 1 when CuUpTestEventEnm is received
+            Trigger: This test counter is only stepped when data == 1
+        </documentation>
+        <description>This test counter is stepped by 1 when CuUpTestEventEnm is received</description>
+        <trigger>This test counter is only stepped when data == 1</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Undefined</categoryarea>
+        <categoryscenario>Test counter</categoryscenario>
+        <pmeventname>CuUpTestEventEnm</pmeventname>
+        <mo>GNBCUUPFunction</mo>
+        <ossmo>CUUP</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>data</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <nconst>1</nconst>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsDrbLevelMaxEndc"/>
+        <documentation>
+            Description: Peak number of EN-DC DRBs.            Trigger: Based on periodic internal event with period time of 1 s. Internal event maintains current number of EN-DC DRBs.
+            Updated at end of ROP with maximum value during ROP. Counter provides maximum value reported by internal event.
+        </documentation>
+        <description>Peak number of EN-DC DRBs.</description>
+        <trigger>Based on periodic internal event with period time of 1 s. Internal event maintains current number of EN-DC DRBs.
+            Updated at end of ROP with maximum value during ROP. Counter provides maximum value reported by internal event.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>DRB Resources</categoryscenario>
+        <pmeventname>CuUpPerDrbSetup</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>MAX</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <set type="max">
+                    <pref>num_of_drb_endc</pref>
+                </set>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsDrbLevelMaxSa"/>
+        <documentation>
+            Description: Peak number of NR SA DRBs. In NR-DC, DRBs are also counted when gNodeB acts as Secondary Node.            Trigger: Based on periodic internal event with period time of 1 s. Internal event maintains current number of NR SA DRBs.
+            Updated at end of ROP with maximum value during ROP. Counter provides maximum value reported by internal event.
+        </documentation>
+        <description>Peak number of NR SA DRBs. In NR-DC, DRBs are also counted when gNodeB acts as Secondary Node.</description>
+        <trigger>Based on periodic internal event with period time of 1 s. Internal event maintains current number of NR SA DRBs.
+            Updated at end of ROP with maximum value during ROP. Counter provides maximum value reported by internal event.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>DRB Resources</categoryscenario>
+        <pmeventname>CuUpPerDrbSetup</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>MAX</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <set type="max">
+                    <pref>num_of_drb_sa</pref>
+                </set>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsDrbLevelSamp"/>
+        <documentation>
+            Description: Number of times corresponding sum counter is stepped. Associated PM counters are pmDrbLevelSumEndc and pmDrbLevelSumSa.
+            Trigger: Stepped when corresponding sum counter accumulates new sample.        </documentation>
+        <description>Number of times corresponding sum counter is stepped. Associated PM counters are pmDrbLevelSumEndc and pmDrbLevelSumSa.</description>
+        <trigger>Stepped when corresponding sum counter accumulates new sample.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>DRB Resources</categoryscenario>
+        <pmeventname>CuUpPerDrbSetup</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <nconst>1</nconst>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsDrbLevelSumEndc"/>
+        <documentation>
+            Description: Sum of all sample values recorded for number of EN-DC DRBs.            Trigger: Based on periodic internal event with period time of 1 s. Internal event maintains current number of EN-DC DRBs.
+            Values are read periodically and accumulated.
+        </documentation>
+        <description>Sum of all sample values recorded for number of EN-DC DRBs.</description>
+        <trigger>Based on periodic internal event with period time of 1 s. Internal event maintains current number of EN-DC DRBs.
+            Values are read periodically and accumulated.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>DRB Resources</categoryscenario>
+        <pmeventname>CuUpPerDrbSetup</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>num_of_drb_endc</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsDrbLevelSumSa"/>
+        <documentation>
+            Description: Sum of all sample values recorded for number of NR SA DRBs. In NR-DC, DRBs are also counted when gNodeB acts as Secondary Node.            Trigger: Based on periodic internal event with period time of 1 s. Internal event maintains current number of NR SA DRBs.
+            Values are read periodically and accumulated.
+        </documentation>
+        <description>Sum of all sample values recorded for number of NR SA DRBs. In NR-DC, DRBs are also counted when gNodeB acts as Secondary Node.</description>
+        <trigger>Based on periodic internal event with period time of 1 s. Internal event maintains current number of NR SA DRBs.
+            Values are read periodically and accumulated.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>DRB Resources</categoryscenario>
+        <pmeventname>CuUpPerDrbSetup</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>num_of_drb_sa</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpIpFlowDlProf1RohcDistr"/>
+        <documentation>
+            Description: Distribution of unique IP flows detected at compressor entity using ROHC Profile 1. Each bin represents number of unique IP flows identified during the lifetime of the DRB. PDF ranges: [0]: No flow [1]: 1 IP flow [2]: 2 IP flows [3]: 3 IP flows [4]: 4 IP flows [5]: 5 IP flows [6]: &gt;= 6 IP flows
+            Trigger: Stepped at DRB release when ROHC is configured.
+        </documentation>
+        <description>Distribution of unique IP flows detected at compressor entity using ROHC Profile 1. Each bin represents number of unique IP flows identified during the lifetime of the DRB. PDF ranges: [0]: No flow [1]: 1 IP flow [2]: 2 IP flows [3]: 3 IP flows [4]: 4 IP flows [5]: 5 IP flows [6]: &gt;= 6 IP flows</description>
+        <trigger>Stepped at DRB release when ROHC is configured.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpDrbRelease</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>7</pdf>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <nconst>1</nconst>
+                    <pref>num_of_ip_flows_dl_rohc_profile_1</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpIpFlowDlProf2RohcDistr"/>
+        <documentation>
+            Description: Distribution of unique IP flows detected at compressor entity using ROHC Profile 2. Each bin represents number of unique IP flows identified during the lifetime of the DRB. PDF ranges: [0]: No flow [1]: 1 IP flow [2]: 2 IP flows [3]: 3 IP flows [4]: 4 IP flows [5]: 5 IP flows [6]: &gt;= 6 IP flows
+            Trigger: Stepped at DRB release when ROHC is configured.
+        </documentation>
+        <description>Distribution of unique IP flows detected at compressor entity using ROHC Profile 2. Each bin represents number of unique IP flows identified during the lifetime of the DRB. PDF ranges: [0]: No flow [1]: 1 IP flow [2]: 2 IP flows [3]: 3 IP flows [4]: 4 IP flows [5]: 5 IP flows [6]: &gt;= 6 IP flows</description>
+        <trigger>Stepped at DRB release when ROHC is configured.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpDrbRelease</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>7</pdf>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <nconst>1</nconst>
+                    <pref>num_of_ip_flows_dl_rohc_profile_2</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPduSessionLevelMax"/>
+        <documentation>
+            Description: Peak number of PDU sessions.            Trigger: Based on periodic internal event with period time of 1 s. Internal event maintains current number of PDU sessions. Updated at end of ROP with maximum value during ROP. Counter provides maximum value reported by internal event.
+        </documentation>
+        <description>Peak number of PDU sessions.</description>
+        <trigger>Based on periodic internal event with period time of 1 s. Internal event maintains current number of PDU sessions. Updated at end of ROP with maximum value during ROP. Counter provides maximum value reported by internal event.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>PDU Session Resources</categoryscenario>
+        <pmeventname>CuUpPerPduSession</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>MAX</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <set type="max">
+                    <pref>num_of_pdu_session</pref>
+                </set>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPduSessionLevelSamp"/>
+        <documentation>
+            Description: Number of times corresponding sum counter is stepped. Associated PM counter is pmPduSessionLevelSum.
+            Trigger: Stepped when corresponding sum counter accumulates a new sample.
+        </documentation>
+        <description>Number of times corresponding sum counter is stepped. Associated PM counter is pmPduSessionLevelSum.</description>
+        <trigger>Stepped when corresponding sum counter accumulates a new sample.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>PDU Session Resources</categoryscenario>
+        <pmeventname>CuUpPerPduSession</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <nconst>1</nconst>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPduSessionLevelSum"/>
+        <documentation>
+            Description: Sum of all sample values recorded for number of PDU sessions.            Trigger: Based on periodic internal event with period time of 1 s. Internal event maintains current number of PDU sessions. Values are read periodically and accumulated.
+        </documentation>
+        <description>Sum of all sample values recorded for number of PDU sessions.</description>
+        <trigger>Based on periodic internal event with period time of 1 s. Internal event maintains current number of PDU sessions. Values are read periodically and accumulated.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>RI</categorytype>
+        <categoryarea>Utilization</categoryarea>
+        <categoryscenario>PDU Sesssion Resources</categoryscenario>
+        <pmeventname>CuUpPerPduSession</pmeventname>
+        <mo>PpControlLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <single/>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>num_of_pdu_session</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktLossUlQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped at CUCP5qi.tReorderingUl expiry or at discard for any other reason for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped at CUCP5qi.tReorderingUl expiry or at discard for any other reason for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_loss_ul</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktLossUlToDiscQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in uplink because of late arrival. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped at packet receival after CUCP5qi.tReorderingUl and CUUP5qi.tOooUlDelivery expiry for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in uplink because of late arrival. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped at packet receival after CUCP5qi.tReorderingUl and CUUP5qi.tOooUlDelivery expiry for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_loss_ul_to_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktLossUlToQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink because of late receival. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped at CUCP5qi.tReorderingUl expiry for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink because of late receival. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped at CUCP5qi.tReorderingUl expiry for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_loss_ul_to</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecUlOooQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) received in radio processing user plane in uplink that are transferred to S1-U or NG-U with PDCP sequence number that is out of order. Counted for each QoS indicator (5QI or QCI) separately.
+            Trigger: Stepped at DL PDCP PDU reception after CUCP5qi.tReorderingUl expiry but before CUUP5qi.tOooUlDelivery expiry for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) received in radio processing user plane in uplink that are transferred to S1-U or NG-U with PDCP sequence number that is out of order. Counted for each QoS indicator (5QI or QCI) separately.</description>
+        <trigger>Stepped at DL PDCP PDU reception after CUCP5qi.tReorderingUl expiry but before CUUP5qi.tOooUlDelivery expiry for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul_ooo</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecUlQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when UL PDCP PDUs are received for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when UL PDCP PDUs are received for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktTransDlDiscAqmQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in downlink because of AQM. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are reported as discarded for each QoS indicator because of AQM.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in downlink because of AQM. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are reported as discarded for each QoS indicator because of AQM.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_disc_aqm</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktTransDlDiscQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) discarded or lost for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are discarded or lost for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) discarded or lost for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are discarded or lost for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktTransDlQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are transmitted for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are transmitted for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolDlCmpHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 1 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 1 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_trans_dl_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolDlCmpHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 2 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 2 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_trans_dl_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolDlHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 1 in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 1 in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_rec_dl_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolDlHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 2 in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 2 in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_rec_dl_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolRecUlQos"/>
+        <documentation>
+            Description: Total volume of packets (PDCP SDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)
+            Trigger: Stepped when UL PDCP PDUs are received for each QoS indicator.
+        </documentation>
+        <description>Total volume of packets (PDCP SDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)</description>
+        <trigger>Stepped when UL PDCP PDUs are received for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <op name="divide">
+                        <op name="multiply">
+                            <pref>per_rb_cg_rpu_vol_rec_ul</pref>
+                            <nconst>8</nconst>
+                        </op>
+                        <nconst>1000</nconst>
+                    </op>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolTransDlQos"/>
+        <documentation>
+            Description: Total volume of packets (PDCP SDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)
+            Trigger: Stepped when DL PDCP PDUs are transmitted for each QoS indicator.
+        </documentation>
+        <description>Total volume of packets (PDCP SDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)</description>
+        <trigger>Stepped when DL PDCP PDUs are transmitted for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <op name="divide">
+                        <op name="multiply">
+                            <pref>per_rb_cg_rpu_vol_trans_dl</pref>
+                            <nconst>8</nconst>
+                        </op>
+                        <nconst>1000</nconst>
+                    </op>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolUlCmpHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 1 received in the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 1 received in the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_rec_ul_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolUlCmpHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 2 received in the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 2 received in the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_rec_ul_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolUlHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers decompressed with Profile 1 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers decompressed with Profile 1 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_trans_ul_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpVolUlHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers decompressed with Profile 2 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers decompressed with Profile 2 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRep</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_trans_ul_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktLossUlProf1RohcDecmpFail5qi"/>
+        <documentation>
+            Description: Total number of lost packets (PDCP SDUs) using ROHC Profile 1 in the uplink direction due to decompression failures for each 5QI.
+            Trigger: Stepped when Robust Header Compression entity fails to decompress packet header with Profile 1.
+        </documentation>
+        <description>Total number of lost packets (PDCP SDUs) using ROHC Profile 1 in the uplink direction due to decompression failures for each 5QI.</description>
+        <trigger>Stepped when Robust Header Compression entity fails to decompress packet header with Profile 1.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_lost_ul_rohc_fail_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktLossUlProf2RohcDecmpFail5qi"/>
+        <documentation>
+            Description: Total number of lost packets (PDCP SDUs) using ROHC Profile 2 in the uplink direction due to decompression failures for each 5QI.
+            Trigger: Stepped when Robust Header Compression entity fails to decompress packet header with Profile 2.
+        </documentation>
+        <description>Total number of lost packets (PDCP SDUs) using ROHC Profile 2 in the uplink direction due to decompression failures for each 5QI.</description>
+        <trigger>Stepped when Robust Header Compression entity fails to decompress packet header with Profile 2.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_lost_ul_rohc_fail_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktLossUlQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped at CUCP5qi.tReorderingUl expiry or at discard for any other reason for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped at CUCP5qi.tReorderingUl expiry or at discard for any other reason for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_loss_ul</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktLossUlToDiscQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in uplink because of late arrival. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped at packet receival after CUCP5qi.tReorderingUl and CUUP5qi.tOooUlDelivery expiry for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in uplink because of late arrival. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped at packet receival after CUCP5qi.tReorderingUl and CUUP5qi.tOooUlDelivery expiry for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_loss_ul_to_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktLossUlToQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink because of late receival. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped at CUCP5qi.tReorderingUl expiry for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) lost, received as out of order, or discarded for each QoS indicator in radio processing user plane in uplink because of late receival. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped at CUCP5qi.tReorderingUl expiry for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_loss_ul_to</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecUlOooQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) received in radio processing user plane in uplink that are transferred to S1-U or NG-U with PDCP sequence number that is out of order. Counted for each QoS indicator (5QI or QCI) separately.
+            Trigger: Stepped at DL PDCP PDU reception after CUCP5qi.tReorderingUl expiry but before CUUP5qi.tOooUlDelivery expiry for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) received in radio processing user plane in uplink that are transferred to S1-U or NG-U with PDCP sequence number that is out of order. Counted for each QoS indicator (5QI or QCI) separately.</description>
+        <trigger>Stepped at DL PDCP PDU reception after CUCP5qi.tReorderingUl expiry but before CUUP5qi.tOooUlDelivery expiry for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul_ooo</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecUlProf0Rohc5qi"/>
+        <documentation>
+            Description: Total number of uncompressed packets (PDCP PDUs) using ROHC Profile 0 received for each 5QI in uplink.
+            Trigger: Stepped when packets associated with Robust Header Compression Profile 0 are received for each 5QI.
+        </documentation>
+        <description>Total number of uncompressed packets (PDCP PDUs) using ROHC Profile 0 received for each 5QI in uplink.</description>
+        <trigger>Stepped when packets associated with Robust Header Compression Profile 0 are received for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul_rohc_profile_0</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecUlProf1Rohc5qi"/>
+        <documentation>
+            Description: Total number of compressed packets (PDCP PDUs) using ROHC Profile 1 received for each 5QI in uplink.
+            Trigger: Stepped when packets associated with Robust Header Compression Profile 1 are received for each 5QI.
+        </documentation>
+        <description>Total number of compressed packets (PDCP PDUs) using ROHC Profile 1 received for each 5QI in uplink.</description>
+        <trigger>Stepped when packets associated with Robust Header Compression Profile 1 are received for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecUlProf2Rohc5qi"/>
+        <documentation>
+            Description: Total number of compressed packets (PDCP PDUs) using ROHC Profile 2 received for each 5QI in uplink.
+            Trigger: Stepped when packets associated with Robust Header Compression Profile 2 are received for each 5QI.
+        </documentation>
+        <description>Total number of compressed packets (PDCP PDUs) using ROHC Profile 2 received for each 5QI in uplink.</description>
+        <trigger>Stepped when packets associated with Robust Header Compression Profile 2 are received for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecUlQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when UL PDCP PDUs are received for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when UL PDCP PDUs are received for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_rec_ul</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlAckQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) acknowledged for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are acknowledged for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) acknowledged for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are acknowledged for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_ack</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlDiscAqmQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in downlink because of AQM. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are reported as discarded for each QoS indicator because of AQM.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) discarded for each QoS indicator in radio processing user plane in downlink because of AQM. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are reported as discarded for each QoS indicator because of AQM.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_disc_aqm</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlDiscQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) discarded or lost for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are discarded or lost for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) discarded or lost for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are discarded or lost for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlDiscRohc5qi"/>
+        <documentation>
+            Description: Total number of discarded packets (PDCP SDUs) using ROHC for each 5QI due to PDCP processing overload.
+            Trigger: Stepped when DL PDCP SDUs are discarded for each 5QI due to high PDCP processing load.
+        </documentation>
+        <description>Total number of discarded packets (PDCP SDUs) using ROHC for each 5QI due to PDCP processing overload.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded for each 5QI due to high PDCP processing load.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_disc_overl_dl_rohc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlProf0Rohc5qi"/>
+        <documentation>
+            Description: Total number of uncompressed packets (PDCP SDUs) transmitted using ROHC Profile 0 for each 5QI in downlink.
+            Trigger: Stepped when DL PDCP SDUs are transmitted with ROHC Profile 0 for each 5QI.
+        </documentation>
+        <description>Total number of uncompressed packets (PDCP SDUs) transmitted using ROHC Profile 0 for each 5QI in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are transmitted with ROHC Profile 0 for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_rohc_profile_0</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlProf1Rohc5qi"/>
+        <documentation>
+            Description: Total number of compressed packets (PDCP SDUs) transmitted using ROHC Profile 1 for each 5QI in downlink.
+            Trigger: Stepped when DL PDCP SDUs are transmitted with ROHC Profile 1 for each 5QI.
+        </documentation>
+        <description>Total number of compressed packets (PDCP SDUs) transmitted using ROHC Profile 1 for each 5QI in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are transmitted with ROHC Profile 1 for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlProf2Rohc5qi"/>
+        <documentation>
+            Description: Total number of compressed packets (PDCP SDUs) transmitted using ROHC Profile 2 for each 5QI in downlink.
+            Trigger: Stepped when DL PDCP SDUs are transmitted with ROHC Profile 2 for each 5QI.
+        </documentation>
+        <description>Total number of compressed packets (PDCP SDUs) transmitted using ROHC Profile 2 for each 5QI in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are transmitted with ROHC Profile 2 for each 5QI.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlQos"/>
+        <documentation>
+            Description: Total number of packets (PDCP PDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.
+            Trigger: Stepped when DL PDCP PDUs are transmitted for each QoS indicator.
+        </documentation>
+        <description>Total number of packets (PDCP PDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI.</description>
+        <trigger>Stepped when DL PDCP PDUs are transmitted for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_trans_dl</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlUncmpProf1Rohc5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) associated with ROHC Profile 1, but transmitted uncompressed using ROHC Profile 0 for each 5QI in downlink due to high PDCP processing load.
+            Trigger: Stepped when DL PDCP SDUs are transmitted uncompressed for each 5QI due to high PDCP processing load.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) associated with ROHC Profile 1, but transmitted uncompressed using ROHC Profile 0 for each 5QI in downlink due to high PDCP processing load.</description>
+        <trigger>Stepped when DL PDCP SDUs are transmitted uncompressed for each 5QI due to high PDCP processing load.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_uncmp_hdr_overl_trans_dl_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktTransDlUncmpProf2Rohc5qi"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) associated with ROHC Profile 2, but transmitted uncompressed using ROHC Profile 0 for each 5QI in downlink due to high PDCP processing load.
+            Trigger: Stepped when DL PDCP SDUs are transmitted uncompressed for each 5QI due to high PDCP processing load.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) associated with ROHC Profile 2, but transmitted uncompressed using ROHC Profile 0 for each 5QI in downlink due to high PDCP processing load.</description>
+        <trigger>Stepped when DL PDCP SDUs are transmitted uncompressed for each 5QI due to high PDCP processing load.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Voice Quality</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_packet_uncmp_hdr_overl_trans_dl_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolDlCmpHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 1 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 1 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_trans_dl_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolDlCmpHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 2 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 2 transmitted from the ROHC entity in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_trans_dl_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolDlHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 1 in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 1 in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_rec_dl_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolDlHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 2 in the downlink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of uncompressed PDCP SDU headers received in the ROHC entity with Profile 2 in the downlink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_rec_dl_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolRecUlQos"/>
+        <documentation>
+            Description: Total volume of packets (PDCP SDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)
+            Trigger: Stepped when UL PDCP PDUs are received for each QoS indicator.
+        </documentation>
+        <description>Total volume of packets (PDCP SDUs) received for each QoS indicator in radio processing user plane in uplink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)</description>
+        <trigger>Stepped when UL PDCP PDUs are received for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <op name="divide">
+                        <op name="multiply">
+                            <pref>per_rb_cg_rpu_vol_rec_ul</pref>
+                            <nconst>8</nconst>
+                        </op>
+                        <nconst>1000</nconst>
+                    </op>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolTransDlAggrQos"/>
+        <documentation>
+            Description: Volume of packets (PDCP SDUs) transmitted for each QoS indicator on radio processing user plane link in downlink while bearer is in dual connectivity aggregation state. QoS indicator can be 5QI or QCI. Unit: 1 byte
+            Trigger: Stepped when DL PDCP PDUs are transmitted.
+        </documentation>
+        <description>Volume of packets (PDCP SDUs) transmitted for each QoS indicator on radio processing user plane link in downlink while bearer is in dual connectivity aggregation state. QoS indicator can be 5QI or QCI. Unit: 1 byte</description>
+        <trigger>Stepped when DL PDCP PDUs are transmitted.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_vol_trans_dl_aggr</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolTransDlQos"/>
+        <documentation>
+            Description: Total volume of packets (PDCP SDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)
+            Trigger: Stepped when DL PDCP PDUs are transmitted for each QoS indicator.
+        </documentation>
+        <description>Total volume of packets (PDCP SDUs) transmitted for each QoS indicator in radio processing user plane in downlink. QoS indicator can be 5QI or QCI. Unit: 1 kilobit (1 000 bits)</description>
+        <trigger>Stepped when DL PDCP PDUs are transmitted for each QoS indicator.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC, NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>Downlink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <op name="divide">
+                        <op name="multiply">
+                            <pref>per_rb_cg_rpu_vol_trans_dl</pref>
+                            <nconst>8</nconst>
+                        </op>
+                        <nconst>1000</nconst>
+                    </op>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolUlCmpHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 1 received in the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 1 received in the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_rec_ul_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolUlCmpHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers compressed with Profile 2 received in the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers compressed with Profile 2 received in the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_cmp_hdr_vol_rec_ul_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolUlHdrProf1Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers decompressed with Profile 1 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers decompressed with Profile 1 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_trans_ul_rohc_profile_1</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpVolUlHdrProf2Rohc5qi"/>
+        <documentation>
+            Description: Total volume of PDCP SDU headers decompressed with Profile 2 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes
+            Trigger: Continuous measurement for DRBs aggregated to RpUserPlaneLink.
+        </documentation>
+        <description>Total volume of PDCP SDU headers decompressed with Profile 2 transmitted from the ROHC entity in the uplink for each 5QI. Unit: bytes</description>
+        <trigger>Continuous measurement for DRBs aggregated to RpUserPlaneLink.</trigger>
+        <supportedbands>Low-band, Mid-band</supportedbands>
+        <supporteddeployments>NR SA</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>PI</categorytype>
+        <categoryarea>Integrity, Utilization</categoryarea>
+        <categoryscenario>Voice Quality, Uplink Volume</categoryscenario>
+        <pmeventname>CuUpPerUeRbCgTrafficRepAggr10</pmeventname>
+        <mo>RpUserPlaneLink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <stepexpression>
+                <incr>
+                    <pref>per_rb_cg_rpu_hdr_vol_trans_ul_rohc_profile_2</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecDlDiscAqmQci"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink because of AQM.
+            Trigger: Stepped when DL PDCP SDUs are discarded because of AQM for each QCI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink because of AQM.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded because of AQM for each QCI.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRep</pmeventname>
+        <mo>S1ULink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc_aqm</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecDlDiscQci"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are discarded for each QCI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded for each QCI.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRep</pmeventname>
+        <mo>S1ULink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsPdcpPktRecDlQci"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) received for each QCI over S1-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are received for each QCI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) received for each QCI over S1-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are received for each QCI.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason></limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRep</pmeventname>
+        <mo>S1ULink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>USED</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecDlDiscAqmQci"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink because of AQM.
+            Trigger: Stepped when DL PDCP SDUs are discarded because of AQM for each QCI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink because of AQM.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded because of AQM for each QCI.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRepAggr10</pmeventname>
+        <mo>S1ULink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc_aqm</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecDlDiscQci"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are discarded for each QCI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) discarded for each QCI over S1-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are discarded for each QCI.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRepAggr10</pmeventname>
+        <mo>S1ULink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl_disc</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+    <counter>
+        <name format="pmEbsnPdcpPktRecDlQci"/>
+        <documentation>
+            Description: Total number of packets (PDCP SDUs) received for each QCI over S1-U in downlink.
+            Trigger: Stepped when DL PDCP SDUs are received for each QCI.
+        </documentation>
+        <description>Total number of packets (PDCP SDUs) received for each QCI over S1-U in downlink.</description>
+        <trigger>Stepped when DL PDCP SDUs are received for each QCI.</trigger>
+        <supportedbands>Low-band, Mid-band, High-band</supportedbands>
+        <supporteddeployments>EN-DC</supporteddeployments>
+        <limitationreason>Status Preliminary</limitationreason>
+        <categorytype>KPI</categorytype>
+        <categoryarea>Integrity</categoryarea>
+        <categoryscenario>PDCP Packet Integrity</categoryscenario>
+        <pmeventname>CuUpPerUeRbS1NgTrafficRepAggr10</pmeventname>
+        <mo>S1ULink</mo>
+        <ossmo>CUUP_LINK</ossmo>
+        <measurementstatus>PRELIMINARY</measurementstatus>
+        <counterdata>
+            <counteroperation>ACC</counteroperation>
+            <countertype>
+                <pdf>256</pdf>
+                <compressed>true</compressed>
+            </countertype>
+            <counterstepcondition>
+                <op name="eq">
+                    <pref>link_type</pref>
+                    <nconst>1</nconst>
+                </op>
+            </counterstepcondition>
+            <stepexpression>
+                <incr>
+                    <pref>per_drb_pdcp_packet_rec_dl</pref>
+                    <pref>qos_value</pref>
+                </incr>
+            </stepexpression>
+        </counterdata>
+    </counter>
+</counters>

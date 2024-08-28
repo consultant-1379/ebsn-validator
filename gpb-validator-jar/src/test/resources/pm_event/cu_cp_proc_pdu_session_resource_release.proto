@@ -1,0 +1,63 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for PDU Session Release procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcPduSessionResourceRelease {
+  // PmEventId: 3091
+  enum PduSessionResourceReleaseResult{
+    PDU_SESSION_RESOURCE_RELEASE_RESULT_NO_VALUE = 0;
+    PDU_SESSION_RESOURCE_RELEASE_RESULT_SUCCESS = 1;
+    PDU_SESSION_RESOURCE_RELEASE_RESULT_FAILURE = 2;
+    PDU_SESSION_RESOURCE_RELEASE_RESULT_NO_LICENSE = 255;
+  }
+  message PduSessionRelease {
+    int64 pdu_session_id = 1;
+    bytes s_nssai = 2;
+  }
+  message DrbRelease {
+    int64 drb_id = 1;
+    int64 mapped_5qi = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+    int64 drb_session_time = 5;
+    int64 priority_level_arp = 6;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 time_stamp_start = 4;
+  int64 time_stamp_stop = 5;
+  PduSessionResourceReleaseResult pdu_session_resource_release_result = 6;
+  map<int64, bytes> released_pdu_session_snssai_list = 7;
+  map<int64, int64> released_drb_list = 8;
+  int64 nci = 9;
+  map<int64, int64> drb_session_time_list = 10;
+  bytes serving_plmn_id = 11;
+  repeated PduSessionRelease pdu_session_release_list = 12;
+  repeated DrbRelease drb_release_list = 13;
+  repeated int64 scells_before_session_rel_list = 14;
+  int64 no_of_scells_to_release = 15;
+  int64 pref_ue_group_id = 16;
+  int64 ue_group_id = 17;
+  PmBooleanType rrc_inactive_state = 18;
+  int64 ue_mobility_group_id = 19;
+  int64 ue_service_group_id = 20;
+  Guami connected_guami = 21;
+}

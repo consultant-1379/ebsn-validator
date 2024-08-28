@@ -1,0 +1,45 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Secondary gNodeB Modification procedures.
+Contains information about modification type and result.
+
+Start trigger is reception of XnAP S-NODE MODIFICATION REQUEST.
+If procedure is successful, stop trigger is reception of XnAP S-NODE RECONFIGURATION COMPLETE message followed by the following messages:
+      - E1AP BEARER CONTEXT MODIFICATION RESPONSE
+      - F1AP UE CONTEXT MODIFICATION RESPONSE
+If procedure is aborted, stop trigger is reception of XnAP UE CONTEXT RELEASE.
+If procedure fails, stop trigger is one of the following options:
+      - Transmission of XnAP S-NODE MODIFICATION REQUEST REJECT
+      - Transmission of XnAP S-NODE RELEASE REQUIRED
+      - XnAP S-NODE RECONFIGURATION COMPLETE not received
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcNrdcModification {
+  // PmEventId: 3217
+  enum NrdcModificationResult{
+    NRDC_MODIFICATION_RESULT_NO_VALUE = 0;
+    NRDC_MODIFICATION_RESULT_SUCCESS = 1;
+    NRDC_MODIFICATION_RESULT_ABORT = 2;
+    NRDC_MODIFICATION_RESULT_FAILURE = 3;
+    NRDC_MODIFICATION_RESULT_NO_LICENSE = 255;
+  }
+  enum NrdcModificationInitiatingNode{
+    NRDC_MODIFICATION_INITIATING_NODE_NO_VALUE = 0;
+    NRDC_MODIFICATION_INITIATING_NODE_MGNB = 1;
+    NRDC_MODIFICATION_INITIATING_NODE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  bytes serving_plmn_id = 2;
+  int64 gnb_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  int64 time_stamp_start = 6;
+  int64 time_stamp_stop = 7;
+  NrdcModificationResult nrdc_modification_result = 8;
+  NrdcModificationInitiatingNode nrdc_modification_initiating_node = 9;
+}

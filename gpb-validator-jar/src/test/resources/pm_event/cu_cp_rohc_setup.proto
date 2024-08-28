@@ -1,0 +1,50 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated when Robust Header Compression is configured for a DRB. Contains information about ROHC configuration result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpRohcSetup {
+  // PmEventId: 3247
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  enum RohcSetupResult{
+    ROHC_SETUP_RESULT_NO_VALUE = 0;
+    ROHC_SETUP_RESULT_SUCCESS = 1;
+    ROHC_SETUP_RESULT_FAILURE_CUUP_CID_NOT_AVAILABLE = 2;
+    ROHC_SETUP_RESULT_FAILURE_UE_MAX_CID_REACHED = 3;
+    ROHC_SETUP_RESULT_FAILURE_UE_CAPABILITY = 4;
+    ROHC_SETUP_RESULT_NO_LICENSE = 255;
+  }
+  message Drb {
+    int64 drb_id = 1;
+    int64 mapped_5qi = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+    int64 priority_level_arp = 5;
+    PmBooleanType rohc_required = 6;
+    RohcSetupResult rohc_setup_result = 7;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  repeated Drb drb_list = 3;
+  int64 nci = 4;
+  int64 gnb_id_length = 5;
+  bytes serving_plmn_id = 6;
+  int64 pref_ue_group_id = 7;
+  int64 ue_group_id = 8;
+  int64 ue_mobility_group_id = 9;
+  int64 ue_service_group_id = 10;
+  GlobalGnbId global_gnb_id = 11;
+}

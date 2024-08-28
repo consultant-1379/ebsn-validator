@@ -1,0 +1,41 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Automatic addition of neighbor cell relation.
+ *
+ * Version: 13_149_0
+ */
+message CuCpAnrNeighbRelAdd {
+  // PmEventId: 3170
+  message NrCgi {
+    bytes plmn_identity = 1;
+    int64 nr_cell_identity = 2;
+  }
+  enum RatType{
+    RAT_TYPE_NO_VALUE = 0;
+    RAT_TYPE_NR = 1;
+    RAT_TYPE_EUTRA = 2;
+    RAT_TYPE_NO_LICENSE = 255;
+  }
+  enum AnrCause{
+    ANR_CAUSE_NO_VALUE = 0;
+    ANR_CAUSE_ENDC_MOBILITY = 1;
+    ANR_CAUSE_CGI_REPORT = 2;
+    ANR_CAUSE_NO_LICENSE = 255;
+  }
+  message EutraCgi {
+    bytes plmn_identity = 1;
+    int64 cell_identity = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 neighbour_pci = 5;
+  NrCgi neighbour_nr_cgi = 6;
+  RatType rat_type = 7;
+  AnrCause anr_cause = 8;
+  EutraCgi neighbour_eutra_cgi = 9;
+}

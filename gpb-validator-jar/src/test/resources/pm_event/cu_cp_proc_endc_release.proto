@@ -1,0 +1,84 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for EN-DC Release procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcEndcRelease {
+  // PmEventId: 3073
+  enum EndcReleaseCause{
+    ENDC_RELEASE_CAUSE_NO_VALUE = 0;
+    ENDC_RELEASE_CAUSE_CELL_NOT_AVAILABLE = 1;
+    ENDC_RELEASE_CAUSE_USER_INACTIVITY = 2;
+    ENDC_RELEASE_CAUSE_MCG_MOBILITY = 3;
+    ENDC_RELEASE_CAUSE_RADIO_CONNECTION_WITH_UE_LOST = 4;
+    ENDC_RELEASE_CAUSE_UNSPECIFIED = 5;
+    ENDC_RELEASE_CAUSE_X2_LINK_DOWN = 6;
+    ENDC_RELEASE_CAUSE_SCG_MOBILITY = 7;
+    ENDC_RELEASE_CAUSE_ACTION_DESIRABLE_FOR_RADIO_REASONS = 8;
+    ENDC_RELEASE_CAUSE_E1_LINK_DOWN = 9;
+    ENDC_RELEASE_CAUSE_F1_LINK_DOWN = 10;
+    ENDC_RELEASE_CAUSE_E1_RESET_INITIATED_BY_CU_UP = 11;
+    ENDC_RELEASE_CAUSE_NO_LICENSE = 255;
+  }
+  enum EndcReleaseTriggeringNode{
+    ENDC_RELEASE_TRIGGERING_NODE_NO_VALUE = 0;
+    ENDC_RELEASE_TRIGGERING_NODE_MENB = 1;
+    ENDC_RELEASE_TRIGGERING_NODE_SGNB = 2;
+    ENDC_RELEASE_TRIGGERING_NODE_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  enum UePowerClass{
+    UE_POWER_CLASS_NO_VALUE = 0;
+    UE_POWER_CLASS_1 = 1;
+    UE_POWER_CLASS_1_5 = 2;
+    UE_POWER_CLASS_2 = 3;
+    UE_POWER_CLASS_3 = 4;
+    UE_POWER_CLASS_4 = 5;
+    UE_POWER_CLASS_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  EndcReleaseCause endc_release_cause = 5;
+  EndcReleaseTriggeringNode endc_release_triggering_node = 6;
+  map<int64, bool> release_complete = 7;
+  map<int64, bool> bearer_buffer_status = 8;
+  map<int64, PmBooleanType> release_complete_param = 9;
+  map<int64, PmBooleanType> bearer_buffer_status_param = 10;
+  GlobalGnbId global_gnb_id = 11;
+  GlobalEnbId global_enb_id = 12;
+  map<int64, PmBooleanType> drb_released_in_session = 13;
+  map<int64, int64> drb_session_time = 14;
+  repeated int64 scells_before_release_list = 15;
+  int64 no_of_scells_to_release = 16;
+  bytes serving_plmn_id = 17;
+  int64 pref_ue_group_id = 18;
+  int64 ue_group_id = 19;
+  UePowerClass ue_power_class = 20;
+  int64 time_stamp_start = 21;
+  int64 time_stamp_stop = 22;
+  int64 menb_ue_x2ap_id = 23;
+  int64 sgnb_ue_x2ap_id = 24;
+  int64 menb_ue_x2ap_id_extension = 25;
+  PmBooleanType is_menb_ue_x2ap_id_extension_set = 26;
+  int64 ue_mobility_group_id = 27;
+  int64 ue_service_group_id = 28;
+}

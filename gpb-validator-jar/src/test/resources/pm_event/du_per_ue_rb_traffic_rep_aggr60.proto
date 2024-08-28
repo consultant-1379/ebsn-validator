@@ -1,0 +1,54 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Time aggregated periodic measurements of Radio Bearer (RB) traffic.
+ *
+ * Version: 13_82_0
+ */
+message DuPerUeRbTrafficRepAggr60 {
+  // PmEventId: 2065
+  enum NrType{
+    NR_TYPE_NO_VALUE = 0;
+    NR_TYPE_NSA = 1;
+    NR_TYPE_SA = 2;
+    NR_TYPE_NO_LICENSE = 255;
+  }
+  enum UePowerClass{
+    UE_POWER_CLASS_NO_VALUE = 0;
+    UE_POWER_CLASS_1 = 1;
+    UE_POWER_CLASS_1_5 = 2;
+    UE_POWER_CLASS_2 = 3;
+    UE_POWER_CLASS_3 = 4;
+    UE_POWER_CLASS_4 = 5;
+    UE_POWER_CLASS_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 nci = 4;
+  int64 qos_value = 5;
+  int64 per_rb_mac_vol_dl_drb = 6;
+  int64 per_rb_mac_vol_dl_drb_last_slot = 7;
+  int64 per_rb_mac_time_dl_drb = 8;
+  int64 per_rb_mac_time_dl_drb_samp = 9;
+  int64 per_rb_mac_time_dl_drb_last_slot = 10;
+  int64 per_rb_mac_time_dl_drb_last_slot_samp = 11;
+  int64 per_rb_mac_vol_dl_drb_single_burst = 12;
+  int64 per_rb_mac_vol_dl_drb_single_burst_samp = 13;
+  int64 per_rb_rlc_delay_time_dl = 14;
+  int64 per_rb_rlc_delay_pkt_trans_dl = 15;
+  int64 gnb_id_length = 16;
+  NrType nr_type = 17;
+  bytes serving_plmn_id = 18;
+  UePowerClass ue_power_class = 19;
+  int64 pref_ue_group_id = 20;
+  int64 ue_group_id = 21;
+  bytes s_nssai = 22;
+  int64 bearer_id = 23;
+  int64 ue_mobility_group_id = 24;
+  int64 ue_service_group_id = 25;
+  int64 num_of_aggregated_events = 26;
+  int64 last_time_stamp = 27;
+}

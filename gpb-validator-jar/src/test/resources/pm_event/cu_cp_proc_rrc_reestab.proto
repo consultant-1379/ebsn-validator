@@ -1,0 +1,60 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for RRC Reestablishment procedure. Contains information about request and result. See 3GPP TS 38.331.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcRrcReestab {
+  // PmEventId: 3229
+  enum ReestablishmentCause{
+    REESTABLISHMENT_CAUSE_NO_VALUE = 0;
+    REESTABLISHMENT_CAUSE_RECONFIGURATION_FAILURE = 1;
+    REESTABLISHMENT_CAUSE_HANDOVER_FAILURE = 2;
+    REESTABLISHMENT_CAUSE_OTHER_FAILURE = 3;
+    REESTABLISHMENT_CAUSE_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  enum RrcConnReestabResult{
+    RRC_CONN_REESTAB_RESULT_NO_VALUE = 0;
+    RRC_CONN_REESTAB_RESULT_SUCCESS = 1;
+    RRC_CONN_REESTAB_RESULT_UNSPECIFIED = 2;
+    RRC_CONN_REESTAB_RESULT_NO_RADIO_RESOURCES_AVAILABLE = 3;
+    RRC_CONN_REESTAB_RESULT_FAILURE_IN_RADIO_PROCEDURE = 4;
+    RRC_CONN_REESTAB_RESULT_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 time_stamp_start = 3;
+  int64 time_stamp_stop = 4;
+  ReestablishmentCause reestablishment_cause = 5;
+  PmBooleanType fallback_indicator = 6;
+  int64 nci = 7;
+  RrcConnReestabResult rrc_conn_reestab_result = 8;
+  int64 gnb_id_length = 9;
+  Guami guami = 10;
+  int64 amf_ue_ngap_id = 11;
+  int64 ran_ue_ngap_id = 12;
+  int64 temp_ue_trace_id = 13;
+  bytes serving_plmn_id = 14;
+  int64 pref_ue_group_id = 15;
+  int64 ue_group_id = 16;
+  GlobalGnbId global_gnb_id = 17;
+}

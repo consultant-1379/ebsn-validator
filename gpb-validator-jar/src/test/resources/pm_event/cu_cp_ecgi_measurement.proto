@@ -1,0 +1,55 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event for IRAT-mobility-triggered ANR for NR SA.
+ *
+ * Version: 13_149_0
+ */
+message CuCpEcgiMeasurement {
+  // PmEventId: 3232
+  enum MeasurementStatus{
+    MEASUREMENT_STATUS_NO_VALUE = 0;
+    MEASUREMENT_STATUS_STARTED = 1;
+    MEASUREMENT_STATUS_SUCCESS = 2;
+    MEASUREMENT_STATUS_UNKNOWN_PCI_DETECTED = 3;
+    MEASUREMENT_STATUS_KNOWN_PCI_DETECTED = 4;
+    MEASUREMENT_STATUS_FAIL_CAUSE_CGI_REPORT_EMPTY = 5;
+    MEASUREMENT_STATUS_FAIL_CAUSE_UE_CAPABILITY = 6;
+    MEASUREMENT_STATUS_FAIL_CAUSE_VOIP_BEARER_PRESENT = 7;
+    MEASUREMENT_STATUS_FAIL_CAUSE_TIMEOUT = 8;
+    MEASUREMENT_STATUS_NO_LICENSE = 255;
+  }
+  message EutraCgi {
+    bytes plmn_identity = 1;
+    int64 cell_identity = 2;
+  }
+  enum MeasurementMethod{
+    MEASUREMENT_METHOD_NO_VALUE = 0;
+    MEASUREMENT_METHOD_DRX = 1;
+    MEASUREMENT_METHOD_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum MeasurementType{
+    MEASUREMENT_TYPE_NO_VALUE = 0;
+    MEASUREMENT_TYPE_B1 = 1;
+    MEASUREMENT_TYPE_B2 = 2;
+    MEASUREMENT_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  MeasurementStatus meas_status = 5;
+  int64 meas_id = 6;
+  int64 neighbor_pci = 7;
+  EutraCgi neighbor_eutra_cgi = 8;
+  int64 neighbor_arfcn = 9;
+  MeasurementMethod meas_method = 10;
+  GlobalGnbId global_gnb_id = 11;
+  MeasurementType meas_type = 12;
+}

@@ -1,0 +1,59 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for NG Signaling Establishment procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcNgSigConnEstab {
+  // PmEventId: 3024
+  enum EstablishmentCause{
+    ESTABLISHMENT_CAUSE_NO_VALUE = 0;
+    ESTABLISHMENT_CAUSE_EMERGENCY = 1;
+    ESTABLISHMENT_CAUSE_HIGH_PRIORITY_ACCESS = 2;
+    ESTABLISHMENT_CAUSE_MT_ACCESS = 3;
+    ESTABLISHMENT_CAUSE_MO_SIGNALLING = 4;
+    ESTABLISHMENT_CAUSE_MO_DATA = 5;
+    ESTABLISHMENT_CAUSE_MO_VOICE_CALL = 6;
+    ESTABLISHMENT_CAUSE_SPARE1 = 7;
+    ESTABLISHMENT_CAUSE_SPARE2 = 8;
+    ESTABLISHMENT_CAUSE_SPARE3 = 9;
+    ESTABLISHMENT_CAUSE_SPARE4 = 10;
+    ESTABLISHMENT_CAUSE_SPARE5 = 11;
+    ESTABLISHMENT_CAUSE_SPARE6 = 12;
+    ESTABLISHMENT_CAUSE_SPARE7 = 13;
+    ESTABLISHMENT_CAUSE_SPARE8 = 14;
+    ESTABLISHMENT_CAUSE_SPARE9 = 15;
+    ESTABLISHMENT_CAUSE_SPARE10 = 16;
+    ESTABLISHMENT_CAUSE_NO_LICENSE = 255;
+  }
+  enum NgSigConnEstabResult{
+    NG_SIG_CONN_ESTAB_RESULT_NO_VALUE = 0;
+    NG_SIG_CONN_ESTAB_RESULT_SUCCESS = 1;
+    NG_SIG_CONN_ESTAB_RESULT_UNSPECIFIED = 2;
+    NG_SIG_CONN_ESTAB_RESULT_AMF_SELECTION_FAILURE = 3;
+    NG_SIG_CONN_ESTAB_RESULT_TIMEOUT = 4;
+    NG_SIG_CONN_ESTAB_RESULT_NO_LICENSE = 255;
+  }
+  message Guami {
+    bytes plmn_identity = 1;
+    int64 amf_region_id = 2;
+    int64 amf_set_id = 3;
+    int64 amf_pointer = 4;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  bytes ue_trace_id = 3;
+  int64 nci = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  EstablishmentCause establishment_cause = 7;
+  NgSigConnEstabResult ng_sig_conn_estab_result = 8;
+  int64 gnb_id_length = 9;
+  bytes serving_plmn_id = 10;
+  int64 pref_ue_group_id = 11;
+  int64 ue_group_id = 12;
+  Guami connected_guami = 13;
+}

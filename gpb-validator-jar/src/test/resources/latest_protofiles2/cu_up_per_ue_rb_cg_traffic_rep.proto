@@ -1,0 +1,49 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic measurement of F1U traffic.
+ *
+ * Version: 13_14_0
+ */
+message CuUpPerUeRbCgTrafficRep {
+  // PmEventId: 4008
+  enum NrType{
+    NR_TYPE_NO_VALUE = 0;
+    NR_TYPE_NSA = 1;
+    NR_TYPE_SA = 2;
+    NR_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  NrType nr_type = 4;
+  int64 qos_value = 5;
+  string gnb_cuup_function_id = 6;
+  string local_end_point = 7;
+  string remote_end_point = 8;
+  bytes serving_plmn_id = 9;
+  int64 per_rb_cg_rpu_packet_loss_ul = 10;
+  int64 per_rb_cg_rpu_packet_loss_ul_to_disc = 11;
+  int64 per_rb_cg_rpu_packet_loss_ul_to = 12;
+  int64 per_rb_cg_rpu_packet_rec_ul_ooo = 13;
+  int64 per_rb_cg_rpu_packet_rec_ul = 14;
+  int64 per_rb_cg_rpu_packet_trans_dl_disc_aqm = 15;
+  int64 per_rb_cg_rpu_packet_trans_dl_disc = 16;
+  int64 per_rb_cg_rpu_packet_trans_dl = 17;
+  int64 per_rb_cg_rpu_vol_rec_ul = 18;
+  int64 per_rb_cg_rpu_vol_trans_dl = 19;
+  int64 per_rb_cg_rpu_hdr_vol_trans_ul_rohc_profile_1 = 20;
+  int64 per_rb_cg_rpu_hdr_vol_trans_ul_rohc_profile_2 = 21;
+  int64 per_rb_cg_rpu_cmp_hdr_vol_rec_ul_rohc_profile_1 = 22;
+  int64 per_rb_cg_rpu_cmp_hdr_vol_rec_ul_rohc_profile_2 = 23;
+  int64 per_rb_cg_rpu_hdr_vol_rec_dl_rohc_profile_1 = 24;
+  int64 per_rb_cg_rpu_hdr_vol_rec_dl_rohc_profile_2 = 25;
+  int64 per_rb_cg_rpu_cmp_hdr_vol_trans_dl_rohc_profile_1 = 26;
+  int64 per_rb_cg_rpu_cmp_hdr_vol_trans_dl_rohc_profile_2 = 27;
+  int64 pref_ue_group_id = 28;
+  int64 ue_group_id = 29;
+  int64 ue_mobility_group_id = 30;
+  int64 ue_service_group_id = 31;
+}

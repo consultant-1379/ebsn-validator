@@ -1,0 +1,110 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Master Node side of NR-DC to monitor Secondary Node Release procedure. Release can be initiated by one of the following nodes:
+  - By Master Node, with XnAP UE CONTEXT RELEASE or XnAP S-NODE RELEASE REQUEST message.
+  - By Secondary Node, with XnAP S-NODE RELEASE REQUIRED message.
+Contains information about request and result.
+
+When initiated by transmission of XnAP UE CONTEXT RELEASE message with no previous XnAP S-NODE RELEASE REQUEST message, trigger is XnAP UE CONTEXT RELEASE message.
+No start or stop, event is triggered immediately.
+
+When initiated by transmission of XnAP S-NODE RELEASE REQUEST message, following start and stop triggers apply:
+   Start trigger is one of the following messages:
+         - E1AP BEARER CONTEXT SETUP REQUEST, sent before transmission of XnAP S-NODE RELEASE REQUEST.
+         - E1AP BEARER CONTEXT MODIFICATION REQUEST, sent before transmission of XnAP S-NODE RELEASE REQUEST.
+   Stop trigger is reception of one of the following messages in case of success:
+         - NGAP PDU SESSION RESOURCE MODIFY CONFIRM.
+         - F1AP UE CONTEXT MODIFICATION RESPONSE for reconfiguration confirm indicator.
+         - E1AP BEARER CONTEXT MODIFICATION RESPONSE after reception of XnAP SN STATUS TRANSFER.
+   Stop trigger is one of the following messages in case of failure:
+         - Transmission of NGAP UE CONTEXT RELEASE REQUEST.
+         - Reception of XnAP S-NODE RELEASE REJECT.
+         - XnAP S-NODE RELEASE REQUEST ACKNOWLEDGE not received.
+         - NGAP PDU SESSION RESOURCE MODIFY CONFIRM not received.
+         - XnAP SN STATUS TRANSFER not received for RLC AM.
+When initiated by reception of XnAP S-NODE RELEASE REQUIRED message, following start and stop triggers apply:
+   Start trigger is reception of XnAP S-NODE RELEASE REQUIRED message.
+   Stop trigger is reception of the following messages in case of success:
+         - NGAP PDU SESSION RESOURCE MODIFY CONFIRM.
+         - F1AP UE CONTEXT MODIFICATION RESPONSE for RCI.
+         - E1AP BEARER CONTEXT MODIFICATION RESPONSE after reception of XnAP SN STATUS TRANSFER.
+   Stop trigger is one of the following procedures in case of failure:
+         - Transmission of NGAP UE CONTEXT RELEASE REQUEST.
+         - NGAP PDU SESSION RESOURCE MODIFY CONFIRM not received.
+         - F1AP UE CONTEXT MODIFICATION RESPONSE for RCI not received.
+         - E1AP BEARER CONTEXT MODIFICATION RESPONSE not received after XnAP UE CONTEXT RELEASE.
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcMnNrdcRelease {
+  // PmEventId: 3195
+  enum MnNrdcReleaseInitiatingMessage{
+    MN_NRDC_RELEASE_INITIATING_MESSAGE_NO_VALUE = 0;
+    MN_NRDC_RELEASE_INITIATING_MESSAGE_UE_CONTEXT_RELEASE = 1;
+    MN_NRDC_RELEASE_INITIATING_MESSAGE_SNODE_RELEASE_REQUEST = 2;
+    MN_NRDC_RELEASE_INITIATING_MESSAGE_SNODE_RELEASE_REQUIRED = 3;
+    MN_NRDC_RELEASE_INITIATING_MESSAGE_NO_LICENSE = 255;
+  }
+  enum MnNrdcReleaseInitiatingNode{
+    MN_NRDC_RELEASE_INITIATING_NODE_NO_VALUE = 0;
+    MN_NRDC_RELEASE_INITIATING_NODE_MGNB = 1;
+    MN_NRDC_RELEASE_INITIATING_NODE_SGNB = 2;
+    MN_NRDC_RELEASE_INITIATING_NODE_NO_LICENSE = 255;
+  }
+  message PduSessionReleased {
+    int64 pdu_session_id = 1;
+    bytes s_nssai = 2;
+  }
+  message DrbReleased {
+    int64 drb_id = 1;
+    repeated int64 mapped_5qi = 2;
+    int64 pdu_session_id = 3;
+    bytes s_nssai = 4;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum MnNrdcReleaseResult{
+    MN_NRDC_RELEASE_RESULT_NO_VALUE = 0;
+    MN_NRDC_RELEASE_RESULT_SUCCESS = 1;
+    MN_NRDC_RELEASE_RESULT_FAILURE = 2;
+    MN_NRDC_RELEASE_RESULT_NO_LICENSE = 255;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NAS = 5;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  MnNrdcReleaseInitiatingMessage mn_nrdc_release_initiating_message = 7;
+  MnNrdcReleaseInitiatingNode mn_nrdc_release_initiating_node = 8;
+  repeated PduSessionReleased pdu_session_release_list = 9;
+  repeated DrbReleased drb_released_list = 10;
+  bytes serving_plmn_id = 11;
+  GlobalGnbId global_secondary_gnb_id = 12;
+  MnNrdcReleaseResult mn_nrdc_release_result = 13;
+  CauseGroup cause_group = 14;
+  int64 cause = 15;
+  PmBooleanType mn_release_with_relocation = 16;
+  PmBooleanType intra_cell_handover = 17;
+}

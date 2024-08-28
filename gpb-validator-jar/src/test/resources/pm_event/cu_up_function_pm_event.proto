@@ -1,0 +1,45 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+option java_outer_classname = "CuUpFunctionPmEventOuterClass";
+
+
+/**
+ * Description: Generated proto3 file
+ */
+
+
+/**
+ * Import all event specific proto files
+ */
+import "pm_event/cu_up_per_pdu_session.proto";
+import "pm_event/cu_up_per_ue_rb_x2_xn_term_traffic_rep.proto";
+import "pm_event/cu_up_per_ue_rb_x2_xn_traffic_rep.proto";
+import "pm_event/cu_up_per_ue_rb_s1_ng_traffic_rep.proto";
+import "pm_event/cu_up_per_drb_setup.proto";
+import "pm_event/cu_up_proc_endc_nr_ul_primary_cg_switch.proto";
+import "pm_event/cu_up_per_nf_traffic_rep.proto";
+import "pm_event/cu_up_test_event_enm.proto";
+import "pm_event/cu_up_bb_data_collection_lost.proto";
+import "pm_event/cu_up_proc_sn_nrdc_ul_primary_cg_switch.proto";
+import "pm_event/cu_up_per_ue_rb_cg_traffic_rep.proto";
+
+
+/**
+ * Define group message
+ */
+message CuUpFunctionPmEvent {
+  oneof event_payload {
+    CuUpTestEventEnm cu_up_test_event_enm = 4001;
+    CuUpBbDataCollectionLost cu_up_bb_data_collection_lost = 4002;
+    CuUpPerNfTrafficRep cu_up_per_nf_traffic_rep = 4003;
+    CuUpPerUeRbS1NgTrafficRep cu_up_per_ue_rb_s1_ng_traffic_rep = 4004;
+    CuUpPerUeRbX2XnTrafficRep cu_up_per_ue_rb_x2_xn_traffic_rep = 4005;
+    CuUpPerUeRbX2XnTermTrafficRep cu_up_per_ue_rb_x2_xn_term_traffic_rep = 4006;
+    CuUpProcEndcNrUlPrimaryCgSwitch cu_up_proc_endc_nr_ul_primary_cg_switch = 4007;
+    CuUpPerUeRbCgTrafficRep cu_up_per_ue_rb_cg_traffic_rep = 4008;
+    CuUpPerDrbSetup cu_up_per_drb_setup = 4009;
+    CuUpPerPduSession cu_up_per_pdu_session = 4010;
+    CuUpProcSnNrdcUlPrimaryCgSwitch cu_up_proc_sn_nrdc_ul_primary_cg_switch = 4011;
+  }
+}

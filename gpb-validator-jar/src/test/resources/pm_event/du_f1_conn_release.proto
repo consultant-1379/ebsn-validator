@@ -1,0 +1,26 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Release of F1 connection to CUCP.
+ *
+ * Version: 13_82_0
+ */
+message DuF1ConnRelease {
+  // PmEventId: 2050
+  enum F1ReleaseCause{
+    F1_RELEASE_CAUSE_NO_VALUE = 0;
+    F1_RELEASE_CAUSE_NO_F1_CONN_EXISTED = 1;
+    F1_RELEASE_CAUSE_F1_CONN_LOST = 2;
+    F1_RELEASE_CAUSE_F1_CONN_RELEASE = 3;
+    F1_RELEASE_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 cu_id = 5;
+  bytes cu_ip_address = 6;
+  F1ReleaseCause f1_release_cause = 7;
+}

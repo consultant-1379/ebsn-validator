@@ -1,0 +1,22 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodical measurements of power backoff control.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellMacPbControl {
+  // PmEventId: 2003
+  repeated int64 per_cell_mac_pb_avg_pwr = 1;
+  int64 per_cell_mac_pb_state_on = 2;
+  int64 per_cell_mac_pb_trig = 3;
+  int64 per_cell_mac_pb_regulatory_accuracy = 4;
+  repeated int64 per_cell_mac_pb_res_thr_distr = 5;
+  bytes main_plmn_id = 6;
+  int64 gnb_id = 7;
+  int64 gnb_id_length = 8;
+  int64 gnb_du_id = 9;
+  int64 nci = 10;
+}

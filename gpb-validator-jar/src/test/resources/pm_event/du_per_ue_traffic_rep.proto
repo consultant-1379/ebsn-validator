@@ -1,0 +1,81 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic measurements of UE traffic.
+ *
+ * Version: 13_82_0
+ */
+message DuPerUeTrafficRep {
+  // PmEventId: 2001
+  enum UePowerClass{
+    UE_POWER_CLASS_NO_VALUE = 0;
+    UE_POWER_CLASS_1 = 1;
+    UE_POWER_CLASS_1_5 = 2;
+    UE_POWER_CLASS_2 = 3;
+    UE_POWER_CLASS_3 = 4;
+    UE_POWER_CLASS_4 = 5;
+    UE_POWER_CLASS_NO_LICENSE = 255;
+  }
+  enum NrType{
+    NR_TYPE_NO_VALUE = 0;
+    NR_TYPE_NSA = 1;
+    NR_TYPE_SA = 2;
+    NR_TYPE_NO_LICENSE = 255;
+  }
+  int64 per_ue_rlc_arq_dl_ack = 1;
+  int64 per_ue_rlc_arq_dl_nack = 2;
+  int64 per_ue_rlc_arq_ul_ack = 3;
+  int64 per_ue_rlc_arq_ul_nack = 4;
+  int64 ue_ref = 5;
+  int64 per_ue_mac_harq_dl_ack_qpsk = 6;
+  int64 per_ue_mac_harq_dl_ack_16_qam = 7;
+  int64 per_ue_mac_harq_dl_ack_64_qam = 8;
+  int64 per_ue_mac_harq_dl_ack_256_qam = 9;
+  int64 per_ue_mac_harq_dl_dtx_qpsk = 10;
+  int64 per_ue_mac_harq_dl_dtx_16_qam = 11;
+  int64 per_ue_mac_harq_dl_dtx_64_qam = 12;
+  int64 per_ue_mac_harq_dl_dtx_256_qam = 13;
+  int64 per_ue_mac_harq_dl_nack_qpsk = 14;
+  int64 per_ue_mac_harq_dl_nack_16_qam = 15;
+  int64 per_ue_mac_harq_dl_nack_64_qam = 16;
+  int64 per_ue_mac_harq_dl_nack_256_qam = 17;
+  int64 per_ue_mac_harq_ul_ack_qpsk = 18;
+  int64 per_ue_mac_harq_ul_ack_16_qam = 19;
+  int64 per_ue_mac_harq_ul_ack_64_qam = 20;
+  int64 per_ue_mac_harq_ul_dtx_qpsk = 21;
+  int64 per_ue_mac_harq_ul_dtx_16_qam = 22;
+  int64 per_ue_mac_harq_ul_dtx_64_qam = 23;
+  int64 per_ue_mac_harq_ul_nack_qpsk = 24;
+  int64 per_ue_mac_harq_ul_nack_16_qam = 25;
+  int64 per_ue_mac_harq_ul_nack_64_qam = 26;
+  int64 per_ue_mac_ul_unres_ue_pucch_sr_grant = 27;
+  int64 per_ue_mac_ul_unres_ue_preempt_grant = 28;
+  int64 per_ue_mac_ul_unres_ue_bsr_grant = 29;
+  int64 per_ue_mac_ul_res_ue_last_slot = 30;
+  int64 per_ue_mac_ul_res_ue_late = 31;
+  bytes main_plmn_id = 32;
+  int64 gnb_id = 33;
+  int64 gnb_du_id = 34;
+  int64 gnb_id_length = 35;
+  int64 per_ue_mac_vol_ul_unres_ue_pucch_sr_grant = 36;
+  int64 per_ue_mac_vol_ul_unres_ue_preempt_grant = 37;
+  int64 per_ue_mac_vol_ul_unres_ue_bsr_grant = 38;
+  int64 per_ue_mac_vol_ul_res_ue = 39;
+  int64 per_ue_mac_time_ul_res_ue = 40;
+  int64 per_ue_mac_vol_ul_res_ue_last_slot = 41;
+  int64 per_ue_mac_vol_ul_res_ue_late = 42;
+  int64 nci = 43;
+  bytes serving_plmn_id = 44;
+  int64 per_ue_mac_meas_gap_drx_inact = 45;
+  UePowerClass ue_power_class = 46;
+  int64 pref_ue_group_id = 47;
+  int64 ue_group_id = 48;
+  NrType nr_type = 49;
+  bytes s_nssai = 50;
+  int64 ue_mobility_group_id = 51;
+  int64 ue_service_group_id = 52;
+  int64 per_ue_dl_scell_act = 53;
+  int64 per_ue_dl_scell_deact = 54;
+}

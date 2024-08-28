@@ -1,0 +1,38 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Used for NR-DC switching of Uplink MCG and SCG Radio Resources of Secondary Node Terminated Split DRB procedure.
+ *
+ * Version: 13_14_0
+ */
+message CuUpProcSnNrdcUlPrimaryCgSwitch {
+  // PmEventId: 4011
+  enum SnNrdcUlPrimaryCgSwitchType{
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_TYPE_NO_VALUE = 0;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_TYPE_UL_SCG_TO_MCG = 1;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_TYPE_UL_MCG_TO_SCG = 2;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_TYPE_NO_LICENSE = 255;
+  }
+  enum SnNrdcUlPrimaryCgSwitchResult{
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_RESULT_NO_VALUE = 0;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_RESULT_SUCCESS = 1;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_RESULT_FAILURE = 2;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_RESULT_NO_LICENSE = 255;
+  }
+  enum SnNrdcUlPrimaryCgSwitchCause{
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_CAUSE_NO_VALUE = 0;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_CAUSE_BB_TRIGGERED = 1;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_CAUSE_PPE_TRIGGERED = 2;
+    SN_NRDC_UL_PRIMARY_CG_SWITCH_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 time_stamp_start = 4;
+  int64 time_stamp_stop = 5;
+  SnNrdcUlPrimaryCgSwitchType sn_nrdc_ul_primary_cg_switch_type = 6;
+  SnNrdcUlPrimaryCgSwitchResult sn_nrdc_ul_primary_cg_switch_result = 7;
+  SnNrdcUlPrimaryCgSwitchCause sn_nrdc_ul_primary_cg_switch_cause = 8;
+}

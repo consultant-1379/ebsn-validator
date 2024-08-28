@@ -1,0 +1,18 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic measurement of interference plus noise per PRB
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellIpnPerPrb {
+  // PmEventId: 2047
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  repeated int64 per_cell_radio_rec_interference_per_prb_distr = 6;
+}

@@ -1,0 +1,31 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: DRB is suspended at state change from RRCRelease to RRCInactive.
+ *
+ * Version: 13_149_0
+ */
+message CuCpDrbSuspend {
+  // PmEventId: 3224
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message DrbSuspend {
+    int64 drb_id = 1;
+    int64 mapped_5qi = 2;
+    int64 priority_level_arp = 3;
+    bytes s_nssai = 4;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 nci = 3;
+  int64 gnb_id_length = 4;
+  GlobalGnbId global_gnb_id = 5;
+  int64 pref_ue_group_id = 6;
+  int64 ue_group_id = 7;
+  repeated DrbSuspend drb_suspend_list = 8;
+  bytes serving_plmn_id = 9;
+}

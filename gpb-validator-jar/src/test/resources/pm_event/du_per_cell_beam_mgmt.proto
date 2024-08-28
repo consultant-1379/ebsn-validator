@@ -1,0 +1,25 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodical measurements of cell beam.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellBeamMgmt {
+  // PmEventId: 2013
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  int64 per_cell_radio_beam_switch_succ = 6;
+  int64 per_cell_radio_beam_switch_succ_mac_ce = 7;
+  repeated int64 per_cell_radio_narrow_beam_acq_time_distr = 8;
+  repeated int64 per_cell_radio_serving_beam_dl_distr = 9;
+  int64 per_cell_radio_ra_cb_succ_msg3_known_crnti = 10;
+  int64 per_cell_radio_beam_failure_recovery_current_beam = 11;
+  int64 per_cell_radio_beam_failure_recovery_new_beam = 12;
+  int64 per_cell_radio_beam_switch_target_not_available = 13;
+}

@@ -1,0 +1,25 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodical measurements of cell traffic for each logical channel group.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellTrafficRepLcg {
+  // PmEventId: 2054
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  repeated int64 per_cell_mac_bsr_lcg_0_distr = 6;
+  repeated int64 per_cell_mac_bsr_lcg_1_distr = 7;
+  repeated int64 per_cell_mac_bsr_lcg_2_distr = 8;
+  repeated int64 per_cell_mac_bsr_lcg_3_distr = 9;
+  repeated int64 per_cell_mac_bsr_lcg_4_distr = 10;
+  repeated int64 per_cell_mac_bsr_lcg_5_distr = 11;
+  repeated int64 per_cell_mac_bsr_lcg_6_distr = 12;
+  repeated int64 per_cell_mac_bsr_lcg_7_distr = 13;
+}

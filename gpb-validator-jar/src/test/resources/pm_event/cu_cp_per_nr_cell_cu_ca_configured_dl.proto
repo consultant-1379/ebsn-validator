@@ -1,0 +1,18 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Number of UE instances using this cell as PCell with configured downlink SCells in gNodeB-CU-CP.
+ *
+ * Version: 13_149_0
+ */
+message CuCpPerNrCellCuCaConfiguredDl {
+  // PmEventId: 3202
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  repeated int64 ues_per_cc_nr_sa = 5;
+  repeated int64 ues_per_cc_nr_en_dc = 6;
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>ebsn-validator</artifactId>
+        <groupId>com.ericsson.oss.mediation.modeling.ebstools</groupId>
+        <version>1.5.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>ERICebsnvalidator_CXP9042695</artifactId>
+    <packaging>${rpm.packaging}</packaging>
+    <name>[${project.parent.artifactId}] RPM module</name>
+
+
+    <properties>
+        <publish_artifact>true</publish_artifact>
+        <media.category>service</media.category>
+        <com.ericsson.oss.rpm.architecture>noarch</com.ericsson.oss.rpm.architecture>
+        <rpm.name>${project.artifactId}</rpm.name>
+        <rpm.version>${project.version}</rpm.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>ebsn-validator-module</artifactId>
+            <version>${project.version}</version>
+            <classifier>package</classifier>
+            <type>zip</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>timestamp-property</id>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>this.year</name>
+                            <pattern>yyyy</pattern>
+                            <unit>year</unit>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/ebsn-validator-module</outputDirectory>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.ericsson.oss.mediation.modeling.ebstools</groupId>
+                                    <artifactId>ebsn-validator-module</artifactId>
+                                    <classifier>package</classifier>
+                                    <type>zip</type>
+                                    <overWrite>true</overWrite>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <license>${this.year} Ericsson AB. All rights reserved</license>
+                    <summary>${stripped.artifactId}</summary>
+                    <packager>${ericsson.rstate}</packager>
+                    <group>ERI-NMS</group>
+                    <vendor>Ericsson AB</vendor>
+                    <url>www.ericsson.com</url>
+                    <!-- REQUIRED to override default mappings inherited from nms:integration POM -->
+                    <mappings combine.self="override">
+                        <mapping>
+                            <directory>${eap.ext.modules.dir}</directory>
+                            <filemode>775</filemode>
+                            <username>${jboss-username}</username>
+                            <groupname>${jboss-groupname}</groupname>
+                            <configuration>false</configuration>
+                            <directoryIncluded>false</directoryIncluded>
+                            <recurseDirectories>false</recurseDirectories>
+                            <sources>
+                                <source>
+                                    <location>${project.build.directory}/ebsn-validator-module</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                    </mappings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

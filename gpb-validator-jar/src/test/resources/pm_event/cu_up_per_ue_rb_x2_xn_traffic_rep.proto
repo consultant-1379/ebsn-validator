@@ -1,0 +1,25 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Packets forwarded on X2-U or XN-U.
+ *
+ * Version: 13_14_0
+ */
+message CuUpPerUeRbX2XnTrafficRep {
+  // PmEventId: 4005
+  enum NrType{
+    NR_TYPE_NO_VALUE = 0;
+    NR_TYPE_NSA = 1;
+    NR_TYPE_SA = 2;
+    NR_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  NrType nr_type = 4;
+  int64 qos_value = 5;
+  int64 per_drb_pdcp_packet_fwd_trans_dl = 6;
+  int64 per_drb_pdcp_packet_fwd_trans_disc_dl = 7;
+}

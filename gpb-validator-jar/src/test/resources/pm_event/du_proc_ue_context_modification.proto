@@ -1,0 +1,78 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event for UE context modification.
+ *
+ * Version: 13_82_0
+ */
+message DuProcUeContextModification {
+  // PmEventId: 2046
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum UeContextModificationResult{
+    UE_CONTEXT_MODIFICATION_RESULT_NO_VALUE = 0;
+    UE_CONTEXT_MODIFICATION_RESULT_SUCCESS = 1;
+    UE_CONTEXT_MODIFICATION_RESULT_PARTIAL_SUCCESS = 2;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_OTHER = 3;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_TIMEOUT_RCI = 4;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_TIMEOUT_MODIFICATION_REQUIRED = 5;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_MODIFICATION_REFUSE = 6;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_SW_FAULT = 7;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_UE_CAPABILITY = 8;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_ADMISSION = 9;
+    UE_CONTEXT_MODIFICATION_RESULT_FAILURE_UE_CONTEXT_RELEASE_TRIGGERED = 10;
+    UE_CONTEXT_MODIFICATION_RESULT_NO_LICENSE = 255;
+  }
+  enum UeContextModificationInitiator{
+    UE_CONTEXT_MODIFICATION_INITIATOR_NO_VALUE = 0;
+    UE_CONTEXT_MODIFICATION_INITIATOR_GNB_CU = 1;
+    UE_CONTEXT_MODIFICATION_INITIATOR_GNB_DU = 2;
+    UE_CONTEXT_MODIFICATION_INITIATOR_NO_LICENSE = 255;
+  }
+  enum UeContextModificationType{
+    UE_CONTEXT_MODIFICATION_TYPE_NO_VALUE = 0;
+    UE_CONTEXT_MODIFICATION_TYPE_OTHER = 1;
+    UE_CONTEXT_MODIFICATION_TYPE_STOP_TRANSMISSION = 2;
+    UE_CONTEXT_MODIFICATION_TYPE_RECONF_WITH_SYNC_INTER_CELL_CHANGE = 3;
+    UE_CONTEXT_MODIFICATION_TYPE_UL_PORT_SWITCH_TO_2 = 4;
+    UE_CONTEXT_MODIFICATION_TYPE_UL_PORT_SWITCH_TO_1 = 5;
+    UE_CONTEXT_MODIFICATION_TYPE_RECONF_WITH_SYNC_INTRA_CELL_CHANGE = 6;
+    UE_CONTEXT_MODIFICATION_TYPE_NO_LICENSE = 255;
+  }
+  enum CauseGroup{
+    CAUSE_GROUP_NO_VALUE = 0;
+    CAUSE_GROUP_RADIO_NETWORK_LAYER = 1;
+    CAUSE_GROUP_TRANSPORT_LAYER = 2;
+    CAUSE_GROUP_PROTOCOL = 3;
+    CAUSE_GROUP_MISC = 4;
+    CAUSE_GROUP_NO_LICENSE = 255;
+  }
+  enum BearerTypeChange{
+    BEARER_TYPE_CHANGE_NO_VALUE = 0;
+    BEARER_TYPE_CHANGE_TRUE = 1;
+    BEARER_TYPE_CHANGE_NO_LICENSE = 255;
+  }
+  message DrbModification {
+    int64 drb_id = 1;
+    BearerTypeChange bearer_type_change = 2;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_du_id = 3;
+  int64 gnb_id_length = 4;
+  int64 nci = 5;
+  GlobalGnbId global_gnb_id = 6;
+  int64 time_stamp_start = 7;
+  int64 time_stamp_stop = 8;
+  bytes serving_plmn_id = 9;
+  UeContextModificationResult ue_context_modification_result = 10;
+  UeContextModificationInitiator ue_context_modification_initiator = 11;
+  repeated UeContextModificationType ue_context_modification_type = 12;
+  CauseGroup cause_group = 13;
+  int64 cause = 14;
+  repeated DrbModification drb_modification_list = 15;
+}

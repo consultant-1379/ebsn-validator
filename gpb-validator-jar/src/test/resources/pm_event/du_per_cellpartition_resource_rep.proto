@@ -1,0 +1,23 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Cell partition resource report.
+ *
+ * Version: 13_82_0
+ */
+message DuPerCellpartitionResourceRep {
+  // PmEventId: 2059
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 gnb_du_id = 4;
+  int64 nci = 5;
+  int64 partition_id = 6;
+  int64 service_id = 7;
+  int64 per_cellpartition_mac_rbsym_used_pdsch = 8;
+  int64 per_cellpartition_mac_rbsym_used_pusch = 9;
+  int64 per_cellpartition_mac_rbsym_total_avail_dl = 10;
+  int64 per_cellpartition_mac_rbsym_total_avail_ul = 11;
+}

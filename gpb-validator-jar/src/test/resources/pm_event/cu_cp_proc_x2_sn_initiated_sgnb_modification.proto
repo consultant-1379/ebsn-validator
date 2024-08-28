@@ -1,0 +1,80 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for Secondary Node Initiated Secondary gNodeB Modification procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcX2SnInitiatedSgnbModification {
+  // PmEventId: 3053
+  enum SnInitiatedSgnbModificationType{
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_NO_VALUE = 0;
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_UL_LEG_SWITCH_TYPE_UL_NR_TO_LTE = 1;
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_UL_LEG_SWITCH_TYPE_UL_LTE_TO_NR = 2;
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_SCG_MOBILITY = 3;
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_DU_TRIGGERED_RRC_RECONFIGURATION = 4;
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_SCG_INTER_DU_MOBILITY = 5;
+    SN_INITIATED_SGNB_MODIFICATION_TYPE_NO_LICENSE = 255;
+  }
+  enum SnInitiatedSgnbModificationResult{
+    SN_INITIATED_SGNB_MODIFICATION_RESULT_NO_VALUE = 0;
+    SN_INITIATED_SGNB_MODIFICATION_RESULT_SUCCESS = 1;
+    SN_INITIATED_SGNB_MODIFICATION_RESULT_FAILURE = 2;
+    SN_INITIATED_SGNB_MODIFICATION_RESULT_ABORT = 3;
+    SN_INITIATED_SGNB_MODIFICATION_RESULT_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  enum PsCellChangeTargetFreq{
+    PS_CELL_CHANGE_TARGET_FREQ_NO_VALUE = 0;
+    PS_CELL_CHANGE_TARGET_FREQ_NR_INTRA_FREQ = 1;
+    PS_CELL_CHANGE_TARGET_FREQ_NR_INTER_FREQ = 2;
+    PS_CELL_CHANGE_TARGET_FREQ_NO_LICENSE = 255;
+  }
+  enum PsCellChangeReason{
+    PS_CELL_CHANGE_REASON_NO_VALUE = 0;
+    PS_CELL_CHANGE_REASON_POOR_COVERAGE = 1;
+    PS_CELL_CHANGE_REASON_HIGH_PRIORITY_CELL = 2;
+    PS_CELL_CHANGE_REASON_OTHER = 3;
+    PS_CELL_CHANGE_REASON_NO_LICENSE = 255;
+  }
+  enum HoTargetNodeType{
+    HO_TARGET_NODE_TYPE_NO_VALUE = 0;
+    HO_TARGET_NODE_TYPE_INTRA_GNB_INTRA_DU = 1;
+    HO_TARGET_NODE_TYPE_INTRA_GNB_INTER_DU = 2;
+    HO_TARGET_NODE_TYPE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  bytes ue_trace_id = 3;
+  int64 time_stamp_start = 4;
+  int64 time_stamp_stop = 5;
+  int64 nci = 6;
+  int64 target_cell_identity = 7;
+  SnInitiatedSgnbModificationType sn_initiated_sgnb_modification_type = 8;
+  SnInitiatedSgnbModificationResult sn_initiated_sgnb_modification_result = 9;
+  int64 gnb_id_length = 10;
+  GlobalGnbId global_gnb_id = 11;
+  GlobalEnbId global_enb_id = 12;
+  repeated int64 scells_before_modification_list = 13;
+  repeated int64 scells_after_modification_list = 14;
+  int64 no_of_scells_to_add = 15;
+  int64 no_of_scells_to_release = 16;
+  bytes serving_plmn_id = 17;
+  int64 pref_ue_group_id = 18;
+  int64 ue_group_id = 19;
+  PsCellChangeTargetFreq ps_cell_change_target_freq = 20;
+  PsCellChangeReason ps_cell_change_reason = 21;
+  int64 ue_mobility_group_id = 22;
+  int64 ue_service_group_id = 23;
+  bytes target_cell_plmn_identity = 24;
+  HoTargetNodeType ho_target_node_type = 25;
+}

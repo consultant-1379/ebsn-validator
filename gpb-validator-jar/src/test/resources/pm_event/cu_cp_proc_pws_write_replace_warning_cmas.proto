@@ -1,0 +1,35 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Number of requested CMAS broadcasts.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcPwsWriteReplaceWarningCmas {
+  // PmEventId: 3122
+  enum PwsWriteReplaceWarningResult{
+    PWS_WRITE_REPLACE_WARNING_RESULT_NO_VALUE = 0;
+    PWS_WRITE_REPLACE_WARNING_RESULT_SUCCESS = 1;
+    PWS_WRITE_REPLACE_WARNING_RESULT_MESSAGE_IDENTIFIER_NOT_SUPPORTED = 2;
+    PWS_WRITE_REPLACE_WARNING_RESULT_ABNORMAL_CONDITIONS = 3;
+    PWS_WRITE_REPLACE_WARNING_RESULT_DU_UNSUCCESSFUL = 4;
+    PWS_WRITE_REPLACE_WARNING_RESULT_OTHER = 5;
+    PWS_WRITE_REPLACE_WARNING_RESULT_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  int64 time_stamp_start = 5;
+  int64 time_stamp_stop = 6;
+  int64 pws_message_identifier = 7;
+  int64 pws_message_serial_number = 8;
+  int64 pws_message_repetition_period = 9;
+  int64 pws_message_number_of_broadcasts_requested = 10;
+  int64 pws_warning_message_content_size = 11;
+  int64 pws_warning_area_coordinates_size = 12;
+  int64 pws_message_number_of_sib_segments = 13;
+  PwsWriteReplaceWarningResult pws_write_replace_warning_result = 14;
+}

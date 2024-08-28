@@ -1,0 +1,49 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Event for failure in initial stages of Secondary Node Addition procedure. Failure can have the following causes:
+- Reject because of load control.
+- Other reasons, such as failure of selecting suitable UeHandler.
+
+ *
+ * Version: 13_149_0
+ */
+message CuCpEndcInitAccessFail {
+  // PmEventId: 3115
+  enum Cause{
+    CAUSE_NO_VALUE = 0;
+    CAUSE_OTHER = 1;
+    CAUSE_OVERLOAD_PROTECTION = 2;
+    CAUSE_NO_LICENSE = 255;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  enum SgnbAdditionTriggerIndication{
+    SGNB_ADDITION_TRIGGER_INDICATION_NO_VALUE = 0;
+    SGNB_ADDITION_TRIGGER_INDICATION_OTHER = 1;
+    SGNB_ADDITION_TRIGGER_INDICATION_ENDC_SETUP = 2;
+    SGNB_ADDITION_TRIGGER_INDICATION_SN_CHANGE = 3;
+    SGNB_ADDITION_TRIGGER_INDICATION_ENB_HO = 4;
+    SGNB_ADDITION_TRIGGER_INDICATION_NO_LICENSE = 255;
+  }
+  enum FailureCause{
+    FAILURE_CAUSE_NO_VALUE = 0;
+    FAILURE_CAUSE_OTHER = 1;
+    FAILURE_CAUSE_LOADCONTROL_SIGNALINTENSITY = 2;
+    FAILURE_CAUSE_LOADCONTROL_MPLOAD = 3;
+    FAILURE_CAUSE_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  Cause cause = 5;
+  GlobalGnbId global_gnb_id = 6;
+  bytes serving_plmn_id = 7;
+  SgnbAdditionTriggerIndication sgnb_addition_trigger_indication = 8;
+  FailureCause failure_cause = 9;
+}

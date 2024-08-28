@@ -1,0 +1,90 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Generated for EN-DC Setup procedure. Contains information about request and result.
+ *
+ * Version: 13_149_0
+ */
+message CuCpProcEndcSetup {
+  // PmEventId: 3074
+  enum EndcSetupResult{
+    ENDC_SETUP_RESULT_NO_VALUE = 0;
+    ENDC_SETUP_RESULT_SUCCESS = 1;
+    ENDC_SETUP_RESULT_NO_RADIO_RESOURCES = 2;
+    ENDC_SETUP_RESULT_TDC_OVERALL_EXPIRY = 3;
+    ENDC_SETUP_RESULT_ENCRYPTION_INTEGRITY_PROTECTION_ALGORITHM_NOT_SUPPORTED = 4;
+    ENDC_SETUP_RESULT_QCI_VALUE_NOT_SUPPORTED = 5;
+    ENDC_SETUP_RESULT_TDC_PREP_EXPIRY = 6;
+    ENDC_SETUP_RESULT_MULTIPLE_ERAB_ID_INSTANCES = 7;
+    ENDC_SETUP_RESULT_TARGET_NOT_ALLOWED = 8;
+    ENDC_SETUP_RESULT_INVALID_QOS_COMBINATION = 9;
+    ENDC_SETUP_RESULT_RADIO_CONNECTION_WITH_UE_LOST = 10;
+    ENDC_SETUP_RESULT_FAILURE_RADIO_INTERFACE_PROCEDURE = 11;
+    ENDC_SETUP_RESULT_UNKNOWN_UE_X2AP_ID = 12;
+    ENDC_SETUP_RESULT_OTHER = 13;
+    ENDC_SETUP_RESULT_ABORT = 14;
+    ENDC_SETUP_RESULT_NO_LICENSE = 255;
+  }
+  enum SgnbAdditionTriggerIndication{
+    SGNB_ADDITION_TRIGGER_INDICATION_NO_VALUE = 0;
+    SGNB_ADDITION_TRIGGER_INDICATION_ENDC_SETUP = 1;
+    SGNB_ADDITION_TRIGGER_INDICATION_SN_CHANGE = 2;
+    SGNB_ADDITION_TRIGGER_INDICATION_ENB_HO = 3;
+    SGNB_ADDITION_TRIGGER_INDICATION_OTHER_VALUE = 4;
+    SGNB_ADDITION_TRIGGER_INDICATION_NO_LICENSE = 255;
+  }
+  message ErabToBeAdded {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+  }
+  enum Cause{
+    CAUSE_NO_VALUE = 0;
+    CAUSE_RADIO_NETWORK_UNSPECIFIED = 1;
+    CAUSE_RADIO_NETWORK_NO_RADIO_RESOURCE_AVAILABLE = 2;
+    CAUSE_NO_LICENSE = 255;
+  }
+  message ErabNotAdmitted {
+    int64 erab_id = 1;
+    int64 qos_value = 2;
+    Cause cause = 3;
+  }
+  message GlobalGnbId {
+    bytes plmn_identity = 1;
+    int64 gnb_id = 2;
+  }
+  message GlobalEnbId {
+    bytes plmn_identity = 1;
+    int64 enb_id = 2;
+  }
+  enum PmBooleanType{
+    PM_BOOLEAN_NO_VALUE = 0;
+    PM_BOOLEAN_FALSE = 1;
+    PM_BOOLEAN_TRUE = 2;
+    PM_BOOLEAN_NO_LICENSE = 255;
+  }
+  bytes main_plmn_id = 1;
+  int64 gnb_id = 2;
+  int64 gnb_id_length = 3;
+  int64 nci = 4;
+  EndcSetupResult endc_setup_result = 5;
+  SgnbAdditionTriggerIndication sgnb_addition_trigger_indication = 6;
+  repeated ErabToBeAdded erab_to_be_added_list = 7;
+  repeated ErabNotAdmitted erab_not_admitted_list = 8;
+  int64 time_stamp_start = 9;
+  int64 time_stamp_stop = 10;
+  GlobalGnbId global_gnb_id = 11;
+  GlobalEnbId global_enb_id = 12;
+  repeated int64 scells_after_setup_list = 13;
+  int64 no_of_scells_to_add = 14;
+  bytes serving_plmn_id = 15;
+  int64 pref_ue_group_id = 16;
+  int64 ue_group_id = 17;
+  int64 menb_ue_x2ap_id = 18;
+  int64 sgnb_ue_x2ap_id = 19;
+  int64 menb_ue_x2ap_id_extension = 20;
+  PmBooleanType is_menb_ue_x2ap_id_extension_set = 21;
+  int64 ue_mobility_group_id = 22;
+  int64 ue_service_group_id = 23;
+}

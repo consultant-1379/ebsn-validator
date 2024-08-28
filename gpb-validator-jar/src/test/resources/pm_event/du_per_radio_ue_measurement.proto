@@ -1,0 +1,29 @@
+syntax="proto3";
+package pm_event;
+option java_package = "com.ericsson.pm_event";
+
+/**
+ * Description: Periodic measurements of UE radio environment.
+ *
+ * Version: 13_82_0
+ */
+message DuPerRadioUeMeasurement {
+  // PmEventId: 2004
+  int64 ue_ref = 1;
+  repeated int64 per_ue_radio_sinr_pusch_distr = 2;
+  repeated int64 per_ue_rep_rank_distr = 3;
+  bytes main_plmn_id = 4;
+  int64 gnb_id = 5;
+  int64 gnb_id_length = 6;
+  int64 gnb_du_id = 7;
+  int64 nci = 8;
+  bytes serving_plmn_id = 9;
+  int64 per_ue_power_headroom = 10;
+  int64 per_ue_max_per_carrier_tx_power = 11;
+  int64 per_ue_power_headroom_prb_used = 12;
+  int64 per_ue_radio_pmi_distr_main_direction_indicator = 13;
+  int64 per_ue_radio_pmi_distr_first_diversity_direction_indicator = 14;
+  int64 per_ue_radio_pmi_distr_second_diversity_direction_indicator = 15;
+  int64 per_ue_radio_pmi_distr_indicator = 16;
+  int64 per_ue_nr_timing_advance = 17;
+}
